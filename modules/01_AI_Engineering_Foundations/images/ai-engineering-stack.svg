@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Three layers of an AI application stack</title>
+  <desc id="desc">Application development sits above model development and infrastructure. Evaluation crosses the application and model layers, while observability and governance cross all layers.</desc>
+  <defs><style>.title{font:700 28px system-ui,sans-serif;fill:#0f172a}.layerTitle{font:700 23px system-ui,sans-serif;fill:#0f172a}.item{font:17px system-ui,sans-serif;fill:#1e293b}.cross{font:700 17px system-ui,sans-serif;fill:#ffffff}.boundary{fill:none;stroke:#475569;stroke-width:2;stroke-dasharray:8 7}</style></defs>
+  <rect width="1200" height="720" fill="#ffffff"/>
+  <text x="600" y="48" text-anchor="middle" class="title">AI application stack: responsibilities, not products</text>
+  <rect x="165" y="90" width="830" height="170" rx="18" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+  <text x="205" y="132" class="layerTitle">1. Application development</text>
+  <text x="220" y="175" class="item">• user interaction and product integration</text>
+  <text x="220" y="208" class="item">• instructions, context, tools, and output handling</text>
+  <text x="640" y="175" class="item">• system and component evaluation</text>
+  <text x="640" y="208" class="item">• feedback and human escalation</text>
+  <rect x="165" y="285" width="830" height="170" rx="18" fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>
+  <text x="205" y="327" class="layerTitle">2. Model development</text>
+  <text x="220" y="370" class="item">• model selection or model creation</text>
+  <text x="220" y="403" class="item">• adaptation and dataset engineering</text>
+  <text x="640" y="370" class="item">• inference optimization</text>
+  <text x="640" y="403" class="item">• model-level evaluation</text>
+  <rect x="165" y="480" width="830" height="150" rx="18" fill="#dcfce7" stroke="#059669" stroke-width="3"/>
+  <text x="205" y="522" class="layerTitle">3. Infrastructure</text>
+  <text x="220" y="565" class="item">• model serving, data, and compute</text>
+  <text x="640" y="565" class="item">• monitoring, reliability, and operations</text>
+  <rect x="1035" y="90" width="105" height="540" rx="18" fill="#334155"/>
+  <text x="1088" y="235" text-anchor="middle" transform="rotate(90 1088 235)" class="cross">OBSERVABILITY</text>
+  <text x="1088" y="445" text-anchor="middle" transform="rotate(90 1088 445)" class="cross">GOVERNANCE</text>
+  <rect x="130" y="72" width="1030" height="580" rx="24" class="boundary"/>
+  <text x="600" y="690" text-anchor="middle" class="item">Teams usually begin at the application layer and move downward only when the use case requires it.</text>
+</svg>

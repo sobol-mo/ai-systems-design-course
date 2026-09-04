@@ -1,0 +1,49 @@
+# Laboratory 01 workstation as code.
+#
+# WinGet Configuration provisions the declarative Lab 01 package set.
+# Antigravity CLI and its user-owned authentication are managed separately.
+# Machine-scope packages require administrator rights; run from an elevated
+# PowerShell:
+#
+#     winget configure --file .\lab01-workstation.dsc.yaml
+#
+# The evaluation was performed on Windows 11 Enterprise Evaluation 25H2.
+$schema: https://aka.ms/configuration-dsc-schema/0.2
+properties:
+  configurationVersion: 0.2.0
+  assertions:
+    - resource: Microsoft.Windows.Developer/OsVersion
+      directives:
+        description: Require Windows 11 or newer.
+        allowPrerelease: true
+      settings:
+        MinVersion: "10.0.22000"
+  resources:
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: git
+      directives:
+        description: Git for Windows.
+      settings:
+        id: Git.Git
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: uv
+      directives:
+        description: uv, the Python project and environment manager.
+      settings:
+        id: astral-sh.uv
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: github-cli
+      directives:
+        description: GitHub CLI for fork and pull-request delivery.
+      settings:
+        id: GitHub.cli
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: obsidian
+      directives:
+        description: Obsidian, the Markdown vault editor.
+      settings:
+        id: Obsidian.Obsidian
+        source: winget

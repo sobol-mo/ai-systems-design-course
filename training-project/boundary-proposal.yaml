@@ -1,0 +1,21 @@
+# AI-generated candidate for Laboratory 01.
+# Replace the instructional values, but preserve every field and keep status proposed.
+schema_version: "1.0"
+proposal_id: replace-with-lab01-boundary-slug
+status: proposed
+personal_domain: Replace with one non-sensitive academic or professional area.
+intended_learning_outcome: Replace with one observable learning capability supported by preserved evidence.
+non_goals:
+  - Replace with one capability deliberately excluded from the system.
+  - Replace with a second boundary that limits scope, authority, or risk.
+governance:
+  ai_role: Propose a bounded system description and expose uncertainty without accepting changes.
+  deterministic_role: Validate the candidate, bind the decision to its digest, and apply only approved content.
+  human_role: Review meaning and explicitly approve or reject the proposal before application.
+usefulness_condition: Replace with one observable condition under which the complete workflow is useful.
+material_risk: Replace with one plausible material failure of the complete workflow.
+non_ai_baseline: Replace with a simpler deterministic or manual approach to the same outcome.
+uncertainty: Replace with one important assumption that has not yet been established.
+required_evidence:
+  - Replace with one deterministic result needed to justify acceptance.
+  - Replace with one human-review or source-grounding result needed to justify acceptance.
