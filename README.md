@@ -1,2 +1,9 @@
-# ai-systems-design-course
-Public student repository for the KhPI course «Проєктування систем штучного інтелекту» (AI Systems Design).
+# AI Systems Design
+
+Публічний репозиторій дисципліни **«Проєктування систем штучного інтелекту»** (НТУ «ХПІ»).
+
+English title: **AI Engineering: Design of Artificial Intelligence Systems**.
+
+Студент працює у власному fork. Не редагуйте гілку `main` цього репозиторію вручну: вміст публікується з авторського джерела викладача.
+
+Матеріали модулів з’являться після затвердження відповідної теорії та лабораторної роботи.
