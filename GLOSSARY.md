@@ -19,5 +19,10 @@
 | Reliability | Надійність |
 | Scalability | Масштабованість |
 | System boundary | Межа системи |
+| Taxonomy | Таксономія |
+| Faceted classification | Фасетна класифікація |
+| Ontology | Онтологія |
+| Typed relation | Типізоване відношення |
 | Token | Токен |
 | Usefulness threshold | Поріг корисності |
+| Zettelkasten | Метод Zettelkasten (картотека нотаток) |

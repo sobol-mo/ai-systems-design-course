@@ -6,6 +6,13 @@ This directory holds the neutral cumulative AI system built across the eight lab
 without access to the instructor's private repositories or personal data: every artefact you produce
 here is your own.
 
+Every student builds the same learning knowledge system. Read the supplied
+[`requirements/SYSTEM_BRIEF.md`](requirements/SYSTEM_BRIEF.md) and
+[`requirements/REQUIREMENTS_BASELINE.md`](requirements/REQUIREMENTS_BASELINE.md) and
+[`requirements/VAULT_STRUCTURE.md`](requirements/VAULT_STRUCTURE.md) before treating a laboratory task
+as a change to the system. These draft files define the fixed project and its testable obligations
+for instructor review; they are project input, not requirements for the student to elicit or replace.
+
 The clone that contains this directory is one Git repository. `origin` is the student's GitHub fork.
 `upstream` is https://github.com/sobol-mo/ai-systems-design-course. Folders are not remotes.
 Upstream-owned paths may be overwritten by a later instructor publication. Student work is committed
@@ -15,6 +22,7 @@ only under `student/` and `reports/` and is pushed only to `origin`.
 training-project/
   README.md, pyproject.toml, uv.lock, .gitignore   upstream
   boundary-proposal.yaml                           upstream starter — copy into reports/lab01/
+  requirements/                                    upstream system brief, requirements baseline, vault contract
   fixtures/                                        upstream
   platform/                                        upstream
   tests/public/                                    upstream
@@ -23,6 +31,18 @@ training-project/
   .venv/                                           derived — never commit
 ```
 
+## What is being built
+
+The complete project helps a student preserve sources and provenance, develop accepted technical
+concepts, identify missing prerequisites and unresolved questions, inspect typed relations, and answer
+questions from retained evidence. AI may propose interpretations and changes. Deterministic project
+rules validate available structures and workflow invariants. The student retains authority over
+meaning and every accepted change. Canonical knowledge remains in an external Markdown vault;
+embeddings, indexes, and graph views are rebuildable derived state.
+
+Laboratory 01 initializes this working contour and verifies its authority boundary. It does not yet
+materialize structured concepts or implement the complete knowledge-processing system.
+
 ## What exists now
 
 Laboratory 01 contributes the governed-proposal workflow. It encodes one rule of the course: an AI
@@ -30,6 +50,8 @@ model may propose, but only a recorded human decision may accept. The workflow r
 proposal that no human explicitly approved, and it refuses to overwrite a decision that was already
 recorded. The decision contains a SHA-256 digest of the reviewed proposal, so changing proposal
 content after the decision invalidates approval. Reapplying unchanged approved content is idempotent.
+The `recorded_by` field is student-supplied attribution, not authenticated actor identity. Laboratory
+01 therefore also requires evidence that the AI proposer did not invoke `decide` or `apply`.
 
 The `doctor` command writes a normalized machine-readable report for a supported Windows or Linux host
 and the Git, GitHub CLI, `uv`, and Obsidian capabilities. Authenticated Antigravity CLI is recorded when
@@ -72,5 +94,7 @@ the code: they state what the protocol must guarantee, not how it is implemented
 
 ## Later laboratories
 
-The sample domain, data set, and supported local and API model options are introduced by the
-laboratories that need them. Nothing outside `tests/public/` is a fixed interface yet.
+The system brief and requirements baseline define supplied project obligations and remain Work in
+Progress until instructor approval. The current executable workflow contract is specified by
+`tests/public/`. Sample data and model options, together with interfaces not yet defined by the
+requirements or current tests, are introduced by the laboratories that need them.
