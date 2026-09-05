@@ -13,6 +13,7 @@
 | Human-in-the-loop | Людина в контурі ухвалення рішень |
 | Iterative AI-system lifecycle | Ітеративний життєвий цикл системи ШІ |
 | Machine-learning engineering | Інженерія машинного навчання |
+| Markdown vault | Сховище Markdown-файлів |
 | Maintainability | Супроводжуваність |
 | Production AI system | Система ШІ в промисловій експлуатації |
 | Reliability | Надійність |

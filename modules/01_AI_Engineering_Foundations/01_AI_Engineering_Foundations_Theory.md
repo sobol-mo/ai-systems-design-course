@@ -99,6 +99,18 @@ AI systems still need conventional software-engineering practices. The following
 
 An AI component does not excuse weak software design. It adds a behavior source that is harder to specify and test exhaustively.
 
+#### 2.1.1 Match each artifact to its recovery mechanism
+
+An engineered system should not rely on one preservation mechanism for every artifact. A practical classification begins with the action required after loss. The following three recovery responsibilities are not additional layers of the AI engineering stack; they describe how different system artifacts remain recoverable:
+
+- **Reproducible infrastructure:** installation, services, permissions, and host capabilities should be described through Infrastructure as Code so that the environment can be recreated by applying a controlled definition.
+- **Version-controlled definitions:** application code, configuration, schemas, prompts, policies, and project instructions should be retained in Git so that changes can be reviewed and a known version can be restored.
+- **Mutable canonical state:** user-created records and other irreplaceable state require backup because neither reapplying Infrastructure as Code nor cloning the project repository recreates their latest content.
+
+The categories can overlap physically. Infrastructure-as-Code source is itself version-controlled, but the environment is recovered by applying it. A Markdown vault is a directory of ordinary Markdown files, but its user-created contents are mutable canonical state and therefore need an off-device recovery copy. Derived artifacts such as virtual environments, caches, embeddings, and vector or compiled graph indexes should instead be rebuildable from controlled definitions and canonical state.
+
+Synchronization to an off-device service reduces the risk of losing a vault with one workstation, but it is only an initial protection measure because an unwanted change or deletion can also be synchronized. A complete disaster-recovery design additionally defines retention, monitoring, and a tested restoration procedure. Those production concerns are developed in Module 08.
+
 ### 2.2 Continuity with machine-learning engineering
 
 Production machine-learning systems taught engineers to reason about more than model accuracy. Research experiments can optimize a benchmark score under controlled conditions, while production systems must satisfy multiple stakeholders and constraints. Their data changes, inference latency matters, fairness and interpretability may matter, and the system must be monitored and maintained [2, Chapter 1, “Machine Learning in Research Versus in Production”].
@@ -410,7 +422,7 @@ The map below identifies the literature basis for each substantive part of the m
 | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Engineering problem                                      | Author synthesis based on the demo-to-product and maintenance discussions in [1], Chapter 1                                                                               |
 | Why foundation models changed application development    | [1], Chapter 1: “Language models,” “From Large Language Models to Foundation Models,” and “From Foundation Models to AI Engineering”                                |
-| AI engineering, ML engineering, and software engineering | [1], Chapter 1: “AI Engineering Versus ML Engineering” and “AI Engineering Versus Full-Stack Engineering”; [2], Chapter 1: “Understanding Machine Learning Systems” |
+| AI engineering, ML engineering, and software engineering | [1], Chapter 1: “AI Engineering Versus ML Engineering” and “AI Engineering Versus Full-Stack Engineering”; [2], Chapter 1: “Understanding Machine Learning Systems”; original course synthesis for artifact recovery responsibilities |
 | Screen the use case                                      | [1], Chapter 1: “Planning AI Applications” and “The role of AI and humans in the application”; [2], Chapter 1: “When to Use Machine Learning”                       |
 | Define expectations and production requirements          | [1], Chapter 1: “Setting Expectations,” “Milestone Planning,” and “Maintenance”; [2], Chapter 2: “Business and ML Objectives” and “Requirements for ML Systems” |
 | AI engineering stack                                     | [1], Chapter 1: “The AI Engineering Stack”                                                                                                                              |

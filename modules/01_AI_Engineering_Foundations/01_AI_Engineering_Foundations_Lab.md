@@ -4,12 +4,13 @@
 
 ## Goal
 
-Create a reproducible local workspace for the cumulative training project and use an AI agent to propose the first system-boundary contract without granting the agent authority to accept its own proposal.
+Create a reproducible local workspace and an external Markdown vault for the cumulative training project, then use an AI agent to propose the first system-boundary contract without granting the agent authority to accept its own proposal.
 
-The completed laboratory produces three observable results:
+The completed laboratory produces four observable results:
 
 - a student GitHub fork of the public course repository, with `origin` pointing at that fork, `upstream` pointing at the instructor repository, and laboratory work confined to student-owned paths;
 - a supported workstation on which the project tests and required command-line tools run reproducibly;
+- a student-owned external Markdown vault whose boundary and initial protection against workstation loss can be explained;
 - an accepted `learning-system-boundary.yaml` contract whose origin, human approval, and application can be verified.
 
 ## Expected competencies
@@ -20,6 +21,7 @@ After completing the laboratory, the student can:
 - obtain course files from a personal fork rather than from instructor attachments;
 - distinguish `origin` from `upstream` and distinguish upstream-owned paths from student-owned artifacts;
 - reproduce the required toolchain and verify it with a second apply or a second capability check;
+- distinguish reproducible infrastructure, version-controlled definitions, mutable canonical state, and rebuildable derived artifacts;
 - define a bounded AI use case through an intended outcome, non-goals, a usefulness condition, a material risk, and a simpler non-AI baseline;
 - keep AI-generated content as a proposal until deterministic validation and explicit human approval have occurred;
 - preserve evidence without publishing credentials, private vault content, or unrelated workstation data.
@@ -80,7 +82,7 @@ ai-systems-design-course/                  clone root
     .venv/                                 derived — created by uv, ignored by Git
 ```
 
-The Obsidian vault is student-owned and lives **outside** this tree. It is not part of the Git repository and is not pushed to `origin`.
+The external Markdown vault is student-owned and lives **outside** this tree. Obsidian is the supplied interface for opening it, but the canonical state remains ordinary Markdown files. The vault is not part of the Git repository and is not pushed to `origin`.
 
 The governed workflow uses three artifacts with different authorities:
 
@@ -262,7 +264,7 @@ Do not use `--dangerously-skip-permissions`. During the later interactive agent 
 
 **Expected result:** the chosen proposer can edit `reports/lab01/boundary-proposal.yaml` and cannot accept the contract. On the default path, `agy --help` displays CLI usage and `agy models` returns the models available to the authenticated account without requesting a separately billed API key. On another subscription, `REPORT.md` names that harness and `learning-project doctor` may record Antigravity CLI as unavailable.
 
-### Step 5: Establish student-owned state
+### Step 5: Create the external Markdown vault and project state
 
 Change to the `training-project` directory of the clone. Create the student-owned design and report directories, then copy the upstream starter proposal into the student report path. Do not edit `training-project/boundary-proposal.yaml` in place.
 
@@ -273,13 +275,17 @@ New-Item -ItemType Directory -Force .\reports\lab01\screenshots | Out-Null
 Copy-Item .\boundary-proposal.yaml .\reports\lab01\boundary-proposal.yaml
 ```
 
-Create a new external Obsidian vault through the Obsidian interface. Name it `ai-systems-learning-vault` or another non-sensitive name and store it **outside** the Git clone. Add one file named `README.md` stating that the vault is student-controlled canonical learning state and is not part of the Git repository.
+Create a new external Markdown vault through the Obsidian interface. Name it `ai-systems-learning-vault` or another non-sensitive name and store it **outside** the Git clone. Add one file named `README.md` stating that the vault is student-controlled canonical learning state and is not part of the Git repository. The vault must remain usable as ordinary files without Obsidian.
+
+Protect this mutable canonical state against loss of the workstation. On Windows, the simplest recommended baseline is to create the vault inside a directory synchronized by the student's Microsoft OneDrive account. A Linux student may use an existing equivalent off-device synchronization or backup location. Do not install or design a new backup stack for this laboratory. If no off-device protection is available, create the external vault and record that limitation honestly in `REPORT.md`.
+
+Off-device synchronization is an initial protection measure, not a complete disaster-recovery design: an unwanted change or deletion may also be synchronized. Backup retention, monitoring, and restoration testing belong to the production-system work in Module 08.
 
 For this laboratory, the vault proves the external system boundary only. Personal notes, credentials, and a full personal vault are neither required nor submitted. Record its location in `REPORT.md` only as `external to repository`; do not publish the absolute path or account name.
 
 Laboratory 01 does not ingest a concept corpus or build retrieval, graph, or vector state. Those capabilities are introduced only after their theory and contracts exist in later modules.
 
-**Expected result:** `student/design/` and `reports/lab01/screenshots/` exist in the clone, `reports/lab01/boundary-proposal.yaml` exists as a copy, and the Obsidian vault exists outside the clone and does not appear in `git status`.
+**Expected result:** `student/design/` and `reports/lab01/screenshots/` exist in the clone, `reports/lab01/boundary-proposal.yaml` exists as a copy, and the external Markdown vault contains its neutral `README.md`, exists outside the clone, and does not appear in `git status`.
 
 ### Step 6: Reproduce and test the project environment
 
@@ -382,6 +388,7 @@ Create `reports/lab01/REPORT.md`. Explain, in the student's own words:
 - one design trade-off involving usefulness, risk, cost, latency, privacy, or maintainability;
 - whether the second workstation apply converged and any problem encountered;
 - which proposer was used, if it was not Antigravity CLI;
+- how the reproducible environment, Git-backed project artifacts, and mutable Markdown vault would each be recovered, and whether the vault currently has an off-device copy;
 - why a passing schema validator does not prove that the proposal is a good system design.
 
 Use the machine-readable `reports/lab01/environment-report.json` created by `learning-project doctor`. Do not replace it with a hand-written package list or edit a red report into a green one. Record the separate second-apply, public-test, premature-apply, and accepted-contract evidence in `REPORT.md` and screenshots.
@@ -400,7 +407,7 @@ Capture screenshots that show only:
 - the four installed workstation packages or successful capability checks; convergence is evidenced by the sanitized `provision.log`, not by a screenshot;
 - the passing public tests;
 - the proposer session with account identifiers and private content excluded, showing that the agent edited only `reports/lab01/boundary-proposal.yaml` and did not run `decide` or `apply`;
-- the Obsidian vault with only its neutral `README.md`;
+- the external Markdown vault opened in Obsidian with only its neutral `README.md`, without revealing its absolute path or account name;
 - the refused premature apply and the later accepted contract.
 
 Review the repository state from `training-project`, then commit only student-owned laboratory artifacts. Do not stage `modules/`, `platform/`, `fixtures/`, `tests/public/`, `boundary-proposal.yaml` at the project root, `.venv/`, or `provision.log` at the project root.
@@ -461,7 +468,7 @@ The laboratory is complete only when all of the following conditions are observa
 - the second workstation configuration apply converges without unintended reinstallations, or the Linux second capability check reports unchanged versions;
 - `origin` is the student's fork, `upstream` is `sobol-mo/ai-systems-design-course`, and the personal branch is not `main`;
 - committed paths are under `student/` and `reports/` only;
-- the external vault is outside Git;
+- the external Markdown vault contains its neutral `README.md`, remains outside Git, and its current off-device protection or known limitation is stated in `REPORT.md`;
 - the committed and submitted evidence contains no credentials or private content.
 
 ## Submission artifacts
@@ -489,7 +496,7 @@ The submitted commit is the reviewable implementation state. Microsoft Teams is 
 6. How does the non-AI baseline help decide whether the AI component is justified?
 7. Which workstation evidence demonstrates convergence rather than only successful installation?
 8. Which project artifacts are canonical, which are audit evidence, and which are rebuildable derived state?
-9. Why is the external vault kept outside the Git repository?
+9. Why is the external Markdown vault kept outside the Git repository, and which recovery mechanism protects it from workstation loss?
 10. Which design trade-off was made in the accepted boundary, and what evidence could cause that decision to be revised?
 11. What is the difference between `origin` and `upstream` in this laboratory, and which directories may the student commit?
 12. Why may a student use a different agent subscription than Antigravity CLI, and which proposal file and gates must remain the same?
