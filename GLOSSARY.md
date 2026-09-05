@@ -9,6 +9,8 @@
 | AI engineering stack | Стек інженерії штучного інтелекту |
 | AI use-case screening | Оцінювання доцільності застосування ШІ |
 | Autoregressive language model | Авторегресійна мовна модель |
+| Candidate proposal | Кандидатна пропозиція |
+| Content digest | Дайджест вмісту |
 | Foundation model | Фундаментальна модель |
 | Human-in-the-loop | Людина в контурі ухвалення рішень |
 | Iterative AI-system lifecycle | Ітеративний життєвий цикл системи ШІ |
@@ -18,6 +20,8 @@
 | Production AI system | Система ШІ в промисловій експлуатації |
 | Reliability | Надійність |
 | Scalability | Масштабованість |
+| Semantic review | Семантичний розгляд |
+| Structural validation | Структурна перевірка |
 | System boundary | Межа системи |
 | Taxonomy | Таксономія |
 | Faceted classification | Фасетна класифікація |

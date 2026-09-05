@@ -1,6 +1,6 @@
 # Module 01: AI Engineering Foundations — Theory
 
-> **Status:** Work in Progress — instructor-approved for laboratory derivation; final freeze follows laboratory review
+> **Status:** Work in Progress — English theory revised for the governed-change passage; Laboratory 01 remains unchanged until this revision is re-reviewed
 
 > **Source-page note:** Page numbers in `Further reading` blocks refer to the current working PDF editions. They are edition-specific and must be rechecked if the course changes to another print, EPUB, PDF, or online edition.
 
@@ -37,7 +37,8 @@ After this session, students can:
 - perform a short AI-specific screening of a proposed use case;
 - identify responsibilities in the application-development, model-development, and infrastructure layers;
 - define a usefulness threshold using outcome, quality, latency, cost, and risk considerations;
-- explain why AI-system development is iterative and continues after deployment.
+- explain why AI-system development is iterative and continues after deployment;
+- distinguish a structurally valid AI proposal from a digest-bound student decision and from later application to accepted state.
 
 ## 1. Why foundation models changed application development
 
@@ -294,9 +295,49 @@ The observe and revise stages make maintenance part of the lifecycle rather than
 
 > **Further reading:** [2], Chapter 2, “Iterative Process,” working-copy PDF pp. 52–55. See Figure 2-2, which presents ML-system development as a cycle with repeated movement between stages. See also [1], Chapter 1, “Maintenance,” working-copy PDF pp. 88–90, and Figure 1-11 for an example of model capability and inference cost changing over time.
 
+### 6.1 Separate proposal, validation, decision, and application
+
+The lifecycle in Section 6 describes how a team revises a system after evidence arrives. A narrower loop is required whenever an AI component proposes a change that would become accepted state. Generating a fluent candidate is not the same operation as changing canonical knowledge. **Human-in-the-loop**, as defined in Section 3.3, is therefore implemented as an explicit change-control sequence rather than as a confirmation button after an already-written result.
+
+The cumulative project in this course is a workstation-local learning knowledge system. Local means that the student owns the knowledge state on the student's computer; it does not require a locally hosted model. The system's identity, obligations, and Laboratory 01 limits are supplied in the project brief and requirements baseline. They are not elicited or invented in this module, and they do not constitute a reference architecture.
+
+Inside that project, an AI assistant may interpret evidence and write a candidate. The student then runs deterministic project commands: `validate` checks structure, `decide` records the student's approval or rejection, and `apply` writes accepted artifacts. Semantic authority remains with the student who owns the knowledge state. The AI assistant does not run `decide` or `apply`. The supplied system loop is longer—encounter, capture, propose, validate, review, decide, apply, verify, use, and revise. This subsection isolates the authority-bearing segment from proposal through application.
+
+![Governed change from a candidate proposal to accepted state](images/governed-proposal-workflow.svg)
+
+**Figure 5.** Each operation has a defined operator and writer. The student runs `validate`, `decide`, and `apply`. `validate` proves only that a candidate follows a machine-checkable contract. `decide` binds a human approval or rejection to the exact proposal bytes. `apply` is the only writer of accepted state, and only when that bound decision still matches.
+
+The five operations below are successive controls, not interchangeable names for one step. Operator and writer are different facts. The operator is who runs the step. The writer is which process is allowed to create or change the file. Laboratory 01 states the working directory: the student runs `validate`, `decide`, and `apply` from the `training-project` directory of the local clone. Those names are project commands in the workstation terminal, invoked as `uv run learning-project …`. They are not slash commands of Antigravity CLI or of another AI harness. The laboratory instructions give the terminal commands.
+
+A **candidate proposal** is an externalized change that has no authority to mutate accepted state. The AI assistant writes that candidate. In Laboratory 01 the file is `reports/lab01/boundary-proposal.yaml`, and its status remains `proposed`. The assistant must not record approval, invoke `decide` or `apply`, or write the accepted contract. The student may correct the candidate before review.
+
+**Structural validation** is a deterministic check that the candidate follows the machine-checkable contract: required fields, allowed status, and other schema invariants. In Laboratory 01 the student runs the course command `validate`. Validation does not create a decision, does not write accepted state, and does not prove that the interpretation is correct, useful, or sufficiently supported. A structurally valid proposal can still be rejected.
+
+**Semantic review** is the student's inspection of meaning against the supplied brief and the evidence named in the candidate. This review answers questions that a schema cannot: whether the outcome is still the learning knowledge system, whether non-goals and authority allocation are honest, and whether a later personal area is only a bounded extension. Laboratory 01 records that review in the report. A green validator is not the review.
+
+**Decision** is the student's explicit approval or rejection of a named proposal. In Laboratory 01 the student runs the course command `decide`. The decision artifact is `reports/lab01/boundary-decision.json`, and that command writes it. The student must not hand-write the decision file, and the AI assistant must not invoke `decide`. The record binds the decision to the proposal identifier and to a SHA-256 **content digest** of the exact bytes reviewed. A content digest is a fixed-length fingerprint of file content; any later edit produces a different digest. The field `recorded_by` attributes the operator of the command. It is not authenticated proof of identity.
+
+**Application** writes accepted state only from a matching approved decision. In Laboratory 01 the student runs the course command `apply` after recording approval. The accepted artifact is `student/design/learning-system-boundary.yaml`. Only that command writes it. The student must not create the file by hand, and the AI assistant must not write it or invoke `apply`. Application refuses and leaves accepted output unchanged when the decision is missing, incomplete, not `approved`, bound to a different proposal, or bound to a digest that no longer matches the proposal file. If the candidate changes after the decision, the previous approval does not authorize application.
+
+The three Laboratory 01 files therefore have different operators and writers. The table lists those files as one instance of the authority split, not as an architecture of the later knowledge system:
+
+| Artifact | Who runs the step | Who writes the file | Meaning |
+| --- | --- | --- | --- |
+| `reports/lab01/boundary-proposal.yaml` | AI assistant; the student may correct it | AI assistant; the student may correct it | Candidate content with no authority to accept |
+| `reports/lab01/boundary-decision.json` | The student runs `decide` | `decide` | Bound record of approval or rejection |
+| `student/design/learning-system-boundary.yaml` | The student runs `apply` | `apply` | Accepted contract generated only from a matching approved decision |
+
+The corresponding state transitions are: `proposed`; then structurally valid or invalid; then a pending decision that becomes `approved` or `rejected`; then `accepted` only from a matching approved decision. An invalid, rejected, or mismatched candidate does not produce accepted state.
+
+Laboratory 01 uses this loop on Git-backed project audit files to verify the authority boundary. Those files are not vault knowledge records. Vault `proposals/`, `decisions/`, and `operations/` records begin when canonical vault knowledge starts to change. Laboratory 01 registers the Module 01 theory as a source; it does not create structured concept records.
+
+The protocol is a course engineering control. It instantiates the human-authority requirement from Section 3.3 and the unbounded-automation failure mode in Section 7.6.1. It does not specify model serving, retrieval, storage internals, or the later reference architecture.
+
+> **Further reading:** [1], Chapter 1, “The role of AI and humans in the application,” working-copy PDF pp. 80–84. The course implementation of the authority loop is specified in the supplied [functional brief](../../training-project/requirements/SYSTEM_BRIEF.md) and [requirements baseline](../../training-project/requirements/REQUIREMENTS_BASELINE.md), especially the authority and change-control requirements. Those documents are project contracts, not substitutes for the cited literature.
+
 ## 7. Applying the framework: a bounded personal-information assistant
 
-The previous sections introduced the main reasoning tools for AI-system design. Section 7 applies those tools to one small teaching case. The case is deliberately neutral: a personal-information assistant combines retrieval, open-ended generation, sensitive data, human approval, and operational constraints. It is not a proposed production architecture; its purpose is to make the design decisions and trade-offs visible.
+The previous sections introduced the main reasoning tools for AI-system design. Section 7 applies those tools to one small teaching case. The case is deliberately neutral: a personal-information assistant combines retrieval, open-ended generation, sensitive data, human approval, and operational constraints. It is not the cumulative course project, not a proposed production architecture, and not a laboratory design assignment. The course project remains the supplied learning knowledge system. The teaching case makes screening, threshold, allocation, and failure analysis visible.
 
 Consider an assistant that helps a user find information in personal notes and prepare proposed updates. The system does not execute consequential changes without confirmation.
 
@@ -407,10 +448,11 @@ These questions require application of the module's reasoning rather than repeti
 5. Why can a model with a better benchmark score produce a worse complete system?
 6. Which lifecycle evidence could justify increasing automation? Which evidence should reduce it?
 7. For the personal-information assistant, what is the simplest design that could cross the usefulness threshold?
+8. A candidate passes `validate`. What additional conditions must hold before `apply` may write accepted state, and why can those conditions still fail after a later edit of the proposal file?
 
 ## Connection to the laboratory and Module 02
 
-The paired laboratory applies this framework to the design of a bounded AI system for a neutral use case. The resulting design defines the outcome, non-goals, human authority, usefulness threshold, responsibility allocation, alternatives, risks, and evidence required before deployment.
+The paired laboratory initializes a reproducible workspace for the supplied learning knowledge system and practises the proposal–validation–review–decision–application boundary. The primary accepted result is the environment, repository ownership, external vault, student-created project paths, source registration, and evidence. The laboratory does not ask for requirements elicitation or application-architecture design.
 
 Module 02 continues from this system foundation into foundation-model behavior and application architecture. It develops tokenization, context windows, probabilistic generation and sampling, structured output, prompting, adaptation choices, build-versus-buy reasoning, and high-level component architecture.
 
@@ -427,6 +469,7 @@ The map below identifies the literature basis for each substantive part of the m
 | Define expectations and production requirements          | [1], Chapter 1: “Setting Expectations,” “Milestone Planning,” and “Maintenance”; [2], Chapter 2: “Business and ML Objectives” and “Requirements for ML Systems” |
 | AI engineering stack                                     | [1], Chapter 1: “The AI Engineering Stack”                                                                                                                              |
 | Iterative lifecycle                                      | [2], Chapter 2: “Iterative Process”; [1], Chapter 1: “Maintenance”                                                                                                    |
+| Governed proposal, validation, decision, and application | Original course synthesis applying [1], Chapter 1, “The role of AI and humans in the application,” to the supplied functional brief and authority requirements; Laboratory 01 artifact names are the first instance, not a reference architecture |
 | Applying the framework and stress-testing the teaching case | Original neutral teaching synthesis applying the decision frameworks in [1], Chapter 1 and [2], Chapters 1–2; failure and evaluation criteria are grounded in the same sections |
 
 ## Sources and illustration provenance
@@ -436,9 +479,10 @@ The module uses the following two books as its principal sources:
 1. Chip Huyen. *AI Engineering: Building Applications with Foundation Models*. First edition. O'Reilly Media, 2025. Chapter 1, “Introduction to Building AI Applications with Foundation Models.”
 2. Chip Huyen. *Designing Machine Learning Systems: An Iterative Process for Production-Ready Applications*. O'Reilly Media, 2022. Chapters 1–2, “Overview of Machine Learning Systems” and “Introduction to Machine Learning Systems Design.”
 
-Figures 1–4 are original course diagrams created for this module, not extracted or copied source figures:
+Figures 1–5 are original course diagrams created for this module, not extracted or copied source figures:
 
 - `images/demo-to-engineered-system.svg` — original synthesis of the module's central engineering argument;
 - `images/ai-use-case-screening.svg` — original decision flow derived from the cited use-case frameworks;
 - `images/ai-engineering-stack.svg` — original visual explanation of the three source-defined responsibility layers, with a new composition and labels;
-- `images/iterative-ai-system-lifecycle.svg` — original lifecycle diagram derived from the cited iterative-development principles.
+- `images/iterative-ai-system-lifecycle.svg` — original lifecycle diagram derived from the cited iterative-development principles;
+- `images/governed-proposal-workflow.svg` — original authority-loop diagram for proposal, validation, semantic review, digest-bound decision, application, writers, and state transitions.

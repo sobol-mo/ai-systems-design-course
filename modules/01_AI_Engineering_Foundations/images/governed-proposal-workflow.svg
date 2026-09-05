@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Governed change from proposal to accepted state</title>
+  <desc id="desc">An AI assistant writes a candidate proposal. The validate command checks structure and writes nothing. The student reviews meaning. The decide command records an approval or rejection bound to a SHA-256 digest. The apply command writes the accepted artifact only when that approved decision still matches the proposal.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>
+      .title{font:700 26px system-ui,sans-serif;fill:#0f172a}
+      .label{font:700 16px system-ui,sans-serif;fill:#0f172a}
+      .small{font:13px system-ui,sans-serif;fill:#334155}
+      .edge{font:700 13px system-ui,sans-serif;fill:#475569}
+      .note{font:700 15px system-ui,sans-serif;fill:#9a3412}
+      .ai{fill:#fff7ed;stroke:#ea580c;stroke-width:2.5}
+      .wf{fill:#ecfdf5;stroke:#0f766e;stroke-width:2.5}
+      .hum{fill:#e0f2fe;stroke:#0284c7;stroke-width:2.5}
+      .ok{fill:#dcfce7;stroke:#059669;stroke-width:3}
+      .stop{fill:#fee2e2;stroke:#dc2626;stroke-width:2.5}
+      .card{fill:#f8fafc;stroke:#334155;stroke-width:2}
+      .line{fill:none;stroke:#475569;stroke-width:2.5;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="900" fill="#ffffff"/>
+  <text x="600" y="42" text-anchor="middle" class="title">A valid proposal is not an accepted change</text>
+
+  <rect x="70" y="62" width="330" height="44" rx="10" class="ai"/>
+  <text x="235" y="90" text-anchor="middle" class="label">AI assistant — writes the candidate only</text>
+  <rect x="430" y="62" width="340" height="44" rx="10" class="hum"/>
+  <text x="600" y="90" text-anchor="middle" class="label">Student — reviews meaning; operates decide</text>
+  <rect x="800" y="62" width="330" height="44" rx="10" class="wf"/>
+  <text x="965" y="90" text-anchor="middle" class="label">Workflow — validate, decide, apply writers</text>
+
+  <rect x="40" y="140" width="200" height="96" rx="14" class="ai"/>
+  <text x="140" y="178" text-anchor="middle" class="label">1. Propose</text>
+  <text x="140" y="204" text-anchor="middle" class="small">AI writes candidate</text>
+  <path d="M240 188 H276" class="line"/>
+
+  <rect x="276" y="140" width="200" height="96" rx="14" class="wf"/>
+  <text x="376" y="178" text-anchor="middle" class="label">2. validate</text>
+  <text x="376" y="204" text-anchor="middle" class="small">Schema only; no writes</text>
+  <path d="M476 188 H512" class="line"/>
+
+  <rect x="512" y="140" width="200" height="96" rx="14" class="hum"/>
+  <text x="612" y="178" text-anchor="middle" class="label">3. Semantic review</text>
+  <text x="612" y="204" text-anchor="middle" class="small">Student judges meaning</text>
+  <path d="M712 188 H748" class="line"/>
+
+  <rect x="748" y="140" width="200" height="96" rx="14" class="wf"/>
+  <text x="848" y="178" text-anchor="middle" class="label">4. decide</text>
+  <text x="848" y="204" text-anchor="middle" class="small">Bind digest; approve or reject</text>
+  <path d="M948 188 H984" class="line"/>
+
+  <rect x="984" y="140" width="176" height="96" rx="14" class="ok"/>
+  <text x="1072" y="178" text-anchor="middle" class="label">5. apply</text>
+  <text x="1072" y="204" text-anchor="middle" class="small">Write accepted state</text>
+
+  <rect x="40" y="268" width="200" height="150" rx="14" class="card"/>
+  <text x="140" y="300" text-anchor="middle" class="label">Proposal</text>
+  <text x="140" y="326" text-anchor="middle" class="small">boundary-proposal.yaml</text>
+  <text x="140" y="350" text-anchor="middle" class="small">Writer: AI; student may edit</text>
+  <text x="140" y="374" text-anchor="middle" class="small">State: proposed</text>
+  <text x="140" y="398" text-anchor="middle" class="small">No authority to accept</text>
+
+  <rect x="276" y="268" width="200" height="150" rx="14" class="card"/>
+  <text x="376" y="300" text-anchor="middle" class="label">Validation result</text>
+  <text x="376" y="326" text-anchor="middle" class="small">No decision file</text>
+  <text x="376" y="350" text-anchor="middle" class="small">Writer: none</text>
+  <text x="376" y="374" text-anchor="middle" class="small">State: unchanged</text>
+  <text x="376" y="398" text-anchor="middle" class="small">Not semantic proof</text>
+
+  <rect x="512" y="268" width="200" height="150" rx="14" class="card"/>
+  <text x="612" y="300" text-anchor="middle" class="label">Review record</text>
+  <text x="612" y="326" text-anchor="middle" class="small">Report answers, not a gate</text>
+  <text x="612" y="350" text-anchor="middle" class="small">Actor: student</text>
+  <text x="612" y="374" text-anchor="middle" class="small">No canonical write</text>
+  <text x="612" y="398" text-anchor="middle" class="small">Meaning, not schema</text>
+
+  <rect x="748" y="268" width="200" height="150" rx="14" class="card"/>
+  <text x="848" y="300" text-anchor="middle" class="label">Decision</text>
+  <text x="848" y="326" text-anchor="middle" class="small">boundary-decision.json</text>
+  <text x="848" y="350" text-anchor="middle" class="small">Writer: decide</text>
+  <text x="848" y="374" text-anchor="middle" class="small">pending, then approved</text>
+  <text x="848" y="398" text-anchor="middle" class="small">or rejected + SHA-256</text>
+
+  <rect x="984" y="268" width="176" height="150" rx="14" class="card"/>
+  <text x="1072" y="296" text-anchor="middle" class="label">Accepted</text>
+  <text x="1072" y="318" text-anchor="middle" class="small">learning-system-</text>
+  <text x="1072" y="336" text-anchor="middle" class="small">boundary.yaml</text>
+  <text x="1072" y="358" text-anchor="middle" class="small">Writer: apply only</text>
+  <text x="1072" y="380" text-anchor="middle" class="small">State: approved</text>
+  <text x="1072" y="402" text-anchor="middle" class="small">Never hand-written</text>
+
+  <path d="M376 418 V455" class="line"/>
+  <path d="M848 418 V455" class="line"/>
+  <path d="M1072 418 V455" class="line"/>
+
+  <rect x="276" y="455" width="200" height="92" rx="14" class="stop"/>
+  <text x="376" y="492" text-anchor="middle" class="label">Invalid: stop</text>
+  <text x="376" y="518" text-anchor="middle" class="small">No decision, no accepted write</text>
+  <text x="488" y="448" class="edge">fail</text>
+
+  <rect x="748" y="455" width="200" height="92" rx="14" class="stop"/>
+  <text x="848" y="492" text-anchor="middle" class="label">Rejected: stop</text>
+  <text x="848" y="518" text-anchor="middle" class="small">apply must refuse</text>
+  <text x="860" y="448" class="edge">reject</text>
+
+  <rect x="960" y="455" width="200" height="92" rx="14" class="stop"/>
+  <text x="1060" y="486" text-anchor="middle" class="label">Refuse apply</text>
+  <text x="1060" y="510" text-anchor="middle" class="small">Missing, incomplete, or</text>
+  <text x="1060" y="530" text-anchor="middle" class="small">digest mismatch; unchanged</text>
+
+  <rect x="40" y="580" width="1120" height="88" rx="14" class="card"/>
+  <text x="600" y="616" text-anchor="middle" class="label">Digest binding</text>
+  <text x="600" y="644" text-anchor="middle" class="small">decide stores SHA-256 of the exact proposal bytes. If those bytes later change, the previous approval does not authorize apply.</text>
+
+  <rect x="40" y="688" width="1120" height="110" rx="14" class="card"/>
+  <text x="600" y="724" text-anchor="middle" class="label">State transitions</text>
+  <text x="600" y="752" text-anchor="middle" class="small">proposed → structurally valid or invalid → pending decision → approved or rejected → accepted only from a matching approved decision</text>
+  <text x="600" y="778" text-anchor="middle" class="small">Laboratory 01 files are Git-backed project audit artifacts. Vault proposal, decision, and operation records begin when canonical vault knowledge starts to change.</text>
+
+  <text x="600" y="840" text-anchor="middle" class="note">The AI assistant never writes the decision or the accepted contract.</text>
+  <text x="600" y="872" text-anchor="middle" class="small">Laboratory 01 artifact names instantiate this loop; later modules reuse the same authority split for vault knowledge changes.</text>
+</svg>
