@@ -1,6 +1,6 @@
 # Module 01: AI Engineering Foundations
 
-Status: English theory approved for laboratory derivation; complete English laboratory draft awaiting instructor review.
+Status: English theory and laboratory are `Ready for Students`; Ukrainian translation and assessment remain pending.
 
 Planned artifacts:
 
@@ -10,4 +10,4 @@ Planned artifacts:
 - `01_AI_Engineering_Foundations_Teacher.md` (private)
 - `images/`
 
-The English theory and four original course diagrams have been approved as the basis for laboratory development. The complete English laboratory draft now awaits instructor review. Both files remain `Work in Progress` until that review confirms that no reconciliation is required and the instructor explicitly approves the pair. Translation and assessment have not started.
+The English theory, five original course diagrams, laboratory, and private teacher notes are reconciled. The instructor approved the English theory and laboratory as one pair on 2026-09-06 after section-by-section review, contract and CLI verification, manual-fallback reconciliation, and publication-boundary checks. The English files are frozen for translation. Ukrainian translation and assessment have not started, so Module 01 as a whole is not yet student-ready.

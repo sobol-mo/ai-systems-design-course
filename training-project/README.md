@@ -50,18 +50,23 @@ model may propose, but only a recorded human decision may accept. The workflow r
 proposal that no human explicitly approved, and it refuses to overwrite a decision that was already
 recorded. The decision contains a SHA-256 digest of the reviewed proposal, so changing proposal
 content after the decision invalidates approval. Reapplying unchanged approved content is idempotent.
-The `recorded_by` field is student-supplied attribution, not authenticated actor identity. Laboratory
-01 therefore also requires evidence that the AI proposer did not invoke `decide` or `apply`.
+The `recorded_by` field is student-supplied attribution, not authenticated actor identity. On the
+normal agent path, Laboratory 01 therefore also requires evidence that the AI proposer did not invoke
+`decide` or `apply`. If no existing agent path can complete the local proposal operation within available
+access and quota without a new purchase, the documented manual fallback requires the student to author
+the same candidate, preserve the justification and any available sanitized failure evidence for
+instructor acceptance, and make no AI-authorship claim. The fallback does not demonstrate live
+AI/student actor separation.
 
 The `doctor` command writes a normalized machine-readable report for a supported Windows or Linux host
 and the Git, GitHub CLI, `uv`, and Obsidian capabilities. Authenticated Antigravity CLI is recorded when
 present; it is not required for a green report when another agent subscription is used.
 
-Three files carry the protocol, and each has exactly one owner:
+Three files carry the protocol. Their authorized writers depend on the documented proposal path:
 
 | File | Written by | Meaning |
 |---|---|---|
-| `reports/lab01/boundary-proposal.yaml` | the AI, edited by you | a candidate system boundary, with no authority |
+| `reports/lab01/boundary-proposal.yaml` | the AI, corrected by the student; or the student on the no-agent fallback | a candidate system boundary, with no authority |
 | `reports/lab01/boundary-decision.json` | the `decide` command | the recorded human decision, the only authority |
 | `student/design/learning-system-boundary.yaml` | the `apply` command | the accepted contract, never edited by hand |
 

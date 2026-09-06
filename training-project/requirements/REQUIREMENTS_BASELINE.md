@@ -63,7 +63,7 @@ These requirements keep model assistance, machine-checkable enforcement, and hum
 | ID | Requirement | Planned verification |
 |---|---|---|
 | GOV-001 | An AI-generated change MUST exist as a candidate artifact before any related canonical mutation. | Attempt application without a candidate and verify refusal with unchanged output. |
-| GOV-002 | The workflow contract MUST reserve semantic approval authority for the student. | Inspect the role contract and the Laboratory 01 evidence that the AI proposer edited only the candidate and did not invoke `decide` or `apply`. |
+| GOV-002 | The workflow contract MUST reserve semantic approval authority for the student. | Inspect the role contract, student-operated decision evidence, and either the agent-path evidence that the AI edited only the candidate or the instructor-accepted manual fallback with no AI-authorship claim. |
 | GOV-003 | Structural validation MUST NOT change canonical state. | Hash the accepted output path before and after validation. |
 | GOV-004 | Structural validation MUST NOT create an approval decision. | Inspect the decision path before and after validation. |
 | GOV-005 | Structural validation success MUST NOT be represented as proof of semantic correctness. | Inspect validator output and confirm that the student performs a separately recorded semantic review. |
@@ -131,7 +131,7 @@ The Laboratory 01 evidence manifest is fixed so that `L01-016`, `STA-010`, and t
 | L01-007 | The student MUST initialize a student-owned external Markdown vault outside the Git clone. | Inspect submitted screenshots of the vault `README.md` and verify that the vault is absent from Git status. |
 | L01-008 | The student MUST register the Module 01 theory as `sources/module-01-ai-engineering-foundations.md` in the external vault. | Validate its front-matter fields from the submitted screenshots and resolve its `course_path` at the recorded `course_commit` in the submitted fork according to the functional brief. |
 | L01-009 | Laboratory 01 MUST NOT materialize structured concept records, graph indexes, or vector indexes. | Confirm from submitted screenshots and the project tree that the vault has no `concepts/` files and the project has no generated graph or vector-index output. |
-| L01-010 | The AI proposer MUST edit only `reports/lab01/boundary-proposal.yaml` during the proposal operation. | Inspect the proposer-session evidence and the Git diff captured immediately after the operation. |
+| L01-010 | The proposal operation MUST edit only `reports/lab01/boundary-proposal.yaml`; when no existing agent path can complete the local operation within available access and quota without a new purchase, the student MAY use an instructor-accepted manual fallback and MUST record the attempted or unavailable path and any available sanitized failure evidence without claiming AI authorship. | Inspect the proposer-session evidence on the agent path, or inspect and accept the manual-fallback justification and available failure evidence, then compare the resulting candidate with the submitted Git state. |
 | L01-011 | Structural validation MUST succeed without creating a decision or accepted boundary. | Run `validate`, inspect the decision and accepted-output paths, and preserve the refused premature-apply result. |
 | L01-012 | The student MUST complete the supplied semantic review questions before approval. | Inspect the student's answers and conclusion in `REPORT.md`. |
 | L01-013 | The student decision MUST record approval of the exact proposal identifier and SHA-256 digest. | Compare `boundary-decision.json` with the proposal identifier and an independently computed proposal digest. |
@@ -159,7 +159,7 @@ The organization constraints of the vault structure contract are fixed by the su
 
 ## Known Laboratory 01 enforcement limit
 
-Laboratory 01 records the student's identifier in `recorded_by`, but the command does not authenticate the person operating it. `GOV-002` is therefore a workflow-authority and evidence requirement at this stage: the student operates `decide`, while the proposer-session evidence must show that the AI edited only the candidate and did not invoke `decide` or `apply`. The baseline does not claim technical actor-identity enforcement. A later reviewed agent architecture may introduce stronger attestation or access control.
+Laboratory 01 records the student's identifier in `recorded_by`, but the command does not authenticate the person operating it. `GOV-002` is therefore a workflow-authority and evidence requirement at this stage: the student operates `decide`; on an agent path, proposer-session evidence shows that the AI edited only the candidate and did not invoke `decide` or `apply`; on the instructor-accepted manual fallback, the report records that the student authored the candidate, the attempted or unavailable path, and any available sanitized failure evidence. The fallback demonstrates artifact control but not live AI/student actor separation. The baseline does not claim technical actor-identity enforcement. A later reviewed agent architecture may introduce stronger attestation or access control.
 
 ## Assumptions and unresolved inputs
 
@@ -167,9 +167,8 @@ This draft depends on inputs that must remain visible until the instructor resol
 
 1. A separate authoring session will define and review the supplied reference architecture before a laboratory depends on it.
 2. The fixed typed-relation vocabulary and its positive and negative examples will be finalized before relation validation becomes a student requirement. Examples of relation names in the vault structure contract are pedagogical, not that vocabulary.
-3. The no-agent fallback for exhausted or unavailable student quota remains an instructor decision.
-4. Numeric quality thresholds for retrieval, grounded answers, latency, and cost will be introduced with representative evaluation evidence rather than invented in this baseline.
-5. The minimal Laboratory 01 source-record path and fields are fixed in the functional brief; the root vault directories, tag convention, and folder invariants are fixed in the vault structure contract. Later source, concept, relation, question, and knowledge-operation schemas are not invented here.
+3. Numeric quality thresholds for retrieval, grounded answers, latency, and cost will be introduced with representative evaluation evidence rather than invented in this baseline.
+4. The minimal Laboratory 01 source-record path and fields are fixed in the functional brief; the root vault directories, tag convention, and folder invariants are fixed in the vault structure contract. Later source, concept, relation, question, and knowledge-operation schemas are not invented here.
 
 ## Review gate
 

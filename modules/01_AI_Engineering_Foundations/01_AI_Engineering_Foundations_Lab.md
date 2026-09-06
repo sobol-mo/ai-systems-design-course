@@ -1,16 +1,17 @@
 # Module 01: AI Engineering Foundations — Laboratory
 
-> **Status:** Work in Progress
+> **Status:** Ready for Students — English laboratory approved as part of the Module 01 English pair on 2026-09-06
 
 ## Goal
 
-Create a reproducible local workspace and an external Markdown vault for the cumulative training project, then use an AI agent to propose the first system-boundary contract without granting the agent authority to accept its own proposal.
+Initialize and verify the working contour for the supplied cumulative learning knowledge system: obtain the project through the required Git ownership path, reproduce the supported workstation environment, create the student-owned project areas and external Markdown vault, register the first course source, and preserve evidence of the result. A bounded, normally AI-generated system-boundary proposal then verifies the authority split without granting the agent authority to accept its own proposal. If no usable agent is available, the documented manual fallback preserves the candidate, validation, decision, and application boundaries without fabricating an agent session; it does not demonstrate live separation between AI and student actors.
 
-The completed laboratory produces four observable results:
+The completed laboratory produces five observable results. The environment and initialized project state are the primary result; the governed proposal is a bounded verification activity within that result:
 
 - a student GitHub fork of the public course repository, with `origin` pointing at that fork, `upstream` pointing at the instructor repository, and laboratory work confined to student-owned paths;
 - a supported workstation on which the project tests and required command-line tools run reproducibly;
-- a student-owned external Markdown vault whose boundary and initial protection against workstation loss can be explained;
+- student-created `student/design/` and `reports/lab01/` paths containing the required design, report, log, machine-readable, and screenshot evidence;
+- a student-owned external Markdown vault containing its orientation file and the registered Module 01 theory source, whose boundary and initial protection against workstation loss can be explained;
 - an accepted `learning-system-boundary.yaml` contract whose origin, human approval, and application can be verified.
 
 ## Expected competencies
@@ -22,9 +23,10 @@ After completing the laboratory, the student can:
 - distinguish `origin` from `upstream` and distinguish upstream-owned paths from student-owned artifacts;
 - reproduce the required toolchain and verify it with a second apply or a second capability check;
 - distinguish reproducible infrastructure, version-controlled definitions, mutable canonical state, and rebuildable derived artifacts;
-- define a bounded AI use case through an intended outcome, non-goals, a usefulness condition, a material risk, and a simpler non-AI baseline;
+- explain the supplied learning knowledge system, register a version-resolving reference to the Module 01 theory, and keep a possible personal area as a later bounded extension rather than a different system;
+- evaluate the supplied system boundary through an intended outcome, non-goals, a usefulness condition, a material risk, and a simpler non-AI baseline;
 - keep AI-generated content as a proposal until deterministic validation and explicit human approval have occurred;
-- preserve evidence without publishing credentials, private vault content, or unrelated workstation data.
+- preserve evidence without publishing credentials, sensitive or unrelated vault content, or unrelated workstation data.
 
 ## Prerequisites
 
@@ -35,7 +37,7 @@ The required starting conditions on every supported host are:
 - the Module 01 theory material has been studied;
 - the student has a GitHub account;
 - a text editor and a web browser are available;
-- an agent can edit one local file in the clone. The default proposer is Antigravity CLI, authenticated with a Google account. A student who already has another agent subscription uses that subscription instead of Antigravity CLI.
+- the student can use an agent path or document why none is usable and follow the manual fallback. Antigravity CLI authenticated with a Google account is the default proposer, and a student who already has another agent subscription may use it instead.
 
 Windows 11 is the primary documented workstation path and the majority host. A Windows student must be able to approve administrator prompts, and WinGet must be available through Windows App Installer.
 
@@ -45,11 +47,13 @@ macOS is not a documented path in this edition. A macOS-only host is a red prefl
 
 The public course repository is https://github.com/sobol-mo/ai-systems-design-course. Every laboratory file comes from a clone of the student's fork of that repository. The instructor does not attach `dsc.yaml`, the starter proposal, or other project files outside Git.
 
-The mandatory path does not require a paid model API, payment card, container runtime, virtual machine, or Windows Subsystem for Linux. A Linux workstation is already a supported host and does not need WSL. Antigravity CLI uses the quota available to the authenticated account. A different existing agent subscription uses that subscription's quota. If no usable agent remains, preserve the deterministic project results and report the blocked AI step to the instructor; do not purchase API access solely for this laboratory.
+The mandatory path does not require a paid model API, payment card, container runtime, virtual machine, or Windows Subsystem for Linux. A Linux workstation is already a supported host and does not need WSL. Antigravity CLI uses the quota available to the authenticated account. A different existing agent subscription uses that subscription's quota. If no usable agent remains, use the documented manual proposal path and record the limitation honestly; do not purchase API access solely for this laboratory.
 
 ## Starting state
 
 The student begins with an empty working folder and a GitHub account. After Step 2 the local clone is the only source of laboratory files. The workstation configuration is `training-project/fixtures/windows/lab01-workstation.dsc.yaml`. The starter proposal is `training-project/boundary-proposal.yaml`. Both files are upstream-owned: the student uses them from the clone and does not edit the upstream copies.
+
+The same clone supplies the system definition in `training-project/requirements/SYSTEM_BRIEF.md`, the binding requirements in `training-project/requirements/REQUIREMENTS_BASELINE.md`, and the external-vault organization rules in `training-project/requirements/VAULT_STRUCTURE.md`. These files define the system every student builds. They are project inputs to read and apply, not material for requirements elicitation, replacement, or architecture invention.
 
 The Windows workstation configuration manages Git, GitHub CLI, `uv`, and Obsidian. Linux installs the same four capabilities without applying that file. Antigravity CLI is the default proposer and is installed separately by its official installer because authentication and mutable agent state remain under student ownership. Another agent is not installed by the course configuration; the student authenticates the existing harness and points it at the same proposal file.
 
@@ -73,6 +77,7 @@ ai-systems-design-course/                  clone root
     pyproject.toml                         upstream
     uv.lock                                upstream
     .gitignore                             upstream
+    requirements/                          upstream — supplied system definition and requirements
     boundary-proposal.yaml                 upstream starter — copy, do not edit in place
     fixtures/                              upstream — including lab01-workstation.dsc.yaml
     platform/                              upstream — CLI, doctor, and proposal workflow
@@ -84,13 +89,15 @@ ai-systems-design-course/                  clone root
 
 The external Markdown vault is student-owned and lives **outside** this tree. Obsidian is the supplied interface for opening it, but the canonical state remains ordinary Markdown files. The vault is not part of the Git repository and is not pushed to `origin`.
 
-The governed workflow uses three artifacts with different authorities:
+The laboratory distinguishes five state locations with different authority and ownership:
 
-| Artifact | Owner | Meaning |
+| State location | Authorized writer | Meaning |
 |---|---|---|
-| `reports/lab01/boundary-proposal.yaml` | AI proposes; student may correct | Candidate content with no authority to change the accepted design |
-| `reports/lab01/boundary-decision.json` | `learning-project decide` | Immutable record of the student's explicit approval or rejection |
-| `student/design/learning-system-boundary.yaml` | `learning-project apply` | Accepted contract generated only from an approved proposal |
+| `reports/lab01/boundary-proposal.yaml` | AI on the normal path; student when correcting or using the manual fallback | Candidate content with no authority to change the accepted design |
+| `reports/lab01/boundary-decision.json` | `learning-project decide` | Decision and audit evidence; the project CLI refuses to overwrite a recorded outcome |
+| `student/design/learning-system-boundary.yaml` | `learning-project apply` | Accepted system-boundary contract generated only from an approved proposal; not a reference architecture |
+| External Markdown vault | Student during Laboratory 01; governed workflow in later modules | Canonical learning knowledge, not project-design state |
+| Upstream-owned paths listed above | Course publication workflow | Supplied contracts, course materials, project CLI, fixtures, and tests that the student reads and runs but does not edit |
 
 Do not edit `boundary-decision.json` or the accepted contract manually. If a recorded decision must change, preserve the existing evidence, remove the generated decision and accepted contract, revise the proposal under a new `proposal_id`, and run a new review cycle.
 
@@ -223,7 +230,7 @@ Stop-Transcript
 
 Approve only the configuration and package-source agreements shown for that file. Do not add unrelated packages to the laboratory configuration. Do not edit `fixtures/windows/lab01-workstation.dsc.yaml`.
 
-The first apply reconciles missing tools. The second apply checks convergence: packages already satisfying the declared state must not be reinstalled or downgraded. Keep `provision.log`; it is required evidence. Review it and remove account names or unrelated paths before submission, but do not rewrite the configuration results. Do not commit `provision.log` at the `training-project` root; Step 10 copies a sanitized file into `reports/lab01/`.
+The first apply reconciles missing tools. The second apply checks convergence: packages already satisfying the declared state must not be reinstalled or downgraded. Keep `provision.log`; it is required evidence. Review it and remove credentials, authentication secrets, and unrelated private material before submission, but do not rewrite the configuration results. An operating-system account or absolute path may remain when it attributes the evidence to the workstation. Do not commit `provision.log` at the `training-project` root; Step 10 copies a sanitized file into `reports/lab01/`.
 
 **Expected result:** all four package queries return an installed package. The second configuration run reports that the declared package state is already satisfied or completes without reinstalling the four tools.
 
@@ -239,9 +246,13 @@ uv --version
 
 Launch Obsidian once from the Start menu on Windows, or from the desktop entry or installed binary on Linux, and record the version shown by its About page. Obsidian is used as a Markdown vault interface; its command-line launcher is not an acceptance requirement. `learning-project doctor` must still detect the application.
 
-### Step 4: Install the default proposer or use another agent
+### Step 4: Prepare the default proposer, another agent, or the manual fallback
 
 Antigravity CLI is the default proposer for this year. Install it only when that is the harness the student will use. A student who already has another agent subscription skips this installer, authenticates that existing harness, and uses it in Step 7 against the same proposal file and the same `validate` / `decide` / `apply` gates.
+
+An agent path is **usable** when an existing account or subscription can open the local `training-project`, read the required files, and complete the requested proposal edit within available quota without a new purchase. A path is unusable when authentication, account access, service availability, or quota prevents that operation. Tool preference, convenience, or reluctance to authenticate an existing account is not unavailability.
+
+If neither the default proposer nor another existing agent subscription is usable, do not purchase API access and do not fabricate an agent transcript. Preserve a short note for the later `REPORT.md` naming the path attempted, the date, and the observed result. When the attempt produces an access, service, or quota error, retain a sanitized transcript or screenshot of that error. If the student has no existing agent account or subscription to attempt, state that fact; the laboratory does not require creating or purchasing one. Complete the documented manual path independently before the scheduled demonstration. During that demonstration, the instructor evaluates whether the justification meets the fallback admission rule; this grading decision is not a state-changing laboratory step. The deterministic gates and accepted-artifact path do not change.
 
 On Windows, the default installer is the official user-scope Google script. Run it from a non-administrator PowerShell:
 
@@ -262,30 +273,53 @@ The first authenticated `agy` interaction is triggered when `agy models` runs; c
 
 Do not use `--dangerously-skip-permissions`. During the later interactive agent session, inspect every requested tool action and approve only reads of the training project and an edit to `reports/lab01/boundary-proposal.yaml`. The agent must not run `decide`, run `apply`, or edit `student/design/learning-system-boundary.yaml`, regardless of which harness is used.
 
-**Expected result:** the chosen proposer can edit `reports/lab01/boundary-proposal.yaml` and cannot accept the contract. On the default path, `agy --help` displays CLI usage and `agy models` returns the models available to the authenticated account without requesting a separately billed API key. On another subscription, `REPORT.md` names that harness and `learning-project doctor` may record Antigravity CLI as unavailable.
+**Expected result:** on an agent path, the chosen proposer can edit `reports/lab01/boundary-proposal.yaml`, while its assigned role excludes approval and application. This separation is demonstrated by the approved tool actions and preserved evidence; it is not an operating-system permission boundary. On the default path, `agy --help` displays CLI usage and `agy models` returns the models available to the authenticated account without requesting a separately billed API key. On another subscription, `REPORT.md` names that harness and `learning-project doctor` may record Antigravity CLI as unavailable. On the manual fallback, the student retains the required justification and any available sanitized failure evidence for `REPORT.md`; no proposer-session evidence is invented.
 
-### Step 5: Create the external Markdown vault and project state
+### Step 5: Initialize student-owned project and vault state
 
-Change to the `training-project` directory of the clone. Create the student-owned design and report directories, then copy the upstream starter proposal into the student report path. Do not edit `training-project/boundary-proposal.yaml` in place.
+Before creating state, read `requirements/SYSTEM_BRIEF.md`, `requirements/REQUIREMENTS_BASELINE.md`, and `requirements/VAULT_STRUCTURE.md` from `training-project`. Identify the fixed system purpose, the three state boundaries, the Laboratory 01 acceptance boundary, and the minimum vault structure. These supplied contracts define the project; this step does not ask for new requirements or an application architecture.
+
+Change to the `training-project` directory of the clone. Create the student-owned design and report directories and the initial report file, then copy the upstream starter proposal into the student report path. Do not edit `training-project/boundary-proposal.yaml` in place.
 
 ```powershell
 Set-Location "$HOME\projects\ai-systems-design-course\training-project"
 New-Item -ItemType Directory -Force .\student\design | Out-Null
 New-Item -ItemType Directory -Force .\reports\lab01\screenshots | Out-Null
 Copy-Item .\boundary-proposal.yaml .\reports\lab01\boundary-proposal.yaml
+if (-not (Test-Path .\reports\lab01\REPORT.md)) { New-Item -ItemType File .\reports\lab01\REPORT.md | Out-Null }
 ```
 
-Create a new external Markdown vault through the Obsidian interface. Name it `ai-systems-learning-vault` or another non-sensitive name and store it **outside** the Git clone. Add one file named `README.md` stating that the vault is student-controlled canonical learning state and is not part of the Git repository. The vault must remain usable as ordinary files without Obsidian.
+Create a new external Markdown vault through the Obsidian interface. Name it `ai-systems-learning-vault` or another non-sensitive name and store it **outside** the Git clone. Add one file named `README.md` stating that the vault is student-controlled canonical learning state and is not part of the Git repository. The vault must remain usable as ordinary files without Obsidian. Obsidian may create a hidden `.obsidian/` settings directory; it is interface metadata rather than course knowledge and is not a submission artifact.
+
+From `training-project`, obtain the exact commit that contains the theory being registered:
+
+```powershell
+git -C .. rev-parse HEAD
+```
+
+Inside the external vault, create `sources/module-01-ai-engineering-foundations.md`. Begin it with the following YAML front matter and replace the placeholder with the complete 40-character commit from the preceding command:
+
+```yaml
+---
+record_type: source
+source_id: module-01-ai-engineering-foundations
+title: "Module 01: AI Engineering Foundations — Theory"
+course_path: modules/01_AI_Engineering_Foundations/01_AI_Engineering_Foundations_Theory.md
+course_commit: "<40-character Git commit>"
+---
+```
+
+This record points to the exact version-controlled theory without copying it into a second editable location. It is a source registration, not a structured concept record. Do not create `concepts/`, `questions/`, `proposals/`, `decisions/`, or `operations/` directories in the vault during Laboratory 01.
 
 Protect this mutable canonical state against loss of the workstation. On Windows, the simplest recommended baseline is to create the vault inside a directory synchronized by the student's Microsoft OneDrive account. A Linux student may use an existing equivalent off-device synchronization or backup location. Do not install or design a new backup stack for this laboratory. If no off-device protection is available, create the external vault and record that limitation honestly in `REPORT.md`.
 
 Off-device synchronization is an initial protection measure, not a complete disaster-recovery design: an unwanted change or deletion may also be synchronized. Backup retention, monitoring, and restoration testing belong to the production-system work in Module 08.
 
-For this laboratory, the vault proves the external system boundary only. Personal notes, credentials, and a full personal vault are neither required nor submitted. Record its location in `REPORT.md` only as `external to repository`; do not publish the absolute path or account name.
+For this laboratory, the vault proves the external system boundary and the first source registration only. Personal notes, credentials, and a full personal vault are neither required nor submitted. Record its location in `REPORT.md` as `external to repository`. A submitted screenshot may show the vault content, absolute path, or operating-system account when needed to attribute it to the workstation, but it must not show credentials, tokens, authentication secrets, or unrelated private material.
 
 Laboratory 01 does not ingest a concept corpus or build retrieval, graph, or vector state. Those capabilities are introduced only after their theory and contracts exist in later modules.
 
-**Expected result:** `student/design/` and `reports/lab01/screenshots/` exist in the clone, `reports/lab01/boundary-proposal.yaml` exists as a copy, and the external Markdown vault contains its neutral `README.md`, exists outside the clone, and does not appear in `git status`.
+**Expected result:** `student/design/`, `reports/lab01/screenshots/`, and `reports/lab01/REPORT.md` exist in the clone, `reports/lab01/boundary-proposal.yaml` exists as a copy, and the external Markdown vault contains its neutral `README.md` and `sources/module-01-ai-engineering-foundations.md` as the only course-required Markdown content. The source record carries the exact clone commit and course path, the vault exists outside the clone, and it does not appear in `git status`.
 
 ### Step 6: Reproduce and test the project environment
 
@@ -312,9 +346,9 @@ The starter file is structurally valid but contains instructional placeholders. 
 
 ### Step 7: Ask the AI to prepare a bounded proposal
 
-Review the Module 01 theory sections on AI use-case screening, human authority, usefulness thresholds, production risks, and simpler alternatives. Select one academic or professional area for a small personal extension. Use only a domain that can be described without private data.
+From `training-project`, review `../modules/01_AI_Engineering_Foundations/01_AI_Engineering_Foundations_Theory.md`, especially the sections on AI use-case screening, human authority, usefulness thresholds, production risks, and simpler alternatives. Then read the local supplied contracts `requirements/SYSTEM_BRIEF.md`, `requirements/REQUIREMENTS_BASELINE.md`, and `requirements/VAULT_STRUCTURE.md`. The proposal must preserve the fixed learning knowledge system defined by those contracts. Select one non-sensitive academic or professional area only as a possible later extension recorded in `personal_domain`; it must not redefine the system or authorize personal-data ingestion.
 
-Start the proposer interactively from `training-project`. The default command is:
+Use an available agent when possible. Start the proposer interactively from `training-project`. The default command is:
 
 ```powershell
 agy
@@ -322,13 +356,15 @@ agy
 
 A student using another agent subscription starts that harness instead. Give the same task. Do not change the proposal path, the required fields, or the later `validate` / `decide` / `apply` commands.
 
+If Step 4 established that no agent path is usable, open `reports/lab01/boundary-proposal.yaml` in the text editor and perform the same task manually: read the named theory and supplied contracts, replace only the placeholder values, preserve every field and `status: proposed`, and do not create the decision or accepted contract. The `governance` fields describe the intended normal AI-assisted system: AI may propose, deterministic code validates, and the student decides. They do not claim that AI authored this fallback candidate. Record `manual no-agent fallback`, the attempted or unavailable path, the date, the observed limitation, and any available sanitized failure-evidence path in `REPORT.md`. Do not invent an AI explanation, chat transcript, account, or proposer screenshot.
+
 Give the agent the following task in the interactive session:
 
-> Read `reports/lab01/boundary-proposal.yaml` and its comments. Replace only its placeholder values with one concise proposal for a learning knowledge system in my selected academic or professional area. Keep `schema_version` unchanged, keep `status: proposed`, use a new lowercase hyphenated `proposal_id`, and preserve every field. The AI may propose content but may not approve it, create a decision, run `decide`, run `apply`, or edit `student/design/learning-system-boundary.yaml`. Before editing, explain the intended outcome, non-goals, AI, deterministic-workflow, and human responsibilities, usefulness condition, material risk, simpler non-AI baseline, required evidence, and remaining uncertainty.
+> Read the local supplied system definition in `requirements/SYSTEM_BRIEF.md`, the applicable obligations in `requirements/REQUIREMENTS_BASELINE.md`, the vault boundary in `requirements/VAULT_STRUCTURE.md`, and the comments in `reports/lab01/boundary-proposal.yaml`. Replace only the proposal's placeholder values. Preserve the fixed learning knowledge system defined by the supplied contracts; use my selected non-sensitive academic or professional area only in `personal_domain` as a possible later bounded extension. Keep `schema_version` unchanged, keep `status: proposed`, use a new lowercase hyphenated `proposal_id`, and preserve every field. The AI may propose content but may not approve it, create a decision, run `decide`, run `apply`, or edit `student/design/learning-system-boundary.yaml`. Before editing, explain the fixed system outcome, non-goals, AI, deterministic-workflow, and human responsibilities, usefulness condition, material risk, simpler non-AI baseline, required evidence, and remaining uncertainty. Name which supplied local files support the proposal.
 
-Answer any domain question without supplying personal or confidential information. Inspect the explanation and the proposed diff before approving the single-file edit. End the agent session after `reports/lab01/boundary-proposal.yaml` has been updated.
+On an agent path, answer any domain question without supplying personal or confidential information. Inspect the explanation and the proposed diff before approving the single-file edit. End the agent session after `reports/lab01/boundary-proposal.yaml` has been updated. On the manual fallback, inspect the completed file against the same task before continuing.
 
-**Expected result:** only `reports/lab01/boundary-proposal.yaml` changes. Its `status` remains `proposed`; it contains a bounded outcome, at least two non-goals, an explicit allocation among AI, deterministic workflow, and human authority, one testable usefulness condition, one material risk, one simpler non-AI baseline, at least two required evidence items, and one honest uncertainty.
+**Expected result:** only `reports/lab01/boundary-proposal.yaml` changes. Its `status` remains `proposed`; it contains a bounded outcome, at least two non-goals, an explicit allocation among AI, deterministic workflow, and human authority, one testable usefulness condition, one material risk, one simpler non-AI baseline, at least two required evidence items, and one honest uncertainty. The agent path preserves proposer evidence. The manual fallback instead preserves the reason for using it and does not claim AI authorship.
 
 ### Step 8: Validate and review the proposal
 
@@ -341,14 +377,19 @@ git diff -- .\reports\lab01\boundary-proposal.yaml
 
 Structural validity is necessary but does not establish semantic quality. Review the proposal using these questions:
 
-1. Does the intended learning outcome describe an observable student capability rather than “use AI”?
-2. Do the non-goals prevent expansion into a complete production system or high-consequence decision process?
-3. Does the responsibility allocation limit AI to proposing, assign structural enforcement to the deterministic workflow, and retain approval authority for the student?
-4. Could the usefulness condition be checked on preserved source evidence?
-5. Does the risk describe a plausible failure of the complete workflow?
-6. Is the non-AI baseline genuinely simpler and capable of addressing part of the outcome?
-7. Do the required evidence items cover both deterministic behavior and semantic or source-grounding review?
-8. Does the uncertainty identify what has not yet been established?
+If `validate` reports any structural error, do not run `decide`. Correct only the proposal while keeping `status: proposed`, then rerun `validate`. Begin semantic review only after validation succeeds.
+
+1. Does the proposal preserve the supplied learning knowledge system, with `personal_domain` used only for a possible later bounded extension?
+2. Does the intended learning outcome describe an observable student capability rather than “use AI”?
+3. Do the non-goals prevent expansion into a complete production system or high-consequence decision process?
+4. Does the responsibility allocation limit AI to proposing, assign structural enforcement to the deterministic workflow, and retain approval authority for the student? On the manual fallback, does the report distinguish this intended normal allocation from the student's authorship of the current candidate?
+5. Could the usefulness condition be checked on preserved source evidence?
+6. Does the risk describe a plausible failure of the complete workflow?
+7. Is the non-AI baseline genuinely simpler and capable of addressing part of the outcome?
+8. Do the required evidence items cover both deterministic behavior and semantic or source-grounding review?
+9. Does the uncertainty identify what has not yet been established?
+
+Record the answer and conclusion for every question in `reports/lab01/REPORT.md` before running `decide`.
 
 If any answer is no, reject the candidate before changing it:
 
@@ -369,6 +410,8 @@ uv run learning-project decide .\reports\lab01\boundary-proposal.yaml --approve 
 uv run learning-project apply .\reports\lab01\boundary-proposal.yaml --decision .\reports\lab01\boundary-decision.json --output .\student\design\learning-system-boundary.yaml
 ```
 
+The value passed through `--by` is student-supplied attribution. The project CLI requires a non-empty value but does not authenticate the operator's identity; the report, submitted Git evidence, and proposer-session evidence when applicable show that the student ran the authority-bearing commands.
+
 Inspect the decision and accepted contract:
 
 ```powershell
@@ -376,38 +419,39 @@ Get-Content .\reports\lab01\boundary-decision.json
 Get-Content .\student\design\learning-system-boundary.yaml
 ```
 
-**Expected result:** the decision records `approved`, the proposal identifier, a SHA-256 digest of the exact proposal content, the student identifier, and the decision time. The accepted contract has `status: approved` and an `accepted` section linking it to the same proposal digest and human approval.
+**Expected result:** the decision records `approved`, the proposal identifier, a SHA-256 digest of the exact proposal content, the student-supplied identifier, and the decision time. The accepted contract has `status: approved` and an `accepted` section linking it to the same proposal digest and recorded approval.
 
 ### Step 10: Prepare evidence and commit the result
 
-Create `reports/lab01/REPORT.md`. Explain, in the student's own words:
+Complete the `reports/lab01/REPORT.md` file created in Step 5. Explain, in the student's own words:
 
-- the selected domain and intended learning outcome;
+- why the selected `personal_domain` is only a possible later extension and how the intended learning outcome preserves the fixed learning knowledge system;
 - why AI may be useful and what the simpler non-AI baseline can already do;
-- why the AI receives proposal authority but not approval authority;
+- why the normal AI-assisted system gives AI proposal authority but not approval authority and, on the manual fallback, why the student authored this candidate without changing that intended system boundary;
+- the answers and conclusion for all nine semantic review questions in Step 8;
 - one design trade-off involving usefulness, risk, cost, latency, privacy, or maintainability;
 - whether the second workstation apply converged and any problem encountered;
-- which proposer was used, if it was not Antigravity CLI;
+- which proposer was used, or that the documented manual no-agent fallback was used, the attempted or unavailable path, the date and observed result, and any available sanitized access, service, or quota failure evidence;
 - how the reproducible environment, Git-backed project artifacts, and mutable Markdown vault would each be recovered, and whether the vault currently has an off-device copy;
 - why a passing schema validator does not prove that the proposal is a good system design.
 
 Use the machine-readable `reports/lab01/environment-report.json` created by `learning-project doctor`. Do not replace it with a hand-written package list or edit a red report into a green one. Record the separate second-apply, public-test, premature-apply, and accepted-contract evidence in `REPORT.md` and screenshots.
 
-Copy the provisioning transcript into the report directory after sanitizing only account names and unrelated absolute paths:
+Copy the provisioning transcript into the report directory after removing credentials, authentication secrets, and unrelated private material:
 
 ```powershell
 Copy-Item .\provision.log .\reports\lab01\provision.log
 ```
 
-Do not include tool installation paths, usernames, email addresses, tokens, model session files, the external vault path, or raw environment-variable dumps. Preserve the package and convergence output in the sanitized transcript.
+Do not include email addresses, tokens, authentication secrets, model session files, or raw environment-variable dumps. An absolute path or operating-system account may remain when it is needed to attribute evidence to the workstation, but unrelated private paths and account data must be removed. Preserve the package and convergence output in the sanitized transcript.
 
-Capture screenshots that show only:
+Each submitted screenshot must be attributable to the student's workstation through visible operating-system context or a matching caption in `REPORT.md`. Capture screenshots that show only:
 
 - `git remote -v` with `origin` on the student's fork and `upstream` on `sobol-mo/ai-systems-design-course`;
 - the four installed workstation packages or successful capability checks; convergence is evidenced by the sanitized `provision.log`, not by a screenshot;
 - the passing public tests;
-- the proposer session with account identifiers and private content excluded, showing that the agent edited only `reports/lab01/boundary-proposal.yaml` and did not run `decide` or `apply`;
-- the external Markdown vault opened in Obsidian with only its neutral `README.md`, without revealing its absolute path or account name;
+- on an agent path, the proposer session with agent-service account identifiers, authentication content, and unrelated private material excluded, showing that the agent edited only `reports/lab01/boundary-proposal.yaml` and did not run `decide` or `apply`; on the manual fallback, no proposer screenshot is invented, while any genuine access, service, or quota error is submitted in sanitized form and `REPORT.md` identifies the attempted or unavailable path, date, and observed result;
+- the external Markdown vault opened in Obsidian with its neutral `README.md` and the complete YAML front matter of `sources/module-01-ai-engineering-foundations.md` visible; the screenshot may show the absolute path or operating-system account to attribute the vault to the workstation, but must not show credentials or authentication secrets;
 - the refused premature apply and the later accepted contract.
 
 Review the repository state from `training-project`, then commit only student-owned laboratory artifacts. Do not stage `modules/`, `platform/`, `fixtures/`, `tests/public/`, `boundary-proposal.yaml` at the project root, `.venv/`, or `provision.log` at the project root.
@@ -458,18 +502,20 @@ git diff --check
 git status --short
 ```
 
-The laboratory is complete only when all of the following conditions are observable:
+The self-study sequence is ready for the scheduled demonstration only when all of the following conditions are observable. Instructor grading and acceptance of any manual-fallback justification occur during that demonstration; they are not state-changing laboratory steps that the student must perform in advance:
 
 - all public tests pass;
 - the proposal validates;
 - an apply without a decision was previously shown to fail;
 - the final decision explicitly approves the same `proposal_id` and SHA-256 content digest as the proposal;
-- the accepted contract records the human approval and can be regenerated from the proposal and decision;
+- the accepted contract records the approved outcome and supplied attribution and can be regenerated from the proposal and decision; the report and, on an agent path, proposer-session evidence attribute the authority-bearing commands to the student;
+- the agent path includes genuine proposer-session evidence, or `REPORT.md` contains the manual-fallback justification and available sanitized failure evidence for instructor review; the fallback makes no AI-authorship or proposer-session claim and explains that it does not demonstrate live AI/student actor separation;
 - the second workstation configuration apply converges without unintended reinstallations, or the Linux second capability check reports unchanged versions;
 - `origin` is the student's fork, `upstream` is `sobol-mo/ai-systems-design-course`, and the personal branch is not `main`;
 - committed paths are under `student/` and `reports/` only;
 - the external Markdown vault contains its neutral `README.md`, remains outside Git, and its current off-device protection or known limitation is stated in `REPORT.md`;
-- the committed and submitted evidence contains no credentials or private content.
+- `sources/module-01-ai-engineering-foundations.md` in that vault records the theory path and the complete clone commit, while the vault contains no structured concept, graph-index, or vector-index output;
+- the committed and submitted evidence contains no credentials, tokens, authentication secrets, or unrelated private content.
 
 ## Submission artifacts
 
@@ -490,7 +536,7 @@ The submitted commit is the reviewable implementation state. Microsoft Teams is 
 
 1. Which evidence in this laboratory distinguishes an engineered AI-system workflow from a successful model demonstration?
 2. Why is `boundary-proposal.yaml` not an accepted system contract even after it passes structural validation?
-3. Which actor has proposal authority, which actor has approval authority, and how does the implementation enforce the distinction?
+3. Which actor has proposal authority, which actor has approval authority, which parts of that distinction are enforced by the project CLI, and which parts remain governance rules demonstrated by evidence?
 4. Why must a rejected decision not be edited into an approval?
 5. What makes the usefulness condition more informative than a statement that the output “looks good”?
 6. How does the non-AI baseline help decide whether the AI component is justified?
@@ -499,7 +545,7 @@ The submitted commit is the reviewable implementation state. Microsoft Teams is 
 9. Why is the external Markdown vault kept outside the Git repository, and which recovery mechanism protects it from workstation loss?
 10. Which design trade-off was made in the accepted boundary, and what evidence could cause that decision to be revised?
 11. What is the difference between `origin` and `upstream` in this laboratory, and which directories may the student commit?
-12. Why may a student use a different agent subscription than Antigravity CLI, and which proposal file and gates must remain the same?
+12. Why may a student use a different agent subscription or the documented manual fallback, and which proposal file and deterministic gates must remain the same?
 
 ## Optional extension
 
