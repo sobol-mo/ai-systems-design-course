@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Потік оцінювання доцільності застосування ШІ</title>
+  <desc id="desc">Потік рішень перевіряє результат, достатність детермінованого програмного забезпечення, допустимі помилки, повноваження людини та вимірну корисність перед переходом до обмеженого експерименту з ШІ.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker><style>.title{font:700 28px system-ui,sans-serif;fill:#0f172a}.q{fill:#e0f2fe;stroke:#0284c7;stroke-width:2.5}.stop{fill:#fee2e2;stroke:#dc2626;stroke-width:2.5}.go{fill:#dcfce7;stroke:#059669;stroke-width:3}.label{font:700 16px system-ui,sans-serif;fill:#0f172a}.small{font:14px system-ui,sans-serif;fill:#334155}.line{fill:none;stroke:#475569;stroke-width:2.5;marker-end:url(#arrow)}.edge{font:700 14px system-ui,sans-serif;fill:#475569}</style></defs>
+  <rect width="1200" height="760" fill="#ffffff"/>
+  <text x="600" y="48" text-anchor="middle" class="title">Оцініть сценарій використання до вибору моделі</text>
+  <rect x="350" y="85" width="500" height="78" rx="14" class="q"/>
+  <text x="600" y="117" text-anchor="middle" class="label">Чи є бажаний користувацький або організаційний результат чітким?</text>
+  <text x="600" y="143" text-anchor="middle" class="small">Назвіть зміну, а не «використовувати ШІ».</text>
+  <path d="M600 163 V210" class="line"/><text x="615" y="195" class="edge">так</text>
+  <path d="M350 124 H285" class="line"/><text x="310" y="113" class="edge">ні</text>
+  <rect x="25" y="85" width="260" height="78" rx="14" class="stop"/>
+  <text x="142" y="118" text-anchor="middle" class="label">Повернутися до з’ясування</text><text x="142" y="143" text-anchor="middle" class="small">Спочатку уточніть проблему</text>
+  <rect x="350" y="210" width="500" height="78" rx="14" class="q"/>
+  <text x="600" y="242" text-anchor="middle" class="label">Чи може детерміноване програмне забезпечення задовольнити потребу?</text>
+  <text x="600" y="268" text-anchor="middle" class="small">Надайте перевагу простішому достатньому механізму.</text>
+  <path d="M350 249 H285" class="line"/><text x="310" y="238" class="edge">так</text>
+  <rect x="25" y="210" width="260" height="78" rx="14" class="stop"/>
+  <text x="142" y="243" text-anchor="middle" class="label">Використати детерміновану логіку</text><text x="142" y="268" text-anchor="middle" class="small">ШІ не потрібен</text>
+  <path d="M600 288 V335" class="line"/><text x="615" y="320" class="edge">ні</text>
+  <rect x="350" y="335" width="500" height="92" rx="14" class="q"/>
+  <text x="600" y="367" text-anchor="middle" class="label">Чи зрозумілі ймовірні помилки та їхні наслідки?</text>
+  <text x="600" y="393" text-anchor="middle" class="small">Урахуйте постраждалих людей, приватність, вартість і відновлення.</text>
+  <path d="M850 381 H950" class="line"/><text x="890" y="369" class="edge">ні</text>
+  <rect x="950" y="335" width="225" height="92" rx="14" class="stop"/>
+  <text x="1057" y="370" text-anchor="middle" class="label">Дослідити ризики</text><text x="1057" y="396" text-anchor="middle" class="small">Поки не автоматизуйте</text>
+  <path d="M600 427 V475" class="line"/><text x="615" y="459" class="edge">так</text>
+  <rect x="350" y="475" width="500" height="92" rx="14" class="q"/>
+  <text x="600" y="507" text-anchor="middle" class="label">Чи є повноваження людини явними?</text>
+  <text x="600" y="533" text-anchor="middle" class="small">Порада, обмежена автоматизація, ескалація або безпосередня дія.</text>
+  <path d="M850 521 H950" class="line"/><text x="890" y="509" class="edge">ні</text>
+  <rect x="950" y="475" width="225" height="92" rx="14" class="stop"/>
+  <text x="1057" y="510" text-anchor="middle" class="label">Визначити повноваження</text><text x="1057" y="536" text-anchor="middle" class="small">Додати затвердження та запасний шлях</text>
+  <path d="M600 567 V615" class="line"/><text x="615" y="600" class="edge">так</text>
+  <rect x="350" y="615" width="500" height="92" rx="14" class="go"/>
+  <text x="600" y="650" text-anchor="middle" class="label">Провести обмежений вимірний експеримент із ШІ</text>
+  <text x="600" y="678" text-anchor="middle" class="small">Визначте поріг корисності до реалізації.</text>
+</svg>

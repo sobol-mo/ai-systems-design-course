@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Ітеративний життєвий цикл системи ШІ</title>
+  <desc id="desc">Циклічний життєвий цикл за годинниковою стрілкою переходить від окреслення обсягу через поріг, проєктування, побудову, оцінювання, контрольований випуск, спостереження та перегляд, а потім повертається до окреслення обсягу.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>.title{font:700 29px system-ui,sans-serif;fill:#0f172a}.box{fill:#f8fafc;stroke:#0f766e;stroke-width:2.5}.label{font:700 17px system-ui,sans-serif;fill:#0f172a}.small{font:14px system-ui,sans-serif;fill:#334155}.line{fill:none;stroke:#475569;stroke-width:3;marker-end:url(#arrow)}.center{fill:#fff7ed;stroke:#ea580c;stroke-width:3}</style>
+  </defs>
+  <rect width="1200" height="760" fill="#ffffff"/>
+  <text x="600" y="48" text-anchor="middle" class="title">Розроблення системи ШІ — це цикл, керований свідченнями</text>
+  <path d="M800 145 C890 160 955 220 990 275" class="line"/>
+  <path d="M1010 395 C1005 450 980 485 950 515" class="line"/>
+  <path d="M795 595 C780 610 770 625 755 640" class="line"/>
+  <path d="M445 640 C430 630 415 620 395 610" class="line"/>
+  <path d="M260 515 C200 470 175 425 190 377" class="line"/>
+  <path d="M200 275 C230 220 270 195 330 188" class="line"/>
+  <path d="M475 120 C500 98 520 98 535 110" class="line"/>
+  <rect x="540" y="92" width="260" height="92" rx="14" class="box"/>
+  <text x="670" y="128" text-anchor="middle" class="label">1. Окреслити обсяг</text><text x="670" y="154" text-anchor="middle" class="small">Результат, зацікавлені сторони, обмеження</text>
+  <rect x="845" y="280" width="280" height="92" rx="14" class="box"/>
+  <text x="980" y="316" text-anchor="middle" class="label">2. Встановити поріг</text><text x="980" y="342" text-anchor="middle" class="small">Корисна, безпечна, швидка, доступна</text>
+  <rect x="800" y="520" width="290" height="92" rx="14" class="box"/>
+  <text x="940" y="556" text-anchor="middle" class="label">3. Спроєктувати та побудувати</text><text x="940" y="582" text-anchor="middle" class="small">Межа, повноваження, компоненти</text>
+  <rect x="450" y="600" width="300" height="92" rx="14" class="box"/>
+  <text x="600" y="636" text-anchor="middle" class="label">4. Оцінити</text><text x="600" y="662" text-anchor="middle" class="small">Компоненти та наскрізна поведінка</text>
+  <rect x="110" y="520" width="300" height="92" rx="14" class="box"/>
+  <text x="260" y="556" text-anchor="middle" class="label">5. Контрольований випуск</text><text x="260" y="582" text-anchor="middle" class="small">Обмежені користувачі та наслідки</text>
+  <rect x="75" y="280" width="290" height="92" rx="14" class="box"/>
+  <text x="220" y="316" text-anchor="middle" class="label">6. Спостерігати</text><text x="220" y="342" text-anchor="middle" class="small">Якість, відмови, затримка, вартість</text>
+  <rect x="205" y="92" width="270" height="92" rx="14" class="box"/>
+  <text x="340" y="128" text-anchor="middle" class="label">7. Переглянути</text><text x="340" y="154" text-anchor="middle" class="small">Припущення, дані, модель, проєктування</text>
+  <circle cx="600" cy="380" r="145" class="center"/>
+  <text x="600" y="348" text-anchor="middle" class="label">Свідчення промислової експлуатації</text>
+  <text x="600" y="382" text-anchor="middle" class="small">виявляють хибні припущення</text>
+  <text x="600" y="410" text-anchor="middle" class="small">і створюють наступну ітерацію</text>
+</svg>

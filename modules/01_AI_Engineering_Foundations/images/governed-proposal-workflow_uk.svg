@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Керована зміна від кандидатної пропозиції до прийнятого стану</title>
+  <desc id="desc">На звичайному шляху асистент ШІ записує кандидатну пропозицію. За задокументованого запасного шляху без агента студент записує такого самого кандидата, не заявляючи про авторство ШІ. Команда validate перевіряє структуру й нічого не записує. Студент розглядає значення. Команда decide записує затвердження або відхилення, прив’язане до дайджесту SHA-256. Команда apply записує прийнятий артефакт лише тоді, коли це затверджене рішення все ще відповідає пропозиції. Запасний шлях зберігає ці контроли артефактів, але не демонструє живого розділення між акторами ШІ та студента.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+    <style>
+      .title{font:700 26px system-ui,sans-serif;fill:#0f172a}
+      .label{font:700 16px system-ui,sans-serif;fill:#0f172a}
+      .small{font:13px system-ui,sans-serif;fill:#334155}
+      .edge{font:700 13px system-ui,sans-serif;fill:#475569}
+      .note{font:700 15px system-ui,sans-serif;fill:#9a3412}
+      .ai{fill:#fff7ed;stroke:#ea580c;stroke-width:2.5}
+      .wf{fill:#ecfdf5;stroke:#0f766e;stroke-width:2.5}
+      .hum{fill:#e0f2fe;stroke:#0284c7;stroke-width:2.5}
+      .ok{fill:#dcfce7;stroke:#059669;stroke-width:3}
+      .stop{fill:#fee2e2;stroke:#dc2626;stroke-width:2.5}
+      .card{fill:#f8fafc;stroke:#334155;stroke-width:2}
+      .line{fill:none;stroke:#475569;stroke-width:2.5;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="900" fill="#ffffff"/>
+  <text x="600" y="42" text-anchor="middle" class="title">Кандидатна пропозиція не є прийнятою зміною</text>
+
+  <rect x="70" y="62" width="330" height="44" rx="10" class="ai"/>
+  <text x="235" y="90" text-anchor="middle" class="label">Звичайний шлях — ШІ записує лише кандидата</text>
+  <rect x="430" y="62" width="340" height="44" rx="10" class="hum"/>
+  <text x="600" y="90" text-anchor="middle" class="label">Студент — розглядає; виконує CLI проєкту</text>
+  <rect x="800" y="62" width="330" height="44" rx="10" class="wf"/>
+  <text x="965" y="90" text-anchor="middle" class="label">Робочий процес — перевіряє та записує файли</text>
+
+  <rect x="40" y="140" width="200" height="96" rx="14" class="ai"/>
+  <text x="140" y="178" text-anchor="middle" class="label">1. Запропонувати</text>
+  <text x="140" y="198" text-anchor="middle" class="small">Зазвичай записує ШІ</text>
+  <text x="140" y="218" text-anchor="middle" class="small">Студент на ручному запасному шляху</text>
+  <path d="M240 188 H276" class="line"/>
+
+  <rect x="276" y="140" width="200" height="96" rx="14" class="wf"/>
+  <text x="376" y="178" text-anchor="middle" class="label">2. validate</text>
+  <text x="376" y="204" text-anchor="middle" class="small">Лише схема; без запису</text>
+  <path d="M476 188 H512" class="line"/>
+
+  <rect x="512" y="140" width="200" height="96" rx="14" class="hum"/>
+  <text x="612" y="178" text-anchor="middle" class="label">3. Семантичний розгляд</text>
+  <text x="612" y="204" text-anchor="middle" class="small">Студент оцінює значення</text>
+  <path d="M712 188 H748" class="line"/>
+
+  <rect x="748" y="140" width="200" height="96" rx="14" class="wf"/>
+  <text x="848" y="178" text-anchor="middle" class="label">4. decide</text>
+  <text x="848" y="204" text-anchor="middle" class="small">Прив’язати дайджест; затвердити або відхилити</text>
+  <path d="M948 188 H984" class="line"/>
+
+  <rect x="984" y="140" width="176" height="96" rx="14" class="ok"/>
+  <text x="1072" y="178" text-anchor="middle" class="label">5. apply</text>
+  <text x="1072" y="204" text-anchor="middle" class="small">Записати прийнятий стан</text>
+  <path d="M1072 236 V268" class="line"/>
+
+  <rect x="40" y="268" width="200" height="150" rx="14" class="card"/>
+  <text x="140" y="300" text-anchor="middle" class="label">Пропозиція</text>
+  <text x="140" y="326" text-anchor="middle" class="small">boundary-proposal.yaml</text>
+  <text x="140" y="350" text-anchor="middle" class="small">Уповноважений засіб запису: ШІ або студент</text>
+  <text x="140" y="374" text-anchor="middle" class="small">State: proposed</text>
+  <text x="140" y="398" text-anchor="middle" class="small">Без повноважень приймати</text>
+
+  <rect x="276" y="268" width="200" height="150" rx="14" class="card"/>
+  <text x="376" y="300" text-anchor="middle" class="label">Результат перевірки</text>
+  <text x="376" y="326" text-anchor="middle" class="small">Немає файлу рішення</text>
+  <text x="376" y="350" text-anchor="middle" class="small">Засіб запису: немає</text>
+  <text x="376" y="374" text-anchor="middle" class="small">Результат: valid або invalid</text>
+  <text x="376" y="398" text-anchor="middle" class="small">Не є семантичним доказом</text>
+
+  <rect x="512" y="268" width="200" height="150" rx="14" class="card"/>
+  <text x="612" y="300" text-anchor="middle" class="label">Запис розгляду</text>
+  <text x="612" y="326" text-anchor="middle" class="small">Відповіді у звіті, а не шлюз</text>
+  <text x="612" y="350" text-anchor="middle" class="small">Засіб запису звіту: студент</text>
+  <text x="612" y="374" text-anchor="middle" class="small">Без запису до канонічного стану</text>
+  <text x="612" y="398" text-anchor="middle" class="small">Значення, а не схема</text>
+
+  <rect x="748" y="268" width="200" height="150" rx="14" class="card"/>
+  <text x="848" y="300" text-anchor="middle" class="label">Рішення</text>
+  <text x="848" y="326" text-anchor="middle" class="small">boundary-decision.json</text>
+  <text x="848" y="350" text-anchor="middle" class="small">Уповноважений засіб запису: decide</text>
+  <text x="848" y="374" text-anchor="middle" class="small">Рішення: approved або rejected</text>
+  <text x="848" y="398" text-anchor="middle" class="small">Прив’язане до SHA-256 пропозиції</text>
+
+  <rect x="984" y="268" width="176" height="150" rx="14" class="card"/>
+  <text x="1072" y="292" text-anchor="middle" class="label">Прийнятий контракт</text>
+  <text x="1072" y="314" text-anchor="middle" class="small">student/design/</text>
+  <text x="1072" y="334" text-anchor="middle" class="small">learning-system-</text>
+  <text x="1072" y="354" text-anchor="middle" class="small">boundary.yaml</text>
+  <text x="1072" y="378" text-anchor="middle" class="small">Уповноважений засіб запису: apply</text>
+  <text x="1072" y="400" text-anchor="middle" class="small">Статус YAML: approved</text>
+
+  <path d="M376 418 V455" class="line"/>
+  <path d="M848 418 V455" class="line"/>
+  <path d="M1160 188 H1180 V501 H1160" class="line"/>
+
+  <rect x="276" y="455" width="200" height="92" rx="14" class="stop"/>
+  <text x="376" y="492" text-anchor="middle" class="label">Некоректно: зупинити</text>
+  <text x="376" y="518" text-anchor="middle" class="small">Немає рішення — немає прийнятого запису</text>
+  <text x="488" y="448" class="edge">помилка</text>
+
+  <rect x="748" y="455" width="200" height="92" rx="14" class="stop"/>
+  <text x="848" y="492" text-anchor="middle" class="label">Відхилено: зупинити</text>
+  <text x="848" y="518" text-anchor="middle" class="small">apply має відмовити</text>
+  <text x="860" y="448" class="edge">відхилити</text>
+
+  <rect x="960" y="455" width="200" height="92" rx="14" class="stop"/>
+  <text x="1060" y="486" text-anchor="middle" class="label">Відмовити в apply</text>
+  <text x="1060" y="510" text-anchor="middle" class="small">Відсутнє, неповне або</text>
+  <text x="1060" y="530" text-anchor="middle" class="small">невідповідний дайджест; без змін</text>
+  <text x="1110" y="448" class="edge">відмова</text>
+
+  <rect x="40" y="580" width="1120" height="88" rx="14" class="card"/>
+  <text x="600" y="616" text-anchor="middle" class="label">Прив’язування дайджесту</text>
+  <text x="600" y="644" text-anchor="middle" class="small">decide зберігає SHA-256 точних байтів пропозиції. Якщо ці байти пізніше зміняться, попереднє затвердження не уповноважує apply.</text>
+
+  <rect x="40" y="688" width="1120" height="146" rx="14" class="card"/>
+  <text x="600" y="716" text-anchor="middle" class="label">Артефакти та результати</text>
+  <text x="600" y="744" text-anchor="middle" class="small">Статус пропозиції: proposed • результат validate: valid або invalid • рішення: approved або rejected</text>
+  <text x="600" y="770" text-anchor="middle" class="small">Прийнятий контракт записується лише з узгодженого рішення approved; його статус YAML — approved.</text>
+  <text x="600" y="796" text-anchor="middle" class="small">Файли Лабораторної роботи 01 є аудиторськими артефактами під контролем Git; записи врядування сховища починаються лише тоді, коли змінюється канонічне знання.</text>
+  <text x="600" y="818" text-anchor="middle" class="small">Ручний запасний шлях змінює лише авторство кандидата і не демонструє живого розділення акторів ШІ та студента.</text>
+
+  <text x="600" y="852" text-anchor="middle" class="note">Роль асистента ШІ не охоплює запис рішення або прийнятого контракту.</text>
+  <text x="600" y="884" text-anchor="middle" class="small">Команди лабораторної роботи передають явні шляхи; діаграма скорочує шляхи пропозиції та рішення до назв артефактів.</text>
+</svg>
