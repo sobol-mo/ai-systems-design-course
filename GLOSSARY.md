@@ -40,7 +40,9 @@
 | Human-in-the-loop | Людина в контурі ухвалення рішень |
 | Inference | Виведення |
 | Iterative AI-system lifecycle | Ітеративний життєвий цикл системи ШІ |
+| Knowledge ingestion | Приймання та інтегрування знань |
 | Latency | Затримка |
+| Layer | Шар |
 | Learning knowledge system | Навчальна система знань |
 | Machine-learning engineering | Інженерія машинного навчання |
 | Maintainability | Супроводжуваність |
@@ -80,6 +82,7 @@
 | Telemetry | Телеметрія |
 | Tenant | Орендар |
 | Throughput | Пропускна здатність |
+| Tier | Рівень розгортання |
 | Token | Токен |
 | Tokenization | Токенізація |
 | Trade-off | Компроміс |
