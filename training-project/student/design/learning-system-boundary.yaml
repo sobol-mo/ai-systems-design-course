@@ -1,0 +1,36 @@
+schema_version: "1.0"
+proposal_id: lab01-learning-knowledge-boundary
+status: approved
+personal_domain: Software engineering study notes for backend application design.
+intended_learning_outcome: A student can trace an AI engineering concept from Module 01 to its source,
+  explain the accepted system boundary, and justify approval using preserved evidence.
+non_goals:
+  - The system does not ingest private personal notes, credentials, or high-consequence medical, legal,
+    financial, or safety-critical decision data.
+  - Laboratory 01 does not create concept records, graph indexes, vector indexes, or a production architecture
+    for the complete knowledge system.
+governance:
+  ai_role: Propose a bounded system description and expose uncertainty without accepting changes.
+  deterministic_role: Validate the candidate, bind the decision to its digest, and apply only approved
+    content.
+  human_role: Review meaning and explicitly approve or reject the proposal before application.
+usefulness_condition: The workflow is useful when the accepted vault source, proposal, decision, and applied
+  boundary let the student answer review questions from preserved evidence without treating model output
+  as accepted knowledge.
+material_risk: A plausible failure is approving a fluent but poorly grounded proposal, causing later course
+  work to build on an incorrect boundary even though structural validation succeeded.
+non_ai_baseline: A simpler baseline is a manual Markdown checklist with the source path, commit hash,
+  semantic-review answers, and a human-written boundary summary.
+uncertainty: Later modules may refine schemas, relation vocabulary, and recovery expectations, so this
+  boundary only establishes the Laboratory 01 contour.
+required_evidence:
+  - Public Lab01 tests, environment doctor, validation, refused premature apply, approved decision, and
+    applied contract are preserved under reports/lab01.
+  - The report records semantic-review answers and references the supplied system brief, requirements
+    baseline, vault structure contract, and Module 01 theory.
+accepted:
+  source_proposal: boundary-proposal.yaml
+  proposal_sha256: fc85c066ad831023fa3d26f15985639a603650d21b4a76ebeb885c811b716d01
+  approved_by: exideys
+  approved_at: "2026-09-17T16:18:27.382972+00:00"
+  applied_at: "2026-09-17T16:18:27.599992+00:00"

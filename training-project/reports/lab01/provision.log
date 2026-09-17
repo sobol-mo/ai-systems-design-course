@@ -1,0 +1,30 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260917191013
+Username: DESKTOP-BJ7QUQM\lstar
+RunAs User: DESKTOP-BJ7QUQM\lstar
+Configuration Name:
+Machine: DESKTOP-BJ7QUQM (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new(); Start-Transcript -Path .\provision.log -Force; winget configure --file .\fixtures\windows\lab01-workstation.dsc.yaml --accept-configuration-agreements; winget configure --file .\fixtures\windows\lab01-workstation.dsc.yaml --accept-configuration-agreements; winget list --id Git.Git --exact --source winget; winget list --id GitHub.cli --exact --source winget; winget list --id astral-sh.uv --exact --source winget; winget list --id Obsidian.Obsidian --exact --source winget; Stop-Transcript
+Process ID: 33672
+PSVersion: 5.1.26100.9444
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9444
+BuildVersion: 10.0.26100.9444
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is .\provision.log
+
+
+
+
+
+
+**********************
+Windows PowerShell transcript end
+End time: 20260917191408
+**********************
