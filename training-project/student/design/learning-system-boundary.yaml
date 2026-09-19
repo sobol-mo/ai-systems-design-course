@@ -1,0 +1,33 @@
+schema_version: "1.0"
+proposal_id: lab01-boundary-software-architecture
+status: approved
+personal_domain: Архітектура програмного забезпечення та розподілені системи
+intended_learning_outcome: Формування обґрунтованого збереженими джерелами розуміння технічних концепцій
+  з можливістю простеження семантичних зв'язків, виявлення прогалин і передумов.
+non_goals:
+  - Автономна модифікація або пряме затвердження канонічних знань ШІ-асистентом без явного людського рішення.
+  - Побудова системи промислової експлуатації або прийняття критичних медичних, фінансових чи безпекових
+    рішень.
+governance:
+  ai_role: Propose a bounded system description and expose uncertainty without accepting changes.
+  deterministic_role: Validate the candidate, bind the decision to its digest, and apply only approved
+    content.
+  human_role: Review meaning and explicitly approve or reject the proposal before application.
+usefulness_condition: Відповіді та зв'язки між поняттями безпосередньо простежуються до першоджерел у
+  сховищі, а за відсутності доказів явно повертається статус недостатності свідчень.
+material_risk: Генерація ШІ правдоподібних, але необґрунтованих джерелами або хибних зв'язків і визначень,
+  які в разі недбалого людського розгляду забруднюють канонічну базу знань.
+non_ai_baseline: Ручне ведення каталогізованих Markdown-нотаток за типами записів з навігацією та пошуком
+  за точними ключовими словами без допомоги ШІ.
+uncertainty: Ступінь достатності початкового нормалізованого словника семантичних зв'язків для вираження
+  всіх нюансів предметної сфери без ускладнення людського розгляду.
+required_evidence:
+  - Успішне проходження детермінованої структурної валідації кандидата валідатором схеми.
+  - Зафіксоване явне рішення студента про схвалення, прив'язане до SHA-256 дайджесту пропозиції та верифіковане
+    на обґрунтованість джерелами.
+accepted:
+  source_proposal: boundary-proposal.yaml
+  proposal_sha256: 8ee5a757788ddb557e6bd132f2ecafd65f0ba7ea8eb1442309b8886f4333fb2d
+  approved_by: kn1223b-lavrinenko
+  approved_at: "2026-09-19T13:10:44.814235+00:00"
+  applied_at: "2026-09-19T13:11:46.993559+00:00"
