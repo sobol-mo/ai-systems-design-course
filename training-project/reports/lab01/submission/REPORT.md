@@ -6,7 +6,7 @@
 
 - URL форку: https://github.com/MoskMD/ai-systems-design-course
 - Назва гілки: lab01/moskmd
-- Повний хеш коміту: 1e73758cc4165eb9ccc19771af5503855542a24e
+- Повний хеш коміту: 7908a25c1e4c4f2a2ee7564d16c9ea2d84adf31c
 
 ## Середовище
 
