@@ -1,0 +1,22 @@
+# Candidate for Laboratory 01: normally AI-generated; student-authored only on the documented no-agent fallback.
+# Replace the instructional values, but preserve every field and keep status proposed.
+schema_version: "1.0"
+proposal_id: lab01-boundary-software-engineering
+status: proposed
+personal_domain: software-engineering
+intended_learning_outcome: Trace technical concepts to version-controlled source evidence, identify missing prerequisites, and verify relations against accepted course knowledge.
+non_goals:
+  - Autonomously mutating canonical knowledge or bypassing explicit human decision authority.
+  - Training a foundation model from scratch or making high-consequence safety-critical decisions.
+governance:
+  ai_role: Propose a bounded system description and expose uncertainty without accepting changes.
+  deterministic_role: Validate the candidate, bind the decision to its digest, and apply only approved content.
+  human_role: Review meaning and explicitly approve or reject the proposal before application.
+usefulness_condition: The system links accepted concepts to version-controlled source records and surfaces missing prerequisites for human review.
+material_risk: A proposed interpretation introduces plausible but incorrect semantic relations that escape student review and corrupt canonical knowledge.
+non_ai_baseline: Manual Markdown note-taking using exact keyword search, faceted tags, and direct links without automated candidate proposal or extraction.
+uncertainty: The closed course vocabulary for typed relations and evaluation thresholds for semantic extraction have not yet been formalized.
+required_evidence:
+  - Deterministic validation of the proposal schema, digest binding, and refusal of unapproved changes.
+  - Explicit human semantic review and source-grounding verification recorded in the decision artifact and report.
+

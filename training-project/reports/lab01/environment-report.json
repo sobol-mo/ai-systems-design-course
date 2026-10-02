@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "host": {
+    "system": "windows",
+    "release": "10",
+    "build": 19045
+  },
+  "preflight": "green",
+  "capabilities": {
+    "git": {
+      "status": "available",
+      "detail": "git version 2.55.0.windows.3"
+    },
+    "github_cli": {
+      "status": "available",
+      "detail": "gh version 2.101.0 (2026-09-15)"
+    },
+    "uv": {
+      "status": "available",
+      "detail": "uv 0.12.17 (635500036 2026-09-18 x86_64-pc-windows-msvc)"
+    },
+    "agy": {
+      "status": "authenticated",
+      "detail": "models available"
+    },
+    "obsidian": {
+      "status": "available",
+      "detail": "application detected"
+    }
+  }
+}

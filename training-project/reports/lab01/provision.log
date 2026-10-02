@@ -1,0 +1,122 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260920021336
+Username: DESKTOP-VHC2EMI\ultra
+RunAs User: DESKTOP-VHC2EMI\ultra
+Configuration Name: 
+Machine: DESKTOP-VHC2EMI (Microsoft Windows NT 10.0.19045.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 17364
+PSVersion: 5.1.19041.6456
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.6456
+BuildVersion: 10.0.19041.6456
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is .\provision.log
+OsVersion
+  Require Windows 11 or newer.
+  Module: Microsoft.Windows.Developer by Microsoft Corporation [Local]
+    https://github.com/microsoft/winget-dsc
+    DSC Resource for Windows
+  Settings:
+    MinVersion: 10.0.22000
+WinGetPackage [git]
+  Git for Windows.
+  Module: Microsoft.WinGet.DSC by Microsoft Corporation [PSGallery]
+    PowerShell Module with DSC resources related to WinGet configurations
+  Settings:
+    id: Git.Git
+    source: winget
+WinGetPackage [uv]
+  uv, the Python project and environment manager.
+  Module: Microsoft.WinGet.DSC by Microsoft Corporation [PSGallery]
+    PowerShell Module with DSC resources related to WinGet configurations
+  Settings:
+    id: astral-sh.uv
+    source: winget
+WinGetPackage [github-cli]
+  GitHub CLI for fork and pull-request delivery.
+  Module: Microsoft.WinGet.DSC by Microsoft Corporation [PSGallery]
+    PowerShell Module with DSC resources related to WinGet configurations
+  Settings:
+    id: GitHub.cli
+    source: winget
+WinGetPackage [obsidian]
+  Obsidian, the Markdown vault editor.
+  Module: Microsoft.WinGet.DSC by Microsoft Corporation [PSGallery]
+    PowerShell Module with DSC resources related to WinGet configurations
+  Settings:
+    id: Obsidian.Obsidian
+    source: winget
+You are responsible for understanding the configuration settings you are choosing to execute. Microsoft is not responsible for the con
+figuration file you have authored or imported. This configuration may change settings in Windows, install software, change software se
+ttings (including security settings), and accept user agreements to third-party packages and services on your behalf.  By running this
+ configuration file, you acknowledge that you understand and agree to these resources and settings. Any applications installed are lic
+ensed to you by their owners. Microsoft is not responsible for, nor does it grant any licenses to, third-party packages or services.
+OsVersion
+  The system is not in the desired state asserted by the configuration.
+WinGetPackage [git]
+  This configuration unit was not run because an assert failed or was false.
+WinGetPackage [uv]
+  This configuration unit was not run because an assert failed or was false.
+WinGetPackage [github-cli]
+  This configuration unit was not run because an assert failed or was false.
+WinGetPackage [obsidian]
+  This configuration unit was not run because an assert failed or was false.
+Some of the configuration was not applied successfully.
+Found an existing package already installed. Trying to upgrade the installed package...
+No available upgrade found.
+No newer package versions are available from the configured sources.
+Found GitHub CLI [GitHub.cli] Version 2.101.0
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://github.com/cli/cli/releases/download/v2.101.0/gh_2.101.0_windows_amd64.msi
+  ██████████████████████████████  14.9 MB / 14.9 MB
+Successfully verified installer hash
+Starting package install...
+Successfully installed
+Found uv [astral-sh.uv] Version 0.12.17
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+This package requires the following dependencies:
+  - Packages
+      Microsoft.VCRedist.2015+.x64
+Downloading https://github.com/astral-sh/uv/releases/download/0.12.17/uv-x86_64-pc-windows-msvc.zip
+  ██████████████████████████████  17.0 MB / 17.0 MB
+Successfully verified installer hash
+Extracting archive...
+Successfully extracted archive
+Starting package install...
+Command line alias added: "uvx"
+Command line alias added: "uv"
+Command line alias added: "uvw"
+Path environment variable modified; restart your shell to use the new value.
+Successfully installed
+Found Obsidian [Obsidian.Obsidian] Version 1.13.7
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://github.com/obsidianmd/obsidian-releases/releases/download/v1.13.7/Obsidian-1.13.7.exe
+  ██████████████████████████████   315 MB /  315 MB
+Successfully verified installer hash
+Starting package install...
+Successfully installed
+Name Id      Version
+---------------------
+Git  Git.Git 2.55.0.3
+Name       Id         Version
+-----------------------------
+GitHub CLI GitHub.cli 2.101.0
+Name Id           Version
+-------------------------
+uv   astral-sh.uv 0.12.17
+Name     Id                Version
+----------------------------------
+Obsidian Obsidian.Obsidian 1.13.7
+**********************
+Windows PowerShell transcript end
+End time: 20260920021835
+**********************
