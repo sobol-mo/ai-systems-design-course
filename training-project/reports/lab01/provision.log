@@ -1,0 +1,55 @@
+﻿**********************
+Начало записи сценария Windows PowerShell
+Время начала: 20260919125008
+Имя пользователя: POLINA-LAVRINEN\Polina
+Запуск от имени пользователя: POLINA-LAVRINEN\Polina
+Имя конфигурации: 
+Компьютер: POLINA-LAVRINEN (Microsoft Windows NT 10.0.26200.0)
+Ведущее приложение: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe
+ИД процесса: 1172
+PSVersion: 5.1.26100.9444
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9444
+BuildVersion: 10.0.26100.9444
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Транскрибирование запущено, выходной файл .\provision.log
+PS C:\Users\Polina\projects\ai-systems-design-course\training-project> winget configure --file .\fixtures\windows\lab01-workstation-windows11.dsc.yaml --accept-configuration-agreements
+    id: Obsidian.Obsidian
+    source: winget
+Вы самостоятельно отвечаете за понимание параметров конфигурации, которую собираетесь выполнить. Корпорация Майкрософт не несет
+ ответственности за файл конфигурации, который вы создали или импортировали. Эта конфигурация может изменить параметры Windows,
+ установить программное обеспечение, изменить параметры установленного программного обеспечения (включая параметры безопасности
+), а также принять от вашего имени пользовательские соглашения для сторонних пакетов программ и служб. Запуская этот файл конфи
+гурации, вы подтверждаете, что понимаете состав этих ресурсов и параметров и соглашаетесь их применить. Любые установленные при
+ложения лицензируются их владельцами. Майкрософт не несет ответственности за сторонние пакеты программ или службы и не предоста
+вляет для них никаких лицензий.
+OsVersion
+  Элемент успешно применен.
+WinGetPackage [git]
+  Элемент успешно применен.
+WinGetPackage [uv]
+  Элемент успешно применен.
+WinGetPackage [github-cli]
+  Элемент успешно применен.
+WinGetPackage [obsidian]
+  Элемент успешно применен.
+Конфигурация применена.
+PS C:\Users\Polina\projects\ai-systems-design-course\training-project> winget configure --file .\fixtures\windows\lab01-workstation-windows11.dsc.yaml --accept-configuration-agreements
+
+PS C:\Users\Polina\projects\ai-systems-design-course\training-project> winget list --id Git.Git --exact --source winget
+
+PS C:\Users\Polina\projects\ai-systems-design-course\training-project> winget list --id GitHub.cli --exact --source winget
+
+PS C:\Users\Polina\projects\ai-systems-design-course\training-project> winget list --id astral-sh.uv --exact --source winget
+
+PS C:\Users\Polina\projects\ai-systems-design-course\training-project> winget list --id Obsidian.Obsidian --exact --source winget
+
+PS C:\Users\Polina\projects\ai-systems-design-course\training-project> Stop-Transcript
+**********************
+Конец записи протокола Windows PowerShell
+Время окончания: 20260919125456
+**********************
