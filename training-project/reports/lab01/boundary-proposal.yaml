@@ -1,0 +1,19 @@
+schema_version: "1.0"
+proposal_id: lab01-boundary-distributed-systems
+status: proposed
+personal_domain: distributed systems
+intended_learning_outcome: Explain how replicated state machines preserve consensus and availability under network partitions.
+non_goals:
+  - Building a real-time production cluster deployment.
+  - Changing canonical notes and concepts without explicit human review and approval.
+governance:
+  ai_role: Propose a bounded system description and expose uncertainty without accepting changes.
+  deterministic_role: Validate the candidate, bind the decision to its digest, and apply only approved content.
+  human_role: Review meaning and explicitly approve or reject the proposal before application.
+usefulness_condition: The system links technical explanations directly to preserved source evidence and identifies missing prerequisite concepts.
+material_risk: Generated explanations may hallucinate formal consensus invariants not supported by the cited literature.
+non_ai_baseline: Search curated Markdown technical notes by exact keywords and cross-references.
+uncertainty: The initial relationship vocabulary may not fully capture distributed consensus nuances.
+required_evidence:
+  - A passing deterministic validation result confirming schema compliance.
+  - A recorded human decision bound to the exact proposal content digest.
