@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "validation_id": "lab02-structured-output-live-primary-02-validation",
+  "proposal_id": "lab02-structured-output-live-primary-02",
+  "proposal_sha256": "33618df214e8a63bbf1bb802eeee7453dedc007b692841c7c9aeb44a1844b1e3",
+  "validator_version": "1.0",
+  "syntactic_gate": {
+    "status": "passed",
+    "errors": []
+  },
+  "invariant_gate": {
+    "status": "passed",
+    "errors": []
+  },
+  "errors": [],
+  "valid": true,
+  "checked_at": "2026-10-05T17:24:03.559644+00:00"
+}
