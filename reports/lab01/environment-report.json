@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "host": {
+    "system": "windows",
+    "release": "10",
+    "build": 22631
+  },
+  "preflight": "red",
+  "capabilities": {
+    "git": {
+      "status": "available",
+      "detail": "git version 2.56.0.windows.2"
+    },
+    "github_cli": {
+      "status": "unavailable",
+      "detail": "command unavailable"
+    },
+    "uv": {
+      "status": "available",
+      "detail": "uv 0.12.23 (46b84fd0b 2026-10-03 x86_64-pc-windows-msvc)"
+    },
+    "agy": {
+      "status": "unavailable",
+      "detail": "command unavailable"
+    },
+    "obsidian": {
+      "status": "unavailable",
+      "detail": "application unavailable"
+    }
+  }
+}
