@@ -131,7 +131,7 @@
 | Remote repository | Віддалений репозиторій |
 | Requirement | Вимога |
 | Requirements baseline | Базова лінія вимог |
-| Retrieval | Пошук |
+| Retrieval | Інформаційний пошук |
 | Retrieval-augmented generation | Генерування, доповнене пошуком |
 | Rollback | Відкат |
 | Rubric | Рубрика оцінювання |
