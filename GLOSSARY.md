@@ -97,6 +97,8 @@
 | Human evaluator | Оцінювач-людина |
 | Human revision | Виправлення людиною |
 | Human-in-the-loop | Людина в контурі ухвалення рішень |
+| Index preparation | Підготовка індексу |
+| Index version | Версія індексу |
 | Inference | Виведення |
 | Iterative AI-system lifecycle | Ітеративний життєвий цикл системи ШІ |
 | Knowledge owner | Власник знань |
@@ -138,6 +140,7 @@
 | Provisioning log | Журнал налаштування |
 | Quota | Квота |
 | Ranked candidate output | Ранжований кандидатний вихід |
+| Rebuild condition | Умова перебудови індексу |
 | Recall | Повнота виявлення |
 | Reference | Еталон |
 | Reference architecture | Еталонна архітектура |
@@ -181,6 +184,7 @@
 | Source-grounding | Обґрунтування джерелами |
 | Stable model boundary | Стабільна межа доступу до моделі |
 | Stakeholder | Зацікавлена сторона |
+| Stale index | Застарілий індекс |
 | Stress-test | Стрес-тест |
 | Structural validation | Структурна перевірка |
 | Structured output | Структурований вихід |
@@ -197,6 +201,7 @@
 | Transcript | Транскрипт |
 | Use case | Сценарій використання |
 | Usefulness threshold | Поріг корисності |
+| Vector index | Векторний індекс |
 | Vector-similarity measure | Міра векторної подібності |
 | Write-once | Одноразовий запис |
 | Zettelkasten | Метод Zettelkasten (картотека нотаток) |
