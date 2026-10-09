@@ -38,6 +38,8 @@
 | Candidate configuration | Кандидатна конфігурація |
 | Candidate output | Кандидатний вихід |
 | Candidate proposal | Кандидатна пропозиція |
+| Canonical knowledge collection | Канонічна колекція знань |
+| Canonical knowledge record | Канонічний запис знань |
 | Case | Випадок |
 | Clone | Клон |
 | Commit | Коміт |
@@ -61,6 +63,7 @@
 | Embeddings | Векторні подання |
 | Evaluation case | Випадок для оцінювання |
 | Evaluation set | Набір даних для оцінювання |
+| Evaluator-only expected result | Очікуваний результат, призначений лише для оцінювача |
 | Evaluator variability | Мінливість оцінювача |
 | Evidence-bound | Прив’язаний до свідчень |
 | Evolvability | Еволюційність |
@@ -83,6 +86,7 @@
 | Guardrails | Захисні бар’єри |
 | Held-out case | Відкладений випадок |
 | Host | Хост |
+| Human evaluator | Оцінювач-людина |
 | Human-in-the-loop | Людина в контурі ухвалення рішень |
 | Human revision | Виправлення людиною |
 | Inference | Виведення |
@@ -104,6 +108,7 @@
 | Mutation authority | Повноваження змінювати стан |
 | Next-token generation | Генерування наступного токена |
 | Non-goals | Нецілі |
+| Observation boundary | Межа спостереження |
 | Observability | Спостережуваність |
 | Offline comparison | Офлайн-порівняння |
 | Offline fixture | Детермінована тестова фікстура |
@@ -122,16 +127,23 @@
 | Provider-neutral | Нейтральний щодо постачальника |
 | Provisioning log | Журнал налаштування |
 | Quota | Квота |
+| Ranked candidate output | Ранжований кандидатний вихід |
 | Recall | Повнота виявлення |
 | Reference | Еталон |
 | Reference architecture | Еталонна архітектура |
 | Regression case | Випадок для регресійної перевірки |
 | Regression check | Регресійна перевірка |
+| Relevance | Релевантність |
+| Relevance judgment | Судження про релевантність |
 | Reliability | Надійність |
 | Remote repository | Віддалений репозиторій |
 | Requirement | Вимога |
 | Requirements baseline | Базова лінія вимог |
 | Retrieval | Інформаційний пошук |
+| Retrieval configuration | Конфігурація інформаційного пошуку |
+| Retrieval contract | Контракт інформаційного пошуку |
+| Retrieval operation | Операція інформаційного пошуку |
+| Retrieval unit | Одиниця інформаційного пошуку |
 | Retrieval-augmented generation | Генерування, доповнене пошуком |
 | Rollback | Відкат |
 | Rubric | Рубрика оцінювання |
@@ -153,6 +165,7 @@
 | Software design | Проєктування програмного забезпечення |
 | Software engineering | Програмна інженерія |
 | Source baseline | Базовий стан джерела |
+| Source fragment | Фрагмент джерела |
 | Source-grounding | Обґрунтування джерелами |
 | Stable model boundary | Стабільна межа доступу до моделі |
 | Stakeholder | Зацікавлена сторона |
@@ -163,6 +176,7 @@
 | System boundary | Межа системи |
 | Telemetry | Телеметрія |
 | Tenant | Орендар |
+| Text query | Текстовий запит |
 | Throughput | Пропускна здатність |
 | Token | Токен |
 | Tokenization | Токенізація |
