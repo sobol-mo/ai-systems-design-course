@@ -31,6 +31,7 @@
 | Autoregressive language model | Авторегресійна мовна модель |
 | Benchmark | Бенчмарк |
 | Binary source-support screening | Бінарний скринінг підкріплення джерелом |
+| Boundary rule | Правило межі |
 | Bounded configuration decision | Обмежене рішення щодо конфігурації |
 | Branch | Гілка |
 | Brief | Бриф |
@@ -41,6 +42,9 @@
 | Canonical knowledge collection | Канонічна колекція знань |
 | Canonical knowledge record | Канонічний запис знань |
 | Case | Випадок |
+| Chunk size | Розмір фрагмента |
+| Chunking | Розбивка на фрагменти |
+| Chunking configuration | Конфігурація розбивки на фрагменти |
 | Clone | Клон |
 | Commit | Коміт |
 | Confidence interval | Довірчий інтервал |
@@ -63,8 +67,8 @@
 | Embeddings | Векторні подання |
 | Evaluation case | Випадок для оцінювання |
 | Evaluation set | Набір даних для оцінювання |
-| Evaluator-only expected result | Очікуваний результат, призначений лише для оцінювача |
 | Evaluator variability | Мінливість оцінювача |
+| Evaluator-only expected result | Очікуваний результат, призначений лише для оцінювача |
 | Evidence-bound | Прив’язаний до свідчень |
 | Evolvability | Еволюційність |
 | Exact check | Точна перевірка |
@@ -87,8 +91,8 @@
 | Held-out case | Відкладений випадок |
 | Host | Хост |
 | Human evaluator | Оцінювач-людина |
-| Human-in-the-loop | Людина в контурі ухвалення рішень |
 | Human revision | Виправлення людиною |
+| Human-in-the-loop | Людина в контурі ухвалення рішень |
 | Inference | Виведення |
 | Iterative AI-system lifecycle | Ітеративний життєвий цикл системи ШІ |
 | Knowledge owner | Власник знань |
@@ -101,19 +105,20 @@
 | Maintainability | Супроводжуваність |
 | Markdown vault | Сховище Markdown-файлів |
 | Metric | Метрика |
-| Model-backed concept-proposal operation | Операція пропозиції поняття з використанням моделі |
 | Model gateway | Шлюз доступу до моделей |
 | Model under consideration | Модель, яку розглядають |
+| Model-backed concept-proposal operation | Операція пропозиції поняття з використанням моделі |
 | Modular monolith | Модульний моноліт |
 | Mutation authority | Повноваження змінювати стан |
 | Next-token generation | Генерування наступного токена |
 | Non-goals | Нецілі |
-| Observation boundary | Межа спостереження |
 | Observability | Спостережуваність |
+| Observation boundary | Межа спостереження |
 | Offline comparison | Офлайн-порівняння |
 | Offline fixture | Детермінована тестова фікстура |
 | Open-weight model | Модель з відкритими вагами |
 | Operator | Оператор |
+| Overlap | Перекриття |
 | Pairwise comparison | Парне порівняння |
 | Ports and adapters | Порти та адаптери |
 | Precision | Точність позитивних передбачень |
@@ -124,6 +129,7 @@
 | Proposal authority | Повноваження пропонувати зміни |
 | Proposer | Пропонувач |
 | Protocol artifact | Протокольний артефакт |
+| Provenance link | Зв’язок походження |
 | Provider-neutral | Нейтральний щодо постачальника |
 | Provisioning log | Журнал налаштування |
 | Quota | Квота |
