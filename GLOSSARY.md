@@ -57,6 +57,7 @@
 | Controllability | Керованість |
 | Controlled perturbation | Контрольоване збурення |
 | Convergence | Збіжність |
+| Cosine similarity | Косинусна подібність |
 | Criterion | Критерій |
 | Data leakage | Витік даних |
 | Design pattern | Патерн проєктування |
@@ -64,6 +65,9 @@
 | Development case | Випадок для розроблення |
 | Digest-bound | Прив’язаний дайджестом |
 | Direct model coupling | Пряме зв’язування з моделлю |
+| Embedding dimension | Розмірність векторного подання |
+| Embedding model | Модель векторного подання |
+| Embedding space | Простір векторних подань |
 | Embeddings | Векторні подання |
 | Evaluation case | Випадок для оцінювання |
 | Evaluation set | Набір даних для оцінювання |
@@ -166,6 +170,7 @@
 | Semantic similarity | Семантична подібність |
 | Serving | Обслуговування |
 | Shared experiment protocol | Спільний протокол експерименту |
+| Similarity score | Бал подібності |
 | Slash command | Слеш-команда |
 | Slice | Зріз даних |
 | Software architecture | Архітектура програмного забезпечення |
@@ -192,5 +197,6 @@
 | Transcript | Транскрипт |
 | Use case | Сценарій використання |
 | Usefulness threshold | Поріг корисності |
+| Vector-similarity measure | Міра векторної подібності |
 | Write-once | Одноразовий запис |
 | Zettelkasten | Метод Zettelkasten (картотека нотаток) |
