@@ -134,6 +134,7 @@
 | Regression case | Випадок для регресійної перевірки |
 | Regression check | Регресійна перевірка |
 | Relevance | Релевантність |
+| Relevance judging basis | Підстава для судження про релевантність |
 | Relevance judgment | Судження про релевантність |
 | Reliability | Надійність |
 | Remote repository | Віддалений репозиторій |
