@@ -17,6 +17,7 @@
 | AI judge | ШІ-оцінювач |
 | AI use-case screening | Оцінювання сценаріїв використання ШІ |
 | Approval authority | Повноваження затверджувати зміни |
+| Approximate nearest-neighbor search | Наближений пошук найближчих сусідів |
 | Architectural approach | Архітектурний підхід |
 | Architectural characteristic | Архітектурна характеристика |
 | Architectural decision | Архітектурне рішення |
@@ -68,6 +69,7 @@
 | Embedding dimension | Розмірність векторного подання |
 | Embedding model | Модель векторного подання |
 | Embedding space | Простір векторних подань |
+| Embedding-based retrieval | Пошук на основі векторних подань |
 | Embeddings | Векторні подання |
 | Evaluation case | Випадок для оцінювання |
 | Evaluation set | Набір даних для оцінювання |
@@ -97,6 +99,7 @@
 | Human evaluator | Оцінювач-людина |
 | Human revision | Виправлення людиною |
 | Human-in-the-loop | Людина в контурі ухвалення рішень |
+| Hybrid retrieval | Гібридний пошук |
 | Index preparation | Підготовка індексу |
 | Index version | Версія індексу |
 | Inference | Виведення |
@@ -104,6 +107,7 @@
 | Knowledge owner | Власник знань |
 | Latency | Затримка |
 | Learning knowledge system | Навчальна система знань |
+| Lexical retrieval | Лексичний пошук |
 | Lexical similarity | Лексична подібність |
 | Live run | Живий запуск |
 | Logical component | Логічний компонент |
@@ -138,6 +142,8 @@
 | Provenance link | Зв’язок походження |
 | Provider-neutral | Нейтральний щодо постачальника |
 | Provisioning log | Журнал налаштування |
+| Query embedding | Векторне подання запиту |
+| Querying | Виконання запиту |
 | Quota | Квота |
 | Ranked candidate output | Ранжований кандидатний вихід |
 | Rebuild condition | Умова перебудови індексу |
@@ -153,9 +159,11 @@
 | Remote repository | Віддалений репозиторій |
 | Requirement | Вимога |
 | Requirements baseline | Базова лінія вимог |
+| Reranking | Переранжування |
 | Retrieval | Інформаційний пошук |
 | Retrieval configuration | Конфігурація інформаційного пошуку |
 | Retrieval contract | Контракт інформаційного пошуку |
+| Retrieval mechanism | Механізм інформаційного пошуку |
 | Retrieval operation | Операція інформаційного пошуку |
 | Retrieval unit | Одиниця інформаційного пошуку |
 | Retrieval-augmented generation | Генерування, доповнене пошуком |
@@ -174,6 +182,7 @@
 | Serving | Обслуговування |
 | Shared experiment protocol | Спільний протокол експерименту |
 | Similarity score | Бал подібності |
+| Similarity search | Пошук за подібністю |
 | Slash command | Слеш-команда |
 | Slice | Зріз даних |
 | Software architecture | Архітектура програмного забезпечення |
@@ -196,6 +205,7 @@
 | Throughput | Пропускна здатність |
 | Token | Токен |
 | Tokenization | Токенізація |
+| Top-k retrieval | Пошук верхніх k |
 | Trade-off | Компроміс |
 | Trade-off analysis | Аналіз компромісів |
 | Transcript | Транскрипт |
