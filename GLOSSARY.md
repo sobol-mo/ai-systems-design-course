@@ -72,6 +72,7 @@
 | Embedding-based retrieval | Пошук на основі векторних подань |
 | Embeddings | Векторні подання |
 | Evaluation case | Випадок для оцінювання |
+| Evaluation case for the retrieval operation | Випадок для оцінювання операції інформаційного пошуку |
 | Evaluation set | Набір даних для оцінювання |
 | Evaluator variability | Мінливість оцінювача |
 | Evaluator-only expected result | Очікуваний результат, призначений лише для оцінювача |
@@ -127,11 +128,13 @@
 | Offline comparison | Офлайн-порівняння |
 | Offline fixture | Детермінована тестова фікстура |
 | Open-weight model | Модель з відкритими вагами |
+| Operational evidence | Операційні свідчення |
 | Operator | Оператор |
 | Overlap | Перекриття |
 | Pairwise comparison | Парне порівняння |
 | Ports and adapters | Порти та адаптери |
 | Precision | Точність позитивних передбачень |
+| Precision at k | Точність на k |
 | Preliminary check | Попередня перевірка |
 | Production AI system | Система ШІ в промисловій експлуатації |
 | Prompt | Промпт |
@@ -148,6 +151,7 @@
 | Ranked candidate output | Ранжований кандидатний вихід |
 | Rebuild condition | Умова перебудови індексу |
 | Recall | Повнота виявлення |
+| Recall at k | Повнота на k |
 | Reference | Еталон |
 | Reference architecture | Еталонна архітектура |
 | Regression case | Випадок для регресійної перевірки |
