@@ -1,0 +1,10 @@
+schema_version: '1.0'
+blind_id: blind-008
+category: Q
+source_pointer: The acceptance condition passes when the checked value is within the declared bound. The
+  note records two checked values for the same run and does not say which one the bound applies to.
+rationale: The source explicitly states that two checked values are recorded but does not identify which
+  value the declared bound applies to. The response correctly reports this unresolved ambiguity without
+  selecting an unsupported measurement.
+assessed_by: shymanovych-kn1223b
+recorded_at: '2026-10-18T09:14:24.683308+00:00'

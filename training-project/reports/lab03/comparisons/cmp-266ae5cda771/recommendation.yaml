@@ -1,0 +1,37 @@
+schema_version: '1.0'
+comparison_id: cmp-266ae5cda771
+outcome: seek-more-evidence
+rationale: Variant B achieved 5/6 (83.3%) semantic acceptance with zero critical unsupported claims, compared
+  with Variant A at 3/4 (75%) with one critical unsupported claim. Both variants met the observed 60-second
+  latency threshold. However, varying resolved provider models and unknown operational usage prevent a
+  sufficiently controlled conclusion that the instruction change alone justifies replacement.
+limitations:
+- Different resolved provider models across attempts
+- Monetary cost unknown
+- Token usage unknown
+- Quota usage unknown
+- Small number of assessable responses
+- Structural invalidity excluded several returned responses from semantic scoring
+blocking_failures: Any U (unsupported material claim) is a critical blocking failure for that variant.
+decision_rule:
+  recommend-b: B meets all acceptance conditions and demonstrates a justified improvement over A.
+  retain-a: A meets all acceptance conditions, while B does not demonstrate a justified improvement.
+  reject-both: Both variants violate at least one blocking condition.
+  seek-more-evidence: Relevant evidence is missing, insufficient, contradictory, or operational uncertainty
+    prevents a justified decision.
+nested_counts:
+  a:
+    attempted: 8
+    returned: 8
+    structurally_valid: 4
+    assessable: 4
+    rubric_acceptable: 3
+  b:
+    attempted: 8
+    returned: 8
+    structurally_valid: 6
+    assessable: 6
+    rubric_acceptable: 5
+protocol_freeze_id: cmp-266ae5cda771
+recorded_by: shymanovych-kn1223b
+recorded_at: '2026-10-18T09:20:26.830665+00:00'

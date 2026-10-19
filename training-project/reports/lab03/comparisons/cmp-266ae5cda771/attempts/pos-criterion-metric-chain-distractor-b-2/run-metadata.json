@@ -1,0 +1,9 @@
+{
+  "position_id": "pos-criterion-metric-chain-distractor-b-2",
+  "adapter": "openrouter",
+  "model_id": "openrouter/free",
+  "started_at": "2026-10-16T12:23:37.913582+00:00",
+  "finished_at": "2026-10-16T12:23:40.512297+00:00",
+  "recorded_by": "shymanovych-kn1223b",
+  "observed_model": "liquid/lfm-2.5-2.6b:free"
+}

@@ -1,0 +1,9 @@
+{
+  "position_id": "pos-criterion-metric-chain-ambiguous-acceptance-b-2",
+  "adapter": "openrouter",
+  "model_id": "openrouter/free",
+  "started_at": "2026-10-18T09:07:43.554380+00:00",
+  "finished_at": "2026-10-18T09:07:51.749239+00:00",
+  "recorded_by": "shymanovych-kn1223b",
+  "observed_model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+}
