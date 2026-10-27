@@ -1,0 +1,9 @@
+{
+  "position_id": "pos-criterion-metric-chain-plain-a-1",
+  "adapter": "openrouter",
+  "model_id": "openrouter/free",
+  "started_at": "2026-10-16T12:15:31.798409+00:00",
+  "finished_at": "2026-10-16T12:15:34.513370+00:00",
+  "recorded_by": "shymanovych-kn1223b",
+  "observed_model": "poolside/laguna-s-2.1:free"
+}

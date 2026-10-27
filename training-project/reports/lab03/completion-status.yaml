@@ -1,0 +1,17 @@
+schema_version: '1.0'
+status: complete
+stopped_at_step: Step 15
+limitation: No execution interruption; experimental limitations include small assessable sample, varying
+  provider models, and unknown cost, token, and quota usage.
+preserved_evidence: 'reports/lab03/calibration/
+
+  reports/lab03/comparisons/cmp-266ae5cda771/
+
+  reports/lab03/regression/
+
+  reports/lab03/screenshots/
+
+  reports/lab03/REPORT.md'
+recorded_by: shymanovych-kn1223b
+recorded_at: '2026-10-18T10:21:43.968483+00:00'
+event_count: 1

@@ -1,0 +1,13 @@
+schema_version: "1.0"
+review_id: lab02-structured-output-review
+proposal_id: lab02-structured-output-human-01
+proposal_sha256: "0cacd49d9ca5c35c3a0b663840cb2080374e66750e0bcf599aeff12e3c06a911"
+validation_id: lab02-structured-output-human-01-validation
+validation_sha256: "1252ea6cad5822bf156cdea9f84c97673aae4dd7ae6ba051867da45c502918a6"
+findings:
+  definition: "The definition correctly presents Structured Output as model output intended to follow an explicit machine-readable organization, consistent with the registered source fragment."
+  control_gates: "All three source-support quotations are exact and support their respective claim kinds. The candidate distinguishes the syntactic gate, deterministic invariant gate, and semantic acceptance gate without granting semantic authority to deterministic validation."
+  authority_boundary: "The candidate preserves the authority boundary: the model produces a candidate proposal, an authorized human reviewer examines its meaning and decides whether it may proceed, and a separately authorized application operation may write accepted state only for the exact reviewed candidate."
+rationale: "The candidate does not add unsupported meaning. Its key points are supported by the registered source fragment, and its tags describe the learning concepts of structured output, syntax, semantics, and authorization rather than provider or interaction-environment metadata. The candidate is therefore semantically acceptable."
+verdict: acceptable
+reviewed_by: "shymanovych-kn1223b"
