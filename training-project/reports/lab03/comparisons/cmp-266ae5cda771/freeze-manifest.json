@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "freeze_id": "cmp-266ae5cda771",
+  "comparison_dir": "/Users/hannashymanovych/projects/ai-systems-design-course/training-project/reports/lab03/comparisons/cmp-266ae5cda771",
+  "protocol": {
+    "engineering_decision": "Should Variant B replace Variant A for source-grounded answers to the evaluated tasks?",
+    "hypothesis": "Explicit source-grounding instructions in Variant B will reduce unsupported material claims while preserving complete answers when the source contains sufficient information.",
+    "semantic_acceptance": "For each variant, count S and Q responses that match the task's expected behavior as the numerator. Use all assessable responses (S, I, U, Q, R) as the denominator. Require at least 75% acceptance, with at least one assessable response.",
+    "blocking_failures": "Any U (unsupported material claim) is a critical blocking failure for that variant.",
+    "operational_acceptance": "Returned responses must have latency of at most 60 seconds, measured from attempt start to response return. Unknown latency or usage measurements must be reported as unknown and cannot establish operational superiority.",
+    "tradeoff_rule": "Recommend B over acceptable A only if B satisfies all blocking conditions, meets semantic and operational acceptance, and demonstrates better source support without worse meaning coverage. Do not claim dominance when a relevant dimension is unknown.",
+    "decision_rule": {
+      "recommend-b": "B meets all acceptance conditions and demonstrates a justified improvement over A.",
+      "retain-a": "A meets all acceptance conditions, while B does not demonstrate a justified improvement.",
+      "reject-both": "Both variants violate at least one blocking condition.",
+      "seek-more-evidence": "Relevant evidence is missing, insufficient, contradictory, or operational uncertainty prevents a justified decision."
+    },
+    "attempt_budget": 16,
+    "timing_boundary": "Elapsed time from the recorded start of an attempt until its returned response, measured identically for both variants.",
+    "route": {
+      "adapter": "openrouter",
+      "model_id": "openrouter/free"
+    },
+    "order_rule": "course-generated balanced schedule",
+    "resume_window": "48h"
+  },
+  "variant_a_sha256": "d765770175309f6014f3af33d845b730aa0d7323fccd57403e8146be4dc352ee",
+  "variant_b_sha256": "1188f3c84731590409416835ed9cb1db3615690b84bc7b3dad0d7024d8cd378a",
+  "change_declaration": {
+    "changed_property": "source-grounding policy",
+    "mechanism": "Variant A only asks the model to answer the task. Variant B explicitly requires source-supported statements and instructs the model to acknowledge when the supplied source does not specify the requested information. This change is intended to reduce unsupported claims without changing the task or JSON output contract.",
+    "declared_factors": [
+      "source-grounding policy"
+    ]
+  },
+  "route": {
+    "adapter": "openrouter",
+    "model_id": "openrouter/free"
+  },
+  "resume_window": "48h",
+  "eligible_reserve_count_at_freeze": 3,
+  "bindings": {
+    "output_schema_sha256": "6d3a945b100cb8f5eca5bd07b04c65cc1f16b82ee4751042ef9d3e2ab86733b2",
+    "case_family_contract_sha256": "56e5d974aa8a9b3cec98acd89a040817be24ce9338191b9e9f1b56c48eebc503",
+    "validator_module_sha256": "5703a29f0eda1e31b003acb2e212ee915587f7afda3e584fd860a9161dc616df",
+    "validator_schema_version": "1.0",
+    "development_schedule_sha256": "ff55feee5754d266df23238225681cabb292c55e782f919f1c278550771b665d",
+    "change_declaration_sha256": "bb2891cd2627e637c8dff7d342cc024dba61df8eae99a367ca01cd327f0f0b72",
+    "exposure_ledger_sha256": "a34c1a5a459235652961ed5654cf0e7cf17c2382f8d99cb17434a828ddc14a60"
+  },
+  "frozen_at": "2026-10-16T12:12:46.745297+00:00",
+  "frozen_by": "shymanovych-kn1223b"
+}

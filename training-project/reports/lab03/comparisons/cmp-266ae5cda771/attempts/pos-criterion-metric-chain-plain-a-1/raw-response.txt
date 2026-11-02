@@ -1,0 +1,4 @@
+{
+  "case_id": "criterion-metric-chain-plain",
+  "proposed_text": In evaluation design, a criterion and a metric are linked in a two-step relationship: the criterion defines the required quality property the system must satisfy, representing the target or standard of performance, while the metric provides a concrete, measurable value that can be compared against that criterion to determine whether the property is met. In other words, the criterion establishes what success looks like, and the metric supplies the numerical evidence needed to judge whether that success has been achieved, making the metric the operational tool used to evaluate adherence to the criterion.
+}

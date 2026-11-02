@@ -1,0 +1,9 @@
+{
+  "position_id": "pos-dev-approval-authority-absent-b-1",
+  "adapter": "openrouter",
+  "model_id": "openrouter/free",
+  "started_at": "2026-10-16T11:57:41.780758+00:00",
+  "finished_at": "2026-10-16T11:57:46.218281+00:00",
+  "recorded_by": "shymanovych-kn1223b",
+  "observed_model": "cohere/north-mini-code:free"
+}

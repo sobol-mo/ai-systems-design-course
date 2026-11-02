@@ -1,0 +1,10 @@
+schema_version: '1.0'
+blind_id: blind-010
+category: I
+source_pointer: The acceptance condition passes when the checked value is within the declared bound. The
+  note records two checked values for the same run and does not say which one the bound applies to.
+rationale: The response correctly mentions the checked value but fails to acknowledge that the note contains
+  two checked values and does not specify which one the bound applies to. It is source-supported but incomplete
+  relative to the expected behavior.
+assessed_by: shymanovych-kn1223b
+recorded_at: '2026-10-18T09:15:09.099040+00:00'

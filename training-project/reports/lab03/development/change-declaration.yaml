@@ -1,0 +1,10 @@
+changed_property: source-grounding policy
+mechanism: Variant A only asks the model to answer the task. Variant B explicitly requires source-supported
+  statements and instructs the model to acknowledge when the supplied source does not specify the requested
+  information. This change is intended to reduce unsupported claims without changing the task or JSON
+  output contract.
+declared_factors:
+- source-grounding policy
+variant_a_sha256: d765770175309f6014f3af33d845b730aa0d7323fccd57403e8146be4dc352ee
+variant_b_sha256: 1188f3c84731590409416835ed9cb1db3615690b84bc7b3dad0d7024d8cd378a
+recorded_at: '2026-10-16T11:54:53.612231+00:00'

@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "calibration-a",
+  "student": "shymanovych-kn1223b",
+  "labels": [
+    {
+      "output_id": "cal-a-1",
+      "category": "S",
+      "rationale": "The task asks what a source baseline identifies. The supplied source states that it identifies the material against which a proposal is reviewed. The proposed text preserves this required relationship without unsupported claims, so it is supported and complete under rubric category S."
+    },
+    {
+      "output_id": "cal-a-2",
+      "category": "I",
+      "rationale": "The task requires identifying the material against which a proposal is reviewed. The supplied source establishes this review relationship, but the proposed text only says that the baseline identifies material. It omits the material's role in proposal review, so it is supported but incomplete under rubric category I."
+    },
+    {
+      "output_id": "cal-a-3",
+      "category": "U",
+      "rationale": "The supplied source supports the relationship between the baseline and material used for proposal review, but does not state that the baseline automatically approves later changes. This additional material claim is unsupported, so rubric category U applies even though part of the answer is correct."
+    },
+    {
+      "output_id": "cal-a-4",
+      "category": "Q",
+      "rationale": "The task asks for the retention duration of review records. The supplied source only states that records are stored in the knowledge system and specifies no duration. The proposed text explicitly identifies this missing information instead of inventing a duration, so category Q applies."
+    }
+  ],
+  "comparison": [
+    {
+      "output_id": "cal-a-1",
+      "student_category": "S",
+      "reviewed_category": "S",
+      "reviewed_rationale": "Supported and complete: preserves the review relationship from the source.",
+      "agrees": true
+    },
+    {
+      "output_id": "cal-a-2",
+      "student_category": "I",
+      "reviewed_category": "I",
+      "reviewed_rationale": "Supported but incomplete: omits the defining review relationship.",
+      "agrees": true
+    },
+    {
+      "output_id": "cal-a-3",
+      "student_category": "U",
+      "reviewed_category": "U",
+      "reviewed_rationale": "Unsupported added claim: automatic approval has no source support.",
+      "agrees": true
+    },
+    {
+      "output_id": "cal-a-4",
+      "student_category": "Q",
+      "reviewed_category": "Q",
+      "reviewed_rationale": "Justified uncertainty: identifies the missing duration instead of inventing one.",
+      "agrees": true
+    }
+  ],
+  "agreement": 4,
+  "total": 4,
+  "reviewed_labels_opened_at": "2026-10-16T11:30:45.093537+00:00"
+}

@@ -1,0 +1,1 @@
+{"case_id": "criterion-metric-chain-rubric-absent", "proposed_text": "The department's evaluation rubric does not define any rubric categories because the rubric itself is absent, as indicated by the case identifier's suffix 'rubric-absent', which implies that the rubric defining such categories is not provided in the supplied source material."}

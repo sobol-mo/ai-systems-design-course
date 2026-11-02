@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "lab_id": "lab02",
+  "status": "passed",
+  "generated_at": "2026-10-04T11:06:17.050517+00:00",
+  "course_commit": "9f726af26394c43c0ded41ab32b3ebfd392e65cb",
+  "live_runs": [
+    "live-primary-01",
+    "live-primary-02"
+  ],
+  "comparison_kind": "same-model-variability",
+  "selected_candidate": {
+    "proposal_id": "lab02-structured-output-human-01",
+    "proposal_sha256": "0cacd49d9ca5c35c3a0b663840cb2080374e66750e0bcf599aeff12e3c06a911",
+    "validation_id": "lab02-structured-output-human-01-validation",
+    "origin": "human-revision"
+  },
+  "artifacts": {
+    "vault/sources/module-02-foundation-models-and-ai-application-architecture.md": "304a4f66e4fa71dd81a755f52ad1d344e8151ed571b0663155c3b11411545ec4",
+    "report/REPORT.md": "2a0191aa8fddc9f626125d5fb6a9a770fc66e4b490ccf34dfe665044c72a59d8",
+    "report/live-comparison.json": "5762a147d1f8e83b5431f178f86db82e2224468f9e4e12b31b8436fd929b933a",
+    "report/revisions/human-01/validation-result.json": "1252ea6cad5822bf156cdea9f84c97673aae4dd7ae6ba051867da45c502918a6",
+    "report/revisions/human-01.yaml": "0679b2dc67c5779234f3293b7c8cd8af26a4bad516faf0524226b06638b5ba7f",
+    "report/runs/live-primary-01/model-request.json": "bd7f196ec8cb555c41cf3b17c47f42d82e5b9b30a0b3c2d62cb3944071a52555",
+    "report/runs/live-primary-01/raw-response.txt": "926957079baab0ec0b4a3e22b3d9906446ed22f6bbb28e377299806f9f101a63",
+    "report/runs/live-primary-01/run-metadata.json": "376c49f2d33a6aa514fc0f7187b99ba1bfd1e6dc83a5e444a802772d6fa52259",
+    "report/runs/live-primary-01/validation-result.json": "c66362ea194053d14aedbd38db54f2c7516c033d819db5c0ba491899639dc6ec",
+    "report/runs/live-primary-02/model-request.json": "bd7f196ec8cb555c41cf3b17c47f42d82e5b9b30a0b3c2d62cb3944071a52555",
+    "report/runs/live-primary-02/raw-response.txt": "961156741c961470716af5d37bdec0ce5412c3f5d7417db126c08d8ac6b7b7ea",
+    "report/runs/live-primary-02/run-metadata.json": "175a229a66dc944e6e4c844e71728f974c8c708e6c82487ecb8a824a32f20b41",
+    "report/runs/live-primary-02/validation-result.json": "03d9d85da004e98730e12b9b08da05214180c41789cd7777a5d00bb3565279e5",
+    "report/screenshots/01-offline-gates.png": "357e911a8096d6aca7b1418089d22abd56c33ff3ee8f0d366581430bff8e3352",
+    "report/screenshots/02-refusal-unchanged.png": "720e2ad2c03ec6d7ec0d565286c196f0f26fdd9a23bd51c154df426af0ecec24",
+    "report/screenshots/03-live-comparison.png": "5992bd38e95ec1a48724912bce1e62202b653b8e712534097b6b20e91b2188ff",
+    "report/screenshots/04-review-decision.png": "65abc2261822b3b9e944b92774717466f9f6259b5aec99d6f27ce2e9bf48bd2c",
+    "report/screenshots/05-controlled-apply.png": "abce0094ce69c5c58ef8488388a9ade1621c1054140ce2e6e211d80ed2451e7a",
+    "report/screenshots/06-final-result.png": "6f0f08933ea9a83cba7644cb1f75af7bc4f3b785ea4889faad712bd034dda386",
+    "report/semantic-review.yaml": "9385d47d6c5ed3b323d17dedb4f7fb7f1066ca0dada8800ae34976167c46920c",
+    "vault/sources/module-01-ai-engineering-foundations.md": "51b260bdb1ec02f905ff99e04fb9b56944a6ceb8518c7b21d92fc381bde7f6f3",
+    "vault/proposals/lab02-structured-output-human-01.md": "0cacd49d9ca5c35c3a0b663840cb2080374e66750e0bcf599aeff12e3c06a911",
+    "vault/proposals/lab02-structured-output-live-primary-01.md": "46bde83bd0ff8a305bbe039d236707629624bd3a33b3d122e1bc43a5bf0a2930",
+    "vault/proposals/lab02-structured-output-live-primary-02.md": "886fa206726b236996aecfba0f25a560caa9c417ea3ac1b059d47be4df27054a",
+    "vault/decisions/lab02-structured-output-human-01-decision.md": "6157375f48b21d903fb8bffcbb621b578199fc4191d29303ae38e353a92a2f31",
+    "vault/operations/lab02-structured-output-human-01-apply.md": "0d5457d64a3397866838dc92801e740c218c33f99f1f47e109121d6c58a45074",
+    "vault/concepts/structured-output.md": "7ea5ac2d1c302f2feed9f6bc3cb01304a4d7a3aa2139c0de52789ebe8fd2760b"
+  },
+  "checks": [
+    {
+      "check_id": "source",
+      "status": "passed",
+      "message": "registered source and exact fragment digest match"
+    },
+    {
+      "check_id": "course-commit",
+      "status": "passed",
+      "message": "registered course commit is an ancestor of git HEAD and upstream-owned paths are unchanged"
+    },
+    {
+      "check_id": "approved-fixtures",
+      "status": "passed",
+      "message": "three approved fixtures verified"
+    },
+    {
+      "check_id": "live-comparison",
+      "status": "passed",
+      "message": "two live runs verified as same-model-variability"
+    },
+    {
+      "check_id": "selected-candidate",
+      "status": "passed",
+      "message": "selected candidate is valid, acceptable, and descends from a live run"
+    },
+    {
+      "check_id": "accepted-state",
+      "status": "passed",
+      "message": "approval, concept, and operation digest chain matches"
+    },
+    {
+      "check_id": "provider-isolation",
+      "status": "passed",
+      "message": "canonical records are free of provider, model, and harness fields"
+    },
+    {
+      "check_id": "submission-files",
+      "status": "passed",
+      "message": "REPORT.md uses relative Markdown image links for all six required PNG screenshots"
+    },
+    {
+      "check_id": "artifact-map",
+      "status": "passed",
+      "message": "27 artifacts mapped by path and digest"
+    },
+    {
+      "check_id": "vault-read-only",
+      "status": "passed",
+      "message": "vault bytes remained unchanged"
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0
+  }
+}

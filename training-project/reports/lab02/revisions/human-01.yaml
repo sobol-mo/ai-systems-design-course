@@ -1,0 +1,19 @@
+schema_version: "1.0"
+revision_id: human-01
+derived_from:
+  proposal_id: lab02-structured-output-live-primary-02
+  proposal_sha256: "886fa206726b236996aecfba0f25a560caa9c417ea3ac1b059d47be4df27054a"
+changes:
+  source_support:
+    - claim_kind: definition
+      claim: "Structured output is model output intended to follow an explicit machine-readable organization, such as a JSON object with named fields."
+      quote: "**Structured output** is model output intended to follow an explicit machine-readable organization, such as a JSON object with named fields."
+    - claim_kind: syntax-vs-semantics
+      claim: "Parseable syntax permits deterministic validation, but neither operation grants semantic authority."
+      quote: "Parseable syntax permits deterministic validation, but neither operation grants semantic authority."
+    - claim_kind: authority-boundary
+      claim: "Only a separately authorized application operation may write accepted state, and only when the decision still identifies the exact candidate that was reviewed."
+      quote: "Only a separately authorized application operation may write accepted state, and only when the decision still identifies the exact candidate that was reviewed."
+rationale: "The parent candidate failed deterministic validation because the first source_support quote omitted the Markdown emphasis markers around **Structured output**. This revision preserves the candidate's meaning and replaces source_support with exact quotations from the registered source fragment."
+revised_by: "shymanovych-kn1223b"
+

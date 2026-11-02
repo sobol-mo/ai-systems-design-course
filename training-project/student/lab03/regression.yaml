@@ -1,0 +1,7 @@
+regression_id: lab03-unsupported-material-claim
+source_kind: authored-fixture
+fixture_id: authored-failure-supported-plus-invented
+model_authorship_claim: none
+diagnosis: "The response adds a material claim that is not supported by the supplied source. This represents the unsupported-claim failure mode observed in Variant A."
+expected_behavior_review: "A correct response must include only source-supported facts, explicitly acknowledge missing information, and avoid inventing values or conclusions."
+reviewed_by: shymanovych-kn1223b
