@@ -700,6 +700,23 @@ def _build_parser() -> argparse.ArgumentParser:
     verify_evidence.add_argument("--fixture", type=Path, default=Path(__file__).resolve().parents[2] / "cases" / "lab06" / "evidence-preparation.json")
     verify_evidence.add_argument("--evidence", type=Path, required=True)
 
+    for name in ('prepare-generation', 'run-generation', 'verify-generation'):
+        generation = lab06_commands.add_parser(name)
+        generation.add_argument('--collection', type=Path, required=True)
+        generation.add_argument('--graph', type=Path, required=True)
+        if name == 'prepare-generation':
+            generation.add_argument('--model', required=True)
+            generation.add_argument('--output', type=Path, required=True)
+        else:
+            generation.add_argument('--protocol', type=Path, required=True)
+            if name == 'run-generation':
+                generation.add_argument('--case', required=True)
+                generation.add_argument('--configuration', choices=['without graph expansion', 'with graph expansion'], required=True)
+                generation.add_argument('--output-dir', type=Path, required=True)
+                generation.add_argument('--recorded-response', type=Path)
+            else:
+                generation.add_argument('--runs-dir', type=Path, required=True)
+
     return parser
 
 
@@ -1481,6 +1498,20 @@ def _run_lab06(args: argparse.Namespace) -> int:
         result = lab06.verify_evidence(collection=args.collection, graph_path=args.graph,
                                        fixture_path=args.fixture, evidence_path=args.evidence)
         print(f"Evidence preparation verification passed for {result['inputs']} teaching inputs and {result['requests']} requests; no model output or support judgment verified.")
+        return 0
+    if args.lab06_command in {'prepare-generation', 'run-generation', 'verify-generation'}:
+        from . import lab06_generation as generation
+        common = {'collection': args.collection, 'graph_path': args.graph}
+        if args.lab06_command == 'prepare-generation':
+            generation.prepare_generation(**common, model_id=args.model, output=args.output)
+            print('Prepared two development cases and four bounded model requests; no model call.')
+        elif args.lab06_command == 'run-generation':
+            generation.run_generation(**common, protocol_path=args.protocol, case_id=args.case,
+                                      role=args.configuration, output_dir=args.output_dir, recorded_response=args.recorded_response)
+            print('Preserved provider response and extracted outcome; no semantic judgment.')
+        else:
+            result = generation.verify_generation(**common, protocol_path=args.protocol, runs_dir=args.runs_dir)
+            print(json.dumps(result, ensure_ascii=False))
         return 0
     raise WorkflowError(f"Unknown Laboratory 06 command: {args.lab06_command}")
 
