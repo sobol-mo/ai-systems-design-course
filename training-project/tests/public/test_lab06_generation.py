@@ -23,6 +23,12 @@ class GenerationTests(unittest.TestCase):
         p = json.loads(self.protocol.read_text())
         self.assertEqual(p['generator']['model_id'], 'gemini-3.8-flash-low')
         self.assertEqual(p['attempts_per_position'], 1)
+        conditions = p['acceptance_conditions']
+        self.assertEqual(conditions['minimum_rubric_pass_rate'], 1.0)
+        self.assertTrue(conditions['block_unsupported_claim'])
+        self.assertEqual(conditions['maximum_question_time_seconds'], 360)
+        self.assertEqual(conditions['maximum_review_minutes_per_outcome'], 10)
+        self.assertEqual(conditions['maximum_total_tokens_per_configuration'], 200000)
         self.assertEqual(len(p['cases']), 2)
         for case in p['cases']:
             self.assertEqual(case['membership'], 'development')
@@ -55,12 +61,15 @@ class GenerationTests(unittest.TestCase):
         self.assertEqual(raw['stdout'], stdout)
         self.assertEqual(raw['stderr'], 'diagnostic')
         self.assertIn('--json-schema', calls[0])
+        self.assertIn('--disable-slash-commands', calls[0])
+        self.assertEqual(json.loads(calls[0][calls[0].index('--settings') + 1]), {'useG1Credits': False})
         prompt = calls[0][calls[0].index('--print') + 1]
         self.assertNotIn('required_connections', prompt)
         self.assertNotIn('graph_digest', prompt)
         metadata = json.loads(paths['metadata'].read_text())
         self.assertEqual(metadata['status'], 'observed')
         self.assertEqual(metadata['semantic_judgment'], 'not performed')
+        self.assertGreaterEqual(metadata['question_time_seconds'], metadata['elapsed_seconds'])
         self.assertEqual(metadata['latency_boundary'], 'AGY process invocation through process completion only')
 
     def test_collision_on_each_sibling_including_links_stops_before_provider(self):
@@ -162,6 +171,40 @@ class GenerationTests(unittest.TestCase):
         metadata = json.loads(paths['metadata'].read_text())
         self.assertEqual(metadata['evidence_kind'], 'imported provider capture')
         self.assertIn('capture_digest', metadata)
+
+    def test_import_single_response_with_empty_transport_placeholders_without_retry(self):
+        from learning_project.workflow import WorkflowError
+        self.prepare()
+        outcome = {'outcome_type': 'generated prerequisite explanation',
+                   'claims': [{'text': 'An attempted claim', 'fragment_ids': ['F-1']}]}
+        for index, response in enumerate([json.dumps(outcome) + '\n{}\n',
+                                           json.dumps(outcome) + '\n' + json.dumps(outcome)]):
+            capture = self.root / f'placeholder-{index}.json'
+            capture.write_text(json.dumps({'stdout': json.dumps({'status': 'SUCCESS',
+                'response': response}), 'stderr': '', 'returncode': 0}))
+            kwargs = dict(protocol_path=self.protocol, collection=self.query.collection,
+                graph_path=self.query.graph, case_id='EC-06-1-v1', role='without graph expansion',
+                output_dir=self.root / f'placeholder-run-{index}', recorded_response=capture)
+            if index == 0:
+                paths = generation.run_generation(**kwargs)
+                self.assertEqual(json.loads(paths['outcome'].read_text()), outcome)
+            else:
+                with self.assertRaises(WorkflowError):
+                    generation.run_generation(**kwargs)
+
+    def test_malformed_protocols_fail_cleanly_before_provider(self):
+        from learning_project.workflow import WorkflowError
+        import copy
+        self.prepare()
+        original = json.loads(self.protocol.read_text())
+        variants = [{}, {**original, 'generator': None}, {**original, 'generator': {}},
+                    {**original, 'generator': {'model_id': 3}}]
+        for protocol in variants:
+            self.protocol.write_text(json.dumps(protocol))
+            with self.assertRaises(WorkflowError):
+                generation.run_generation(protocol_path=self.protocol, collection=self.query.collection,
+                    graph_path=self.query.graph, case_id='EC-06-1-v1', role='without graph expansion',
+                    output_dir=self.root / 'never', runner=lambda *a, **k: self.fail('Unexpected provider call'))
 
 
 if __name__ == '__main__':
