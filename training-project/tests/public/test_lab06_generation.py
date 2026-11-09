@@ -206,6 +206,32 @@ class GenerationTests(unittest.TestCase):
                     graph_path=self.query.graph, case_id='EC-06-1-v1', role='without graph expansion',
                     output_dir=self.root / 'never', runner=lambda *a, **k: self.fail('Unexpected provider call'))
 
+    def test_nonstring_refusal_conditions_are_structural_violations_not_exceptions(self):
+        from types import SimpleNamespace
+        self.prepare()
+        for index, condition in enumerate([[], ['insufficient supplied source evidence'], {},
+                                            {'reason': 'conflicting instruction'}, None, True, 1]):
+            with self.subTest(condition=condition):
+                outcome = {'outcome_type': 'refusal', 'blocking_condition': condition}
+                def runner(*args, **kwargs):
+                    return SimpleNamespace(returncode=0, stdout=json.dumps({'status': 'SUCCESS',
+                        'response': json.dumps(outcome)}), stderr='')
+                folder = self.root / f'malformed-condition-{index}'
+                for case_id in ['EC-06-1-v1', 'EC-06-2-v1']:
+                    for role in generation.ROLES:
+                        paths = generation.run_generation(protocol_path=self.protocol, collection=self.query.collection,
+                            graph_path=self.query.graph, case_id=case_id, role=role,
+                            output_dir=folder / case_id / role.replace(' ', '-'), runner=runner)
+                        self.assertEqual(json.loads(paths['outcome'].read_text()), outcome)
+                result = generation.verify_generation(protocol_path=self.protocol, collection=self.query.collection,
+                    graph_path=self.query.graph, runs_dir=folder)
+                self.assertEqual(result['observed_outputs'], 4)
+                self.assertEqual(len(result['structural_issues']), 4)
+                for item in result['structural_issues']:
+                    self.assertEqual(item['issues'], ['Refusal contract violation'])
+                self.assertEqual(result['semantic_judgment'], 'not performed')
+                self.assertEqual(result['configuration_decision'], 'not authorized')
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -233,7 +233,8 @@ def verify_generation(*, protocol_path: Path, collection: Path, graph_path: Path
                         if not isinstance(ids, list) or not ids or any(not isinstance(fid, str) or fid not in selected for fid in ids):
                             issues.append('Claim citation does not identify selected retrieval units')
             elif outcome.get('outcome_type') == 'refusal':
-                if outcome.get('blocking_condition') not in {'insufficient supplied source evidence', 'conflicting instruction'} or 'claims' in outcome:
+                condition = outcome.get('blocking_condition')
+                if not isinstance(condition, str) or condition not in {'insufficient supplied source evidence', 'conflicting instruction'} or 'claims' in outcome:
                     issues.append('Refusal contract violation')
             else:
                 issues.append('Unidentifiable outcome: execution failure; stop semantic judging')
