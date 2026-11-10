@@ -700,6 +700,16 @@ def _build_parser() -> argparse.ArgumentParser:
     verify_evidence.add_argument("--fixture", type=Path, default=Path(__file__).resolve().parents[2] / "cases" / "lab06" / "evidence-preparation.json")
     verify_evidence.add_argument("--evidence", type=Path, required=True)
 
+    for name in ('prepare-judgments', 'assess-comparison', 'record-decision'):
+        evaluation = lab06_commands.add_parser(name)
+        for flag in ('collection', 'graph', 'protocol', 'runs-dir', 'output'):
+            evaluation.add_argument('--' + flag, type=Path, required=True)
+        if name != 'prepare-judgments':
+            evaluation.add_argument('--judgments', type=Path, required=True)
+        if name == 'record-decision':
+            evaluation.add_argument('--assessment', type=Path, required=True)
+            evaluation.add_argument('--decision-input', type=Path, required=True)
+
     for name in ('prepare-generation', 'run-generation', 'verify-generation'):
         generation = lab06_commands.add_parser(name)
         generation.add_argument('--collection', type=Path, required=True)
@@ -1512,6 +1522,21 @@ def _run_lab06(args: argparse.Namespace) -> int:
         else:
             result = generation.verify_generation(**common, protocol_path=args.protocol, runs_dir=args.runs_dir)
             print(json.dumps(result, ensure_ascii=False))
+        return 0
+    if args.lab06_command in {'prepare-judgments', 'assess-comparison', 'record-decision'}:
+        from . import lab06_evaluation as evaluation
+        common = dict(collection=args.collection, graph_path=args.graph,
+                      protocol_path=args.protocol, runs_dir=args.runs_dir)
+        if args.lab06_command == 'prepare-judgments':
+            evaluation.prepare_judgments(**common, output=args.output)
+            print('Prepared four bound positions; human judgments remain blank.')
+        elif args.lab06_command == 'assess-comparison':
+            result = evaluation.assess_comparison(**common, judgments_path=args.judgments, output=args.output)
+            print(json.dumps(result, ensure_ascii=False))
+        else:
+            evaluation.record_decision(**common, judgments_path=args.judgments,
+                assessment_path=args.assessment, decision_path=args.decision_input, output=args.output)
+            print('Recorded engineering team decision for development cases; no accepted-state write.')
         return 0
     raise WorkflowError(f"Unknown Laboratory 06 command: {args.lab06_command}")
 
