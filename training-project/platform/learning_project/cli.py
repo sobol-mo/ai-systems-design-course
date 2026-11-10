@@ -700,6 +700,13 @@ def _build_parser() -> argparse.ArgumentParser:
     verify_evidence.add_argument("--fixture", type=Path, default=Path(__file__).resolve().parents[2] / "cases" / "lab06" / "evidence-preparation.json")
     verify_evidence.add_argument("--evidence", type=Path, required=True)
 
+    for name in ('validate-report', 'verify'):
+        reporting = lab06_commands.add_parser(name)
+        reporting.add_argument('--report-dir', type=Path, required=True)
+        if name == 'verify':
+            reporting.add_argument('--collection', type=Path, required=True)
+            reporting.add_argument('--final-commit', required=True)
+
     for name in ('prepare-judgments', 'assess-comparison', 'record-decision'):
         evaluation = lab06_commands.add_parser(name)
         for flag in ('collection', 'graph', 'protocol', 'runs-dir', 'output'):
@@ -1538,6 +1545,17 @@ def _run_lab06(args: argparse.Namespace) -> int:
                 assessment_path=args.assessment, decision_path=args.decision_input, output=args.output)
             print('Recorded engineering team decision for development cases; no accepted-state write.')
         return 0
+    if args.lab06_command in {'validate-report', 'verify'}:
+        from . import lab06_reporting as reporting
+        if args.lab06_command == 'validate-report':
+            result = reporting.validate_report(report_dir=args.report_dir)
+            key = 'status'
+        else:
+            result = reporting.verify(report_dir=args.report_dir, collection=args.collection,
+                                      final_commit=args.final_commit)
+            key = 'outcome'
+        print(json.dumps(result, ensure_ascii=False))
+        return 0 if result[key] == 'passed' else 1
     raise WorkflowError(f"Unknown Laboratory 06 command: {args.lab06_command}")
 
 
