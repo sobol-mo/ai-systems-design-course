@@ -21,7 +21,8 @@ INTERNAL = r'(?<![\w-])(?:Authoring\s+Stage\b|Stage\s+(?:A|B|C1|C2|C3|C4|D|E)\b)
 
 
 def _report_scope(report_dir: Path, text: str) -> tuple[str, tuple[str, ...]]:
-    partial = re.search(r'^- Статус завершення: `?honest-partial`?\s*$', text, re.M)
+    # Keep identity/completion syntax aligned with report_contract flexible bullets/spacing.
+    partial = re.search(r'^\s*[-*]?\s*Статус завершення:\s*`?honest-partial`?\s*$', text, re.M)
     if not partial:
         return 'complete', SCREENSHOTS
     groups = (('graph-preparation',), ('graph-query',), ('evidence-preparation',),
@@ -102,7 +103,11 @@ def _committed_inputs(report_dir: Path, collection: Path, final_commit: str) -> 
         raise WorkflowError('Use the exact full final commit hash.')
     root = Path(subprocess.check_output(['git', '-C', str(report_dir), 'rev-parse', '--show-toplevel'], text=True).strip())
     branch = subprocess.check_output(['git', '-C', str(root), 'branch', '--show-current'], text=True).strip()
-    recorded_branch = re.search(r'^- Особиста гілка: `?([^`\s]+)`?\s*$', (report_dir / 'REPORT.md').read_text(encoding='utf-8'), re.M)
+    recorded_branch = re.search(
+        r'^\s*[-*]?\s*Особиста гілка:\s*`?([^`\s]+)`?\s*$',
+        (report_dir / 'REPORT.md').read_text(encoding='utf-8'),
+        re.M,
+    )
     if recorded_branch is None or recorded_branch[1] != branch:
         raise WorkflowError('The report personal branch must name the current branch.')
     relative_collection = (collection / 'accepted.json').resolve().relative_to(root.resolve()).as_posix()

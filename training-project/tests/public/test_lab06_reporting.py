@@ -267,6 +267,23 @@ class ReportingTests(unittest.TestCase):
         result = reporting.verify(report_dir=self.report, collection=self.collection, final_commit=self.commit())
         self.assertEqual(result['outcome'], 'failed')
 
+    def test_flexible_identity_spacing_still_classifies_honest_partial(self):
+        from learning_project import lab06_reporting as reporting
+        text = self.filled_report()
+        text = text.replace('- Статус завершення: `complete`', '*   Статус завершення: honest-partial')
+        text = text.replace('- Особиста гілка: lab06/test-student', '  - Особиста гілка: `lab06/test-student`')
+        (self.report / 'REPORT.md').write_text(text)
+        result = reporting.validate_report(report_dir=self.report)
+        self.assertEqual(result['status'], 'passed', result)
+        self.assertEqual(result['completion_state'], 'honest-partial')
+        # All machine-evidence groups exist, so every pre-final checkpoint is reached; partial still forbids domain completion.
+        self.assertEqual(result['screenshots'], list(reporting.SCREENSHOTS))
+        head = self.commit()
+        verified = reporting.verify(report_dir=self.report, collection=self.collection, final_commit=head)
+        self.assertEqual(verified['outcome'], 'passed', verified)
+        self.assertEqual(verified['completion_state'], 'honest-partial')
+        self.assertFalse(verified['domain_completion_claimed'])
+
     def test_unfilled_real_fixture_is_rejected_without_creating_judgments(self):
         from learning_project import lab06_reporting as reporting
         (self.report / 'REPORT.md').write_text(FIXTURE.read_text())
