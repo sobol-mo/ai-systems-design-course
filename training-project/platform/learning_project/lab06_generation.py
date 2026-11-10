@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import platform
+import re
 import subprocess
 import tempfile
 import time
@@ -102,15 +103,24 @@ def _extract_outcome(envelope: dict) -> dict:
         return outcome
     # AGY may append empty transport placeholders. Do not select among attempted outputs.
     text = envelope['response']
+    if not isinstance(text, str):
+        raise ValueError('Provider response text must be a string.')
+    # Claude/AGY may wrap the single object in a markdown fence and then append tool prose.
+    # Prefer the first fenced JSON block when present; never pick among multiple candidate objects.
+    fence = re.search(r'```(?:json)?\s*\n?(.*?)\n?```', text, flags=re.IGNORECASE | re.DOTALL)
+    scan = fence.group(1) if fence is not None else text
     decoder = json.JSONDecoder()
     objects = []
     position = 0
-    while position < len(text):
-        while position < len(text) and text[position].isspace():
+    while position < len(scan):
+        while position < len(scan) and scan[position].isspace():
             position += 1
-        if position == len(text):
+        if position == len(scan):
             break
-        value, position = decoder.raw_decode(text, position)
+        # Trailing prose after the first object is not another JSON candidate.
+        if scan[position] not in '{[':
+            break
+        value, position = decoder.raw_decode(scan, position)
         if not isinstance(value, dict):
             raise ValueError('Non-object response value.')
         if value:

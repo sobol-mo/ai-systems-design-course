@@ -192,6 +192,26 @@ class GenerationTests(unittest.TestCase):
                 with self.assertRaises(WorkflowError):
                     generation.run_generation(**kwargs)
 
+    def test_fenced_json_with_trailing_prose_extracts_single_object(self):
+        """Claude/AGY may fence the object and append finish-tool prose without structured_output."""
+        self.prepare()
+        outcome = {'outcome_type': 'generated prerequisite explanation',
+                   'claims': [{'text': 'In this teaching route, retrieval requires a query embedding.',
+                               'fragment_ids': ['F-1']}]}
+        fenced = (
+            '```json\n'
+            + json.dumps(outcome, indent=2)
+            + '\n```\nThe finish tool is misconfigured. Task complete.\n{}\n'
+        )
+        capture = self.root / 'fenced-claude.json'
+        capture.write_text(json.dumps({'stdout': json.dumps({'status': 'SUCCESS',
+            'response': fenced}), 'stderr': '', 'returncode': 0}))
+        paths = generation.run_generation(
+            protocol_path=self.protocol, collection=self.query.collection,
+            graph_path=self.query.graph, case_id='EC-06-1-v1', role='without graph expansion',
+            output_dir=self.root / 'fenced-run', recorded_response=capture)
+        self.assertEqual(json.loads(paths['outcome'].read_text()), outcome)
+
     def test_malformed_protocols_fail_cleanly_before_provider(self):
         from learning_project.workflow import WorkflowError
         import copy
