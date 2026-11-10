@@ -245,6 +245,28 @@ class ReportingTests(unittest.TestCase):
         self.assertTrue(encodings)
         self.assertTrue(all(value == 'utf-8' for value in encodings), encodings)
 
+    def test_untracked_collection_is_not_bound_by_file_presence(self):
+        from learning_project import lab06_reporting as reporting
+        self.filled_report()
+        path = self.report / 'REPORT.md'
+        path.write_text(path.read_text().replace('`complete`', '`honest-partial`'))
+        head = self.commit()
+        self.collection.mkdir(parents=True)
+        (self.collection / 'accepted.json').write_text('{}')
+        result = reporting.verify(report_dir=self.report, collection=self.collection, final_commit=head)
+        self.assertEqual(result['outcome'], 'failed')
+
+    def test_ignored_collection_is_not_bound_by_file_presence(self):
+        from learning_project import lab06_reporting as reporting
+        self.filled_report()
+        path = self.report / 'REPORT.md'
+        path.write_text(path.read_text().replace('`complete`', '`honest-partial`'))
+        (self.root / '.gitignore').write_text('student/')
+        self.collection.mkdir(parents=True)
+        (self.collection / 'accepted.json').write_text('{}')
+        result = reporting.verify(report_dir=self.report, collection=self.collection, final_commit=self.commit())
+        self.assertEqual(result['outcome'], 'failed')
+
     def test_unfilled_real_fixture_is_rejected_without_creating_judgments(self):
         from learning_project import lab06_reporting as reporting
         (self.report / 'REPORT.md').write_text(FIXTURE.read_text())
