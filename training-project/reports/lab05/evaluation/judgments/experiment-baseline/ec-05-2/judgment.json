@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "shared experiment protocol id": "SEP-05-1",
+  "configuration role": "experiment baseline",
+  "evaluation case id": "EC-05-2",
+  "outcome type": "refusal",
+  "rubric check": "Refusal check",
+  "human evaluator judgment": "pass",
+  "judgment rationale": "The model correctly refused to generate a concept definition because the supplied evidence was insufficient. The refusal identifies the missing evidence as the blocking condition, and no unsupported claims were generated.",
+  "review minutes": 2.0,
+  "outcome sha256": "d004490acf0b8c584596c9a4397eb59c1a00044bd449242ba2aaa08c7e07a4c1",
+  "recorded by": "shymanovych-kn1223b",
+  "authority boundary": "The recorded judgment is not an authorization to change the canonical knowledge collection."
+}
