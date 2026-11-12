@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "shared experiment protocol id": "SEP-05-1",
+  "bounded configuration decision": "do not adopt the candidate configuration",
+  "decision rationale": "Both configurations satisfied all evaluated acceptance conditions and achieved a rubric pass rate of 1.00. Neither configuration produced unsupported claims or failed the conflicting-instruction test. The experiment baseline had a lower observed maximum generation latency (142.20 seconds) than the candidate configuration (163.18 seconds). Since the candidate demonstrated no measurable quality improvement, the experiment baseline is retained. Token usage could not be compared because it was unavailable from the AGY adapter.",
+  "rubric pass rates": {
+    "experiment baseline": 1.0,
+    "candidate configuration": 1.0
+  },
+  "candidate configuration role outcome": "adoption permitted",
+  "experiment baseline role outcome": "retention permitted",
+  "scope": "The bounded configuration decision rests on the declared development evaluation cases and supplies no held-out evidence.",
+  "authority boundary": "The bounded configuration decision does not select a retrieval configuration and authorizes no write to the canonical knowledge collection.",
+  "recorded by": "shymanovych-kn1223b"
+}

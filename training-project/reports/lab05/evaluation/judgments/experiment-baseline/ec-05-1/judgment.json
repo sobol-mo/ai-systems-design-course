@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "shared experiment protocol id": "SEP-05-1",
+  "configuration role": "experiment baseline",
+  "evaluation case id": "EC-05-1",
+  "outcome type": "candidate concept definition",
+  "rubric check": "Candidate concept definition check",
+  "human evaluator judgment": "pass",
+  "judgment rationale": "The generated definition contains two claims that are directly supported by retrieval unit F-A. Both claims have valid citations, no unsupported information was introduced, and the output follows the required structure.",
+  "review minutes": 3.0,
+  "outcome sha256": "1c81626744da18670eff23f735252dc1a6baeb84b3bd09108d739b8428884305",
+  "recorded by": "shymanovych-kn1223b",
+  "authority boundary": "The recorded judgment is not an authorization to change the canonical knowledge collection."
+}
