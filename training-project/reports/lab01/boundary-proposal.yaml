@@ -1,0 +1,20 @@
+# Candidate for Laboratory 01: student-authored on the documented no-agent fallback.
+schema_version: "1.0"
+proposal_id: lab01-ai-systems-design-boundary
+status: proposed
+personal_domain: Academic study of AI systems design as taught in this university course.
+intended_learning_outcome: A student can trace each technical concept from the course theory to its registered source and see which accepted concepts and prerequisites it depends on, using only preserved evidence.
+non_goals:
+  - The system does not replace the course theory or the lecturer's assessment of understanding.
+  - The system does not accept AI-proposed knowledge without deterministic validation and an explicit human decision.
+governance:
+  ai_role: Propose a bounded system description and expose uncertainty without accepting changes.
+  deterministic_role: Validate the candidate, bind the decision to its digest, and apply only approved content.
+  human_role: Review meaning and explicitly approve or reject the proposal before application.
+usefulness_condition: The complete workflow is useful when the student can answer a learning question about a concept and point to the registered source and the recorded decision that support the answer.
+material_risk: A fluent but unsupported interpretation passes the structural checks and is accepted as knowledge without the student verifying it against the source.
+non_ai_baseline: A manual set of Markdown notes with source references, checked by the student by hand against the course theory.
+uncertainty: It is not yet established that reviewing each proposal costs the student less effort than writing the notes manually.
+required_evidence:
+  - A deterministic validation result and a decision record bound to the SHA-256 digest of this exact proposal.
+  - A recorded human approval by the student after reviewing the meaning of the proposal against the registered course source.
