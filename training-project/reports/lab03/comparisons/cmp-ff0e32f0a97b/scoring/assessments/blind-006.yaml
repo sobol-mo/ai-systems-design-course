@@ -1,0 +1,12 @@
+schema_version: '1.0'
+blind_id: blind-006
+category: U
+source_pointer: A metric is a defined measurement whose values can be compared against the criterion to
+  judge whether that property holds.
+rationale: 'Основне відношення критерію й метрики збережено, але відповідь додає конкретику, якої немає
+  в наданому джерелі: приклади властивостей (надійність, безпека, продуктивність), приклад критерію «fast
+  response time» з метрикою «average query execution time in milliseconds» і твердження про прийнятний
+  діапазон значень. Це суттєві непідкріплені твердження. Правило рубрики: непідкріплене суттєве твердження
+  дає U і перевіряється раніше за повноту.'
+assessed_by: DTaran3
+recorded_at: '2026-11-18T17:17:50.807719+00:00'
