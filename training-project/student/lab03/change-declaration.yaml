@@ -1,0 +1,4 @@
+changed_property: source grounding constraint
+mechanism: Explicitly instructing the model to rely only on facts directly supported by the supplied source and to state that the source does not specify the answer when information is absent reduces unsupported statements and produces justified uncertainty.
+declared_factors:
+- source grounding constraint

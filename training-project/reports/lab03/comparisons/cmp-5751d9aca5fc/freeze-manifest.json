@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "freeze_id": "cmp-5751d9aca5fc",
+  "comparison_dir": "C:\\Users\\нсш\\projects\\ai-systems-design-course\\training-project\\reports\\lab03\\comparisons\\cmp-5751d9aca5fc",
+  "protocol": {
+    "engineering_decision": "whether Variant B should replace Variant A for the evaluated concept proposal operation",
+    "hypothesis": "Adding the source grounding constraint to Variant B will eliminate unsupported claims (U) and produce justified uncertainty (Q) for ungrounded cases while preserving supported definitions (S).",
+    "semantic_acceptance": "A configuration is semantically acceptable if all assessable responses receive rubric-acceptable categories (S or Q) with no critical failures.",
+    "blocking_failures": "Any critical failure category U (unsupported or hallucinated claim) violates a blocking condition.",
+    "operational_acceptance": "Latency boundary measured from attempt start to returned response under 30s, and unknown latency or usage values are treated as auxiliary observations rather than errors.",
+    "tradeoff_rule": "Variant B may replace Variant A if Variant B satisfies every blocking condition and achieves equal or higher semantic acceptance without introducing regressions.",
+    "decision_rule": {
+      "recommend-b": "Variant B satisfies every blocking condition and justifies replacement of Variant A.",
+      "retain-a": "Variant A remains acceptable and Variant B does not justify replacement.",
+      "reject-both": "Both configurations violate a blocking condition.",
+      "seek-more-evidence": "Relevant evidence or operational uncertainty remains unresolved."
+    },
+    "attempt_budget": 16,
+    "timing_boundary": "request dispatch to terminal response",
+    "route": {
+      "adapter": "openrouter",
+      "model_id": "openrouter/free"
+    },
+    "order_rule": "course-generated balanced schedule",
+    "resume_window": "48h"
+  },
+  "variant_a_sha256": "69f0f1d6b4b3298353df79e53cff0fd654f15df43117a6e40f865cb655448d91",
+  "variant_b_sha256": "f527c9cc7ac6ff25d090fde9089f74191d30c1c256bb6dd8cda4e28091216ef6",
+  "change_declaration": {
+    "changed_property": "source grounding constraint",
+    "mechanism": "Explicitly instructing the model to rely only on facts directly supported by the supplied source and to state that the source does not specify the answer when information is absent reduces unsupported statements and produces justified uncertainty.",
+    "declared_factors": [
+      "source grounding constraint"
+    ]
+  },
+  "route": {
+    "adapter": "openrouter",
+    "model_id": "openrouter/free"
+  },
+  "resume_window": "48h",
+  "eligible_reserve_count_at_freeze": 3,
+  "bindings": {
+    "output_schema_sha256": "b656ec5caa60b098b6711283893cfe0a6b0f5391d43accd55f2c136b828ca0c7",
+    "case_family_contract_sha256": "5bad7f720a34f0e5a02127a71841eb9143feaefb05a85887c7701679503867ac",
+    "validator_module_sha256": "f2c763d45afdff72214990c078c75ba10f35d907a36194cab6a0ad81dc436360",
+    "validator_schema_version": "1.0",
+    "development_schedule_sha256": "42e9ec110b6b8d6fb19c4d19964a995ee56b4df5fc3c6f286f4a8088fc277016",
+    "change_declaration_sha256": "127ece455ecbb62505f2a278cba9aed6834c880838a03c9f78f2c1bcae905304",
+    "exposure_ledger_sha256": "a34c1a5a459235652961ed5654cf0e7cf17c2382f8d99cb17434a828ddc14a60"
+  },
+  "frozen_at": "2026-11-15T19:12:49.758664+00:00",
+  "frozen_by": "shemet-anastasiia"
+}

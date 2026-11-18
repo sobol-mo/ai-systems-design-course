@@ -1,0 +1,7 @@
+regression_id: reg-baseline-added-archival
+source_kind: authored-fixture
+fixture_id: authored-failure-supported-plus-invented
+model_authorship_claim: none
+diagnosis: The response adds an unsupported statement claiming automatic archiving of rejected proposals, which has no foundation in the supplied source.
+expected_behavior_review: A supported response must only state that the source baseline points to the review source for checking proposals, without adding invented archival or approval mechanisms.
+reviewed_by: shemet-anastasiia

@@ -1,0 +1,1 @@
+{"case_id":"criterion-metric-chain-ambiguous-acceptance","proposed_text":"The source does not specify which measurement the acceptance condition refers to: it states that the condition passes when the checked value is within the declared bound, but the note records two checked values for the same run and does not say which one the bound applies to."}

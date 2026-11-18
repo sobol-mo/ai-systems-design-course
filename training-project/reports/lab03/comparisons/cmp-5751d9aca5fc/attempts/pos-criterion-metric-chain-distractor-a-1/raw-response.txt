@@ -1,0 +1,4 @@
+{
+  "case_id": "criterion-metric-chain-distractor",
+  "proposed_text": "In evaluation design, a criterion serves as the specification of a desired quality property that a system must achieve, while a metric provides a concrete, quantifiable measurement that can be assessed against that criterion to determine whether the property is satisfied; essentially, the criterion defines the standard of quality, and the metric supplies the data needed to judge compliance with that standard, forming a dependent relationship where the metric's values are interpreted through the lens of the criterion to make evaluation decisions."
+}
