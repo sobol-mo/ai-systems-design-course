@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "position_id": "pos-criterion-metric-chain-distractor-b-1",
+  "valid": false,
+  "errors": [
+    "Response is not one valid JSON value: Expecting value: line 3 column 20 (char 71)"
+  ],
+  "checked_at": "2026-11-18T17:09:25.845252+00:00"
+}

@@ -1,0 +1,11 @@
+schema_version: '1.0'
+blind_id: blind-004
+category: S
+source_pointer: A metric is a defined measurement whose values can be compared against the criterion to
+  judge whether that property holds.
+rationale: 'Відповідь зберігає зв’язок з очікуваної поведінки: критерій задає властивість якості, метрика
+  є визначеним вимірюванням, значення якого порівнюють із критерієм. Усі змістовні твердження підкріплені
+  джерелом; сторонніх відомостей немає. Правило рубрики: підкріплена й повна відповідь — S. Зворот про
+  зв’язок абстрактної вимоги з конкретною оцінкою не додає непідкріпленого факту.'
+assessed_by: DTaran3
+recorded_at: '2026-11-18T17:17:50.151024+00:00'

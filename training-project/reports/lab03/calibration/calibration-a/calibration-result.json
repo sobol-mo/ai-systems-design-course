@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "calibration-a",
+  "student": "DTaran3",
+  "labels": [
+    {
+      "output_id": "cal-a-1",
+      "category": "S",
+      "rationale": "Завдання source-baseline-definition: визначити, що ідентифікує базовий стан джерела. Надане джерело: базовий стан ідентифікує матеріал, щодо якого розглядають пропозицію. Очікувана поведінка: зберегти зв’язок між базовим станом і матеріалом для розгляду пропозиції. Відповідь називає матеріал, що використовують для розгляду пропозиції, усі твердження підкріплені джерелом, потрібний зв’язок збережено. Правило рубрики: підкріплена й повна відповідь отримує S."
+    },
+    {
+      "output_id": "cal-a-2",
+      "category": "I",
+      "rationale": "Завдання source-baseline-definition. Надане джерело пов’язує базовий стан із матеріалом, щодо якого розглядають пропозицію. Очікувана поведінка вимагає зберегти цей зв’язок. Відповідь «identifies material» підкріплена, але не вказує роль матеріалу в розгляді пропозиції, тобто не зберігає потрібного зв’язку; непідкріплених тверджень немає. Правило рубрики: підкріплена, але неповна відповідь отримує I."
+    },
+    {
+      "output_id": "cal-a-3",
+      "category": "U",
+      "rationale": "Завдання source-baseline-definition. Надане джерело визначає лише матеріал, щодо якого розглядають пропозицію, і нічого не каже про затвердження. Відповідь додає, що базовий стан автоматично затверджує подальші зміни: це суттєве непідкріплене твердження, відсутнє в джерелі, і воно суперечить очікуваній поведінці. Правило рубрики: наявність суттєвого непідкріпленого твердження дає U і перевіряється раніше за повноту, навіть коли правильна частина є."
+    },
+    {
+      "output_id": "cal-a-4",
+      "category": "Q",
+      "rationale": "Завдання retention-duration: указати строк зберігання записів розгляду. Надане джерело лише повідомляє, що записи зберігаються в системі знань, строку не містить. Очікувана поведінка: прямо повідомити про відсутність інформації про строк. Відповідь «The source does not specify a retention duration» називає відсутню інформацію й не вигадує строку. Правило рубрики: правильне повідомлення про невизначеність там, де її очікують, отримує Q."
+    }
+  ],
+  "comparison": [
+    {
+      "output_id": "cal-a-1",
+      "student_category": "S",
+      "reviewed_category": "S",
+      "reviewed_rationale": "Supported and complete: preserves the review relationship from the source.",
+      "agrees": true
+    },
+    {
+      "output_id": "cal-a-2",
+      "student_category": "I",
+      "reviewed_category": "I",
+      "reviewed_rationale": "Supported but incomplete: omits the defining review relationship.",
+      "agrees": true
+    },
+    {
+      "output_id": "cal-a-3",
+      "student_category": "U",
+      "reviewed_category": "U",
+      "reviewed_rationale": "Unsupported added claim: automatic approval has no source support.",
+      "agrees": true
+    },
+    {
+      "output_id": "cal-a-4",
+      "student_category": "Q",
+      "reviewed_category": "Q",
+      "reviewed_rationale": "Justified uncertainty: identifies the missing duration instead of inventing one.",
+      "agrees": true
+    }
+  ],
+  "agreement": 4,
+  "total": 4,
+  "reviewed_labels_opened_at": "2026-11-18T16:55:59.332515+00:00"
+}

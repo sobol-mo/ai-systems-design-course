@@ -1,0 +1,9 @@
+{
+  "position_id": "pos-criterion-metric-chain-plain-a-1",
+  "adapter": "openrouter",
+  "model_id": "openrouter/free",
+  "started_at": "2026-11-18T17:08:50.152456+00:00",
+  "finished_at": "2026-11-18T17:08:56.161187+00:00",
+  "recorded_by": "DTaran3",
+  "observed_model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+}

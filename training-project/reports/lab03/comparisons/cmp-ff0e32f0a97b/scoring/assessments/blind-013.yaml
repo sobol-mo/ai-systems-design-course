@@ -1,0 +1,11 @@
+schema_version: '1.0'
+blind_id: blind-013
+category: Q
+source_pointer: The note records two checked values for the same run and does not say which one the bound
+  applies to.
+rationale: 'Джерело повідомляє про два записані значення для одного запуску й не вказує, до якого з них
+  застосовано межу. Очікувана поведінка: повідомити про нерозв’язане посилання, а не обирати значення.
+  Відповідь так і робить, жодного значення не обрано. Правило рубрики: Q. Відповідь стисла, але називає
+  саме невизначене посилання на одне з двох значень.'
+assessed_by: DTaran3
+recorded_at: '2026-11-18T17:17:52.962644+00:00'

@@ -1,0 +1,42 @@
+schema_version: '1.0'
+comparison_id: cmp-ff0e32f0a97b
+outcome: recommend-b
+rationale: 'Frozen conditions applied to the nested counts: A returned 8, structurally valid 8, assessable
+  8, rubric-acceptable 7 with one critical unsupported U, which violates the blocking condition; B returned
+  8, structurally valid 7, assessable 7, rubric-acceptable 7 with no U, meaning coverage 7 of 7, and all
+  latencies within the boundary. B has no blocking failure that A lacks and removes A''s blocking failure,
+  so the tradeoff rule justifies replacing A. Token usage, quota usage and cost are unknown and no dominance
+  on them is claimed.'
+limitations:
+- small designed set
+- openrouter/free routed attempts to different models
+- one Variant B response was structurally invalid
+- token usage and cost unknown
+- single human assessor
+blocking_failures: any response in a configuration judged U (a material claim that the supplied source
+  does not support) violates the blocking condition for that configuration; a configuration with at least
+  one U is not acceptable regardless of its meaning coverage
+decision_rule:
+  recommend-b: B satisfies every blocking and acceptance condition and the tradeoff rule justifies replacing
+    A
+  retain-a: A is acceptable and B does not justify a change under the tradeoff rule, or B violates a blocking
+    condition while A does not
+  reject-both: both configurations violate a blocking condition
+  seek-more-evidence: relevant evidence is missing, unknown or too sparse to apply the acceptance conditions
+    or the tradeoff rule
+nested_counts:
+  a:
+    attempted: 8
+    returned: 8
+    structurally_valid: 8
+    assessable: 8
+    rubric_acceptable: 7
+  b:
+    attempted: 8
+    returned: 8
+    structurally_valid: 7
+    assessable: 7
+    rubric_acceptable: 7
+protocol_freeze_id: cmp-ff0e32f0a97b
+recorded_by: DTaran3
+recorded_at: '2026-11-18T17:20:45.279082+00:00'
