@@ -1,0 +1,7 @@
+{
+  "engineering_team": "shymanovych-kn1223b",
+  "decision": "adopt with graph expansion",
+  "rationale": "On the two exposed development cases, graph expansion achieved a 100% rubric pass rate (2/2), compared with 50% (1/2) without expansion. All acceptance conditions for the expanded configuration passed, including question time, human review effort, token usage, and blocking-failure checks. This decision applies only to the evaluated development cases.",
+  "teaching_prediction_comparison": "The observed results support the teaching prediction that bounded graph expansion can improve prerequisite explanations when the initial evidence omits a required connection. In EC-06-1-v1, expansion supplied F-2 and enabled the complete two-connection explanation. In EC-06-2-v1, both configurations already had F-1 and F-2 and both passed. These two cases do not establish general performance improvements.",
+  "graph_preparation_trade_off": "Graph expansion required human review of concept matches and relations, compilation and verification of the accepted graph, and bounded path inspection. The additional preparation enabled retrieval of F-2 in EC-06-1-v1. Expansion is constrained by the evidence budget: in the budget-exclusion probe, F-2 was discovered but excluded because it did not fit the remaining budget. The graph provides bounded, source-supported connections rather than unrestricted domain knowledge."
+}

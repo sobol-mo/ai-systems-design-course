@@ -1,0 +1,112 @@
+{
+  "schema_version": "lab06-assessment-v1",
+  "protocol_digest": "8c33b26d1cda037609dccc72fc514f9d837fbb943b227bd8cacb6cac87e0ed93",
+  "judgments_digest": "6f913e722efc5d4a4433521508b69eb55f65bc01fea7fa36ad6864ab8494f69c",
+  "complete": true,
+  "missing_evidence": [],
+  "permitted_decision": "adopt with graph expansion",
+  "configuration_decision": "not recorded",
+  "scope": "These exposed development cases only; no deployment or population-wide claim.",
+  "positions": [
+    {
+      "evaluation_case_id": "EC-06-1-v1",
+      "configuration": "without graph expansion",
+      "outcome_type": "generated prerequisite explanation",
+      "supported_connections": [
+        true,
+        false
+      ],
+      "judgment": "fail",
+      "unsupported_claim": false,
+      "explanation_despite_conflict": false,
+      "review_minutes": 1.25,
+      "question_time_seconds": 58.403187959000206,
+      "reported_total_tokens": 44008,
+      "timing_origin": "live"
+    },
+    {
+      "evaluation_case_id": "EC-06-1-v1",
+      "configuration": "with graph expansion",
+      "outcome_type": "generated prerequisite explanation",
+      "supported_connections": [
+        true,
+        true
+      ],
+      "judgment": "pass",
+      "unsupported_claim": false,
+      "explanation_despite_conflict": false,
+      "review_minutes": 1.25,
+      "question_time_seconds": 21.282620916999804,
+      "reported_total_tokens": 24278,
+      "timing_origin": "live"
+    },
+    {
+      "evaluation_case_id": "EC-06-2-v1",
+      "configuration": "without graph expansion",
+      "outcome_type": "generated prerequisite explanation",
+      "supported_connections": [
+        true,
+        true
+      ],
+      "judgment": "pass",
+      "unsupported_claim": false,
+      "explanation_despite_conflict": false,
+      "review_minutes": 1.25,
+      "question_time_seconds": 10.339144041000509,
+      "reported_total_tokens": 14632,
+      "timing_origin": "live"
+    },
+    {
+      "evaluation_case_id": "EC-06-2-v1",
+      "configuration": "with graph expansion",
+      "outcome_type": "generated prerequisite explanation",
+      "supported_connections": [
+        true,
+        true
+      ],
+      "judgment": "pass",
+      "unsupported_claim": false,
+      "explanation_despite_conflict": false,
+      "review_minutes": 1.25,
+      "question_time_seconds": 13.814817417000086,
+      "reported_total_tokens": 19380,
+      "timing_origin": "live"
+    }
+  ],
+  "configurations": {
+    "without graph expansion": {
+      "explanation_passes": 1,
+      "refusal_passes": 0,
+      "judged_outputs": 2,
+      "awaiting_judgment": 0,
+      "rubric_pass_rate": 0.5,
+      "total_reported_tokens": 58640,
+      "acceptance_conditions": {
+        "minimum_rubric_pass_rate": false,
+        "blocking_failures": true,
+        "question_time": true,
+        "human_review_effort": true,
+        "token_usage": true
+      },
+      "missing_evidence": [],
+      "qualifies": false
+    },
+    "with graph expansion": {
+      "explanation_passes": 2,
+      "refusal_passes": 0,
+      "judged_outputs": 2,
+      "awaiting_judgment": 0,
+      "rubric_pass_rate": 1.0,
+      "total_reported_tokens": 43658,
+      "acceptance_conditions": {
+        "minimum_rubric_pass_rate": true,
+        "blocking_failures": true,
+        "question_time": true,
+        "human_review_effort": true,
+        "token_usage": true
+      },
+      "missing_evidence": [],
+      "qualifies": true
+    }
+  }
+}
