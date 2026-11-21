@@ -1,0 +1,9 @@
+schema_version: '1.0'
+blind_id: blind-013
+category: Q
+source_pointer: The note records two checked values for the same run and does not say which one the bound
+  applies to.
+rationale: Джерело фіксує неоднозначність вимірювання, відповідь правильно повідомляє про нерозв'язане
+  посилання замість довільного вибору значення.
+assessed_by: shemet-anastasiia
+recorded_at: '2026-11-15T19:19:31.152632+00:00'

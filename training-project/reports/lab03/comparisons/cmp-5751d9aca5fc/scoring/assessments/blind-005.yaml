@@ -1,0 +1,9 @@
+schema_version: '1.0'
+blind_id: blind-005
+category: S
+source_pointer: A criterion states the quality property the system must satisfy. A metric is a defined
+  measurement whose values can be compared against the criterion to judge whether that property holds.
+rationale: Відповідь правильно зберегла відношення критерію та метрики і не внесла сторонньої інформації
+  про бекапи.
+assessed_by: shemet-anastasiia
+recorded_at: '2026-11-15T19:19:28.567342+00:00'

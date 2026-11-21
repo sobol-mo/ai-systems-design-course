@@ -1,0 +1,31 @@
+schema_version: '1.0'
+comparison_id: cmp-5751d9aca5fc
+outcome: recommend-b
+rationale: Variant B satisfies all blocking conditions with 0 critical failures, achieves 8/8 rubric-acceptable
+  responses matching Variant A, and enforces explicit source-grounded boundary behavior.
+limitations:
+- small designed set
+- evaluator variability not measured across multiple raters
+blocking_failures: Any critical failure category U (unsupported or hallucinated claim) violates a blocking
+  condition.
+decision_rule:
+  recommend-b: Variant B satisfies every blocking condition and justifies replacement of Variant A.
+  retain-a: Variant A remains acceptable and Variant B does not justify replacement.
+  reject-both: Both configurations violate a blocking condition.
+  seek-more-evidence: Relevant evidence or operational uncertainty remains unresolved.
+nested_counts:
+  a:
+    attempted: 8
+    returned: 8
+    structurally_valid: 8
+    assessable: 8
+    rubric_acceptable: 8
+  b:
+    attempted: 8
+    returned: 8
+    structurally_valid: 8
+    assessable: 8
+    rubric_acceptable: 8
+protocol_freeze_id: cmp-5751d9aca5fc
+recorded_by: shemet-anastasiia
+recorded_at: '2026-11-15T19:20:15.715610+00:00'

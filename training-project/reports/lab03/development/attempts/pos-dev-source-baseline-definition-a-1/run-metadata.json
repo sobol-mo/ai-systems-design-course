@@ -1,0 +1,9 @@
+{
+  "position_id": "pos-dev-source-baseline-definition-a-1",
+  "adapter": "openrouter",
+  "model_id": "openrouter/free",
+  "started_at": "2026-11-15T19:09:39.526749+00:00",
+  "finished_at": "2026-11-15T19:09:41.626849+00:00",
+  "recorded_by": "shemet-anastasiia",
+  "observed_model": "baidu/ernie-5.5-flash-preview:free"
+}

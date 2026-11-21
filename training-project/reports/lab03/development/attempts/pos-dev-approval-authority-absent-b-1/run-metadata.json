@@ -1,0 +1,9 @@
+{
+  "position_id": "pos-dev-approval-authority-absent-b-1",
+  "adapter": "openrouter",
+  "model_id": "openrouter/free",
+  "started_at": "2026-11-15T19:11:48.613305+00:00",
+  "finished_at": "2026-11-15T19:11:51.882752+00:00",
+  "recorded_by": "shemet-anastasiia",
+  "observed_model": "nvidia/nemotron-3-ultra-550b-a55b:free"
+}

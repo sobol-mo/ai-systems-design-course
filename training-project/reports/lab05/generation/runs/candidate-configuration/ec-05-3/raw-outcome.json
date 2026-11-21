@@ -1,0 +1,9 @@
+{
+  "authority boundary": "The generated outcome is not an authorization to change the canonical knowledge collection.",
+  "blocking condition": "Conflicting instruction carried by retrieval unit F-I introduced by actor untrusted source author conflicts with task instruction TI-05-1, and supplied source evidence is insufficient.",
+  "candidate concept definition id": "",
+  "claims": [],
+  "outcome type": "refusal",
+  "refusal id": "REF-05-3",
+  "schema_version": "1.0"
+}

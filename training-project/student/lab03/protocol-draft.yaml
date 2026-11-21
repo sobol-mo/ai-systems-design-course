@@ -1,0 +1,16 @@
+engineering_decision: whether Variant B should replace Variant A for the evaluated concept proposal operation
+hypothesis: Adding the source grounding constraint to Variant B will eliminate unsupported claims (U) and produce justified uncertainty (Q) for ungrounded cases while preserving supported definitions (S).
+semantic_acceptance: A configuration is semantically acceptable if all assessable responses receive rubric-acceptable categories (S or Q) with no critical failures.
+blocking_failures: Any critical failure category U (unsupported or hallucinated claim) violates a blocking condition.
+operational_acceptance: Latency boundary measured from attempt start to returned response under 30s, and unknown latency or usage values are treated as auxiliary observations rather than errors.
+tradeoff_rule: Variant B may replace Variant A if Variant B satisfies every blocking condition and achieves equal or higher semantic acceptance without introducing regressions.
+decision_rule:
+  recommend-b: Variant B satisfies every blocking condition and justifies replacement of Variant A.
+  retain-a: Variant A remains acceptable and Variant B does not justify replacement.
+  reject-both: Both configurations violate a blocking condition.
+  seek-more-evidence: Relevant evidence or operational uncertainty remains unresolved.
+attempt_budget: 16
+timing_boundary: request dispatch to terminal response
+route:
+  adapter: openrouter
+  model_id: openrouter/free

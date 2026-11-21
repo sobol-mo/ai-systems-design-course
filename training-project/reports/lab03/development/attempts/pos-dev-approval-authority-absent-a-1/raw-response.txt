@@ -1,0 +1,4 @@
+{
+  "case_id": "dev-approval-authority-absent",
+  "proposed_text": "According to the supplied source, the review record stores only the reviewer's identity and decision, and the case identifier indicates that development approval authority is absent; therefore, no specific person is listed as being permitted to approve a proposal."
+}
