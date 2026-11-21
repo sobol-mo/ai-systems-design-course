@@ -1,0 +1,15 @@
+{
+  "schema_version": "lab06-decision-v1",
+  "protocol_digest": "8c33b26d1cda037609dccc72fc514f9d837fbb943b227bd8cacb6cac87e0ed93",
+  "judgments_digest": "66684a3944d60d3118332095a6d7758e21e9f015ca3e4b2262eb5febcf9e0285",
+  "assessment_digest": "8ec311583941dde821c953baeaa50000f0b2c99f8ba50b45fe751054c5aed18c",
+  "engineering_decision": {
+    "engineering_team": "Anastasiia Shemet, engineering team",
+    "decision": "adopt with graph expansion",
+    "rationale": "On the two development cases the rubric pass rate is 2/2 = 1.00 with graph expansion and 1/2 = 0.50 without it; the frozen minimum of 1.0 is met only with graph expansion. With graph expansion every acceptance condition is satisfied: no unsupported claim and no explanation despite a conflicting instruction, question time 14.344 s and 16.5 s against 360 s, human review 2 minutes per output against 10, and 27160 reported tokens against 200000. Without graph expansion the explanation for EC-06-1-v1 fails the Prerequisite explanation check because the connection from query embedding to embedding model is missing from the admitted evidence. The failed response stays recorded and is not replaced.",
+    "teaching_prediction_comparison": "The observed rubric pass rates (0.50 without and 1.00 with graph expansion) match the theory illustration, and graph expansion changed the admitted evidence only for EC-06-1-v1, as predicted. The decision differs from the illustration: there the candidate exceeds a stipulated latency limit of 2.5 s and the baseline is retained, whereas here the observed question time (14.344 s and 16.5 s) is far inside the frozen 360 s limit, so the higher pass rate decides.",
+    "graph_preparation_trade_off": "Graph expansion supplied the missing second connection (F-2) for EC-06-1-v1, which raised coverage and the pass rate, but it depends on a prepared graph that needed human review of mentions and relations and will need maintenance. In the budget probe the discovered F-2 was still excluded by the 250-character context budget, so the graph gives no budget relief. Graph preparation time was not measured and is not claimed, and two development cases do not show deployment benefit."
+  },
+  "scope": "These exposed development cases only; no deployment or population-wide claim.",
+  "authority_boundary": "Records the engineering team decision for these development cases only; no deployment approval or accepted-state write."
+}

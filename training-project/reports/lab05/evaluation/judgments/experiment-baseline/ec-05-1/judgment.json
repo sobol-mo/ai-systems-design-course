@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "shared experiment protocol id": "SEP-05-1",
+  "configuration role": "experiment baseline",
+  "evaluation case id": "EC-05-1",
+  "outcome type": "candidate concept definition",
+  "rubric check": "Candidate concept definition check",
+  "human evaluator judgment": "pass",
+  "judgment rationale": "Both claims restate selected retrieval unit F-A (identifier, version, sentence span; locating the passage) and add no source fact absent from F-A; both claim citations name F-A.",
+  "review minutes": 2.0,
+  "outcome sha256": "1c81626744da18670eff23f735252dc1a6baeb84b3bd09108d739b8428884305",
+  "recorded by": "shemet-anastasiia",
+  "authority boundary": "The recorded judgment is not an authorization to change the canonical knowledge collection."
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "shared experiment protocol id": "SEP-05-1",
+  "bounded configuration decision": "adopt the candidate configuration",
+  "decision rationale": "Both configuration roles reached rubric pass rate 1.00 on the three development evaluation cases, and every acceptance condition permitted adoption of the candidate configuration (maximum latency 174.235 s of 330.0 s, review effort 2 minutes of 5, no unsupported generation, no candidate definition on EC-05-3). The roles used the same model and differ only by instruction profile, so the decision is bounded to these development cases and does not authorize a canonical knowledge collection write.",
+  "rubric pass rates": {
+    "experiment baseline": 1.0,
+    "candidate configuration": 1.0
+  },
+  "candidate configuration role outcome": "adoption permitted",
+  "experiment baseline role outcome": "retention permitted",
+  "scope": "The bounded configuration decision rests on the declared development evaluation cases and supplies no held-out evidence.",
+  "authority boundary": "The bounded configuration decision does not select a retrieval configuration and authorizes no write to the canonical knowledge collection.",
+  "recorded by": "shemet-anastasiia"
+}

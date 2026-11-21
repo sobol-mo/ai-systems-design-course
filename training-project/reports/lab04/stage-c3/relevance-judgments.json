@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "designated human evaluator": "Anastasiia Shemet, designated human evaluator",
+  "judged evaluation cases": [
+    {
+      "evaluation case": "Evaluation Case A",
+      "relevance judging basis": "A retrieval unit must explain which data identify the originating record, the originating record version, and the exact location of the supporting passage.",
+      "returned retrieval units judged": [
+        "F-B"
+      ],
+      "relevance judgments": [
+        {
+          "stable retrieval identifier": "F-B",
+          "relevance judgment": "not relevant",
+          "rationale": "F-B is the proposal-run receipt: it records the source and version of the model that produced a concept proposal and states that it does not locate the evidence passage. For the auditor query it therefore does not identify the primary record, the record version, or the exact supporting-passage location, so the relevance judging basis is not satisfied."
+        }
+      ]
+    },
+    {
+      "evaluation case": "Evaluation Case B",
+      "relevance judging basis": "A retrieval unit must explain which data identify the originating record, the originating record version, and the exact location of the supporting passage.",
+      "returned retrieval units judged": [
+        "F-B"
+      ],
+      "relevance judgments": [
+        {
+          "stable retrieval identifier": "F-B",
+          "relevance judgment": "not relevant",
+          "rationale": "F-B names the source and version of the model used to produce a proposal, not the source and version that identify the supporting passage, and it explicitly does not locate the evidence passage. The query asks for the passage-identifying source and version, so the relevance judging basis is not satisfied."
+        }
+      ]
+    }
+  ],
+  "observation boundary": "relevance judgments over returned retrieval units; no retrieval metric"
+}

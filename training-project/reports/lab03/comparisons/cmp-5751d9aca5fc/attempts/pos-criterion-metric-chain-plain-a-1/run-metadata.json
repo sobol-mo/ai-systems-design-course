@@ -1,0 +1,9 @@
+{
+  "position_id": "pos-criterion-metric-chain-plain-a-1",
+  "adapter": "openrouter",
+  "model_id": "openrouter/free",
+  "started_at": "2026-11-15T19:13:35.387925+00:00",
+  "finished_at": "2026-11-15T19:13:37.010011+00:00",
+  "recorded_by": "shemet-anastasiia",
+  "observed_model": "particle-ai/particle-1:free"
+}

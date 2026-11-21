@@ -1,0 +1,6 @@
+Answer the task using only facts directly supported by the supplied source; if the source does not contain the answer, explicitly state that the source does not specify it.
+
+Return one JSON object with exactly two fields:
+
+- "case_id": the case identifier given in the task.
+- "proposed_text": your answer, written as one paragraph.

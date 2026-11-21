@@ -1,0 +1,278 @@
+{
+  "schema_version": "1.0",
+  "comparison_id": "cmp-5751d9aca5fc",
+  "nested_counts": {
+    "a": {
+      "attempted": 8,
+      "returned": 8,
+      "structurally_valid": 8,
+      "assessable": 8,
+      "rubric_acceptable": 8
+    },
+    "b": {
+      "attempted": 8,
+      "returned": 8,
+      "structurally_valid": 8,
+      "assessable": 8,
+      "rubric_acceptable": 8
+    }
+  },
+  "failure_counts": {
+    "a": 0,
+    "b": 0
+  },
+  "unstarted_counts": {
+    "a": 0,
+    "b": 0
+  },
+  "critical_unsupported_counts": {
+    "a": 0,
+    "b": 0
+  },
+  "slices": {
+    "sufficient-evidence": {
+      "a": {
+        "returned": 2,
+        "structurally_valid": 2,
+        "assessable": 2,
+        "rubric_acceptable": 2,
+        "critical_unsupported": 0
+      },
+      "b": {
+        "returned": 2,
+        "structurally_valid": 2,
+        "assessable": 2,
+        "rubric_acceptable": 2,
+        "critical_unsupported": 0
+      }
+    },
+    "distractor": {
+      "a": {
+        "returned": 2,
+        "structurally_valid": 2,
+        "assessable": 2,
+        "rubric_acceptable": 2,
+        "critical_unsupported": 0
+      },
+      "b": {
+        "returned": 2,
+        "structurally_valid": 2,
+        "assessable": 2,
+        "rubric_acceptable": 2,
+        "critical_unsupported": 0
+      }
+    },
+    "missing-fact": {
+      "a": {
+        "returned": 2,
+        "structurally_valid": 2,
+        "assessable": 2,
+        "rubric_acceptable": 2,
+        "critical_unsupported": 0
+      },
+      "b": {
+        "returned": 2,
+        "structurally_valid": 2,
+        "assessable": 2,
+        "rubric_acceptable": 2,
+        "critical_unsupported": 0
+      }
+    },
+    "explicit-ambiguity": {
+      "a": {
+        "returned": 2,
+        "structurally_valid": 2,
+        "assessable": 2,
+        "rubric_acceptable": 2,
+        "critical_unsupported": 0
+      },
+      "b": {
+        "returned": 2,
+        "structurally_valid": 2,
+        "assessable": 2,
+        "rubric_acceptable": 2,
+        "critical_unsupported": 0
+      }
+    }
+  },
+  "repeated_attempt_differences": [
+    {
+      "case_id": "criterion-metric-chain-plain",
+      "a": [
+        "blind-001:S",
+        "blind-003:S"
+      ],
+      "b": [
+        "blind-002:S",
+        "blind-004:S"
+      ],
+      "differs_within_a": true,
+      "differs_within_b": true
+    },
+    {
+      "case_id": "criterion-metric-chain-distractor",
+      "a": [
+        "blind-005:S",
+        "blind-007:S"
+      ],
+      "b": [
+        "blind-006:S",
+        "blind-008:S"
+      ],
+      "differs_within_a": true,
+      "differs_within_b": true
+    },
+    {
+      "case_id": "criterion-metric-chain-rubric-absent",
+      "a": [
+        "blind-009:Q",
+        "blind-011:Q"
+      ],
+      "b": [
+        "blind-010:Q",
+        "blind-012:Q"
+      ],
+      "differs_within_a": true,
+      "differs_within_b": true
+    },
+    {
+      "case_id": "criterion-metric-chain-ambiguous-acceptance",
+      "a": [
+        "blind-013:Q",
+        "blind-015:Q"
+      ],
+      "b": [
+        "blind-014:Q",
+        "blind-016:Q"
+      ],
+      "differs_within_a": true,
+      "differs_within_b": true
+    }
+  ],
+  "observed_latency": {
+    "a": [
+      {
+        "position_id": "pos-criterion-metric-chain-plain-a-1",
+        "started_at": "2026-11-15T19:13:35.387925+00:00",
+        "finished_at": "2026-11-15T19:13:37.010011+00:00",
+        "seconds": 1.622086
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-plain-a-2",
+        "started_at": "2026-11-15T19:13:42.609478+00:00",
+        "finished_at": "2026-11-15T19:13:46.264243+00:00",
+        "seconds": 3.654765
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-distractor-a-1",
+        "started_at": "2026-11-15T19:14:33.860315+00:00",
+        "finished_at": "2026-11-15T19:14:38.125180+00:00",
+        "seconds": 4.264865
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-distractor-a-2",
+        "started_at": "2026-11-15T19:15:05.481554+00:00",
+        "finished_at": "2026-11-15T19:15:08.826787+00:00",
+        "seconds": 3.345233
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-rubric-absent-a-1",
+        "started_at": "2026-11-15T19:15:22.444206+00:00",
+        "finished_at": "2026-11-15T19:15:24.394655+00:00",
+        "seconds": 1.950449
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-rubric-absent-a-2",
+        "started_at": "2026-11-15T19:15:29.043407+00:00",
+        "finished_at": "2026-11-15T19:15:41.022793+00:00",
+        "seconds": 11.979386
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-ambiguous-acceptance-a-1",
+        "started_at": "2026-11-15T19:15:52.126068+00:00",
+        "finished_at": "2026-11-15T19:16:00.853974+00:00",
+        "seconds": 8.727906
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-ambiguous-acceptance-a-2",
+        "started_at": "2026-11-15T19:16:33.987583+00:00",
+        "finished_at": "2026-11-15T19:16:50.318915+00:00",
+        "seconds": 16.331332
+      }
+    ],
+    "b": [
+      {
+        "position_id": "pos-criterion-metric-chain-plain-b-1",
+        "started_at": "2026-11-15T19:13:27.750542+00:00",
+        "finished_at": "2026-11-15T19:13:30.730676+00:00",
+        "seconds": 2.980134
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-plain-b-2",
+        "started_at": "2026-11-15T19:13:50.918569+00:00",
+        "finished_at": "2026-11-15T19:14:28.753323+00:00",
+        "seconds": 37.834754
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-distractor-b-1",
+        "started_at": "2026-11-15T19:14:42.945108+00:00",
+        "finished_at": "2026-11-15T19:14:52.773394+00:00",
+        "seconds": 9.828286
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-distractor-b-2",
+        "started_at": "2026-11-15T19:14:57.436726+00:00",
+        "finished_at": "2026-11-15T19:15:00.841734+00:00",
+        "seconds": 3.405008
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-rubric-absent-b-1",
+        "started_at": "2026-11-15T19:15:13.488477+00:00",
+        "finished_at": "2026-11-15T19:15:17.802340+00:00",
+        "seconds": 4.313863
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-rubric-absent-b-2",
+        "started_at": "2026-11-15T19:15:45.701992+00:00",
+        "finished_at": "2026-11-15T19:15:47.485594+00:00",
+        "seconds": 1.783602
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-ambiguous-acceptance-b-1",
+        "started_at": "2026-11-15T19:16:20.588838+00:00",
+        "finished_at": "2026-11-15T19:16:23.046725+00:00",
+        "seconds": 2.457887
+      },
+      {
+        "position_id": "pos-criterion-metric-chain-ambiguous-acceptance-b-2",
+        "started_at": "2026-11-15T19:16:27.701228+00:00",
+        "finished_at": "2026-11-15T19:16:29.358972+00:00",
+        "seconds": 1.657744
+      }
+    ]
+  },
+  "observed_models": {
+    "a": [
+      "baidu/ernie-5.5-flash-preview:free",
+      "dots-studio/dots-3-note-preview:free",
+      "nvidia/nemotron-3.5-lightning:free",
+      "nvidia/nemotron-3.5-super-vl:free",
+      "particle-ai/particle-1:free",
+      "recursive/flint-v1.0:free"
+    ],
+    "b": [
+      "baidu/ernie-5.5-flash-preview:free",
+      "cohere/north-mini-code:free",
+      "dots-studio/dots-3-note-preview:free",
+      "inclusionai/ling-3.2-flash:free",
+      "particle-ai/particle-1:free",
+      "recursive/flint-v1.0:free"
+    ]
+  },
+  "unknown_values": {
+    "monetary_cost": "unknown",
+    "quota_usage": "unknown",
+    "token_usage": "unknown"
+  },
+  "generated_at": "2026-11-15T19:19:39.320476+00:00"
+}
