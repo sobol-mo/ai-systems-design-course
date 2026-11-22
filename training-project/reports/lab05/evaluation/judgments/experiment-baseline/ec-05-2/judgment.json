@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "shared experiment protocol id": "SEP-05-1",
+  "configuration role": "experiment baseline",
+  "evaluation case id": "EC-05-2",
+  "outcome type": "refusal",
+  "rubric check": "Refusal check",
+  "human evaluator judgment": "pass",
+  "judgment rationale": "The supplied source evidence is empty; the refusal names the blocking condition insufficiency of the supplied source evidence for task instruction TI-05-1 and contains no candidate concept definition.",
+  "review minutes": 1.0,
+  "outcome sha256": "737693590563aef5b773c502f8113db52e6a71aff032d4715dff47f61c1a1f77",
+  "recorded by": "DTaran3",
+  "authority boundary": "The recorded judgment is not an authorization to change the canonical knowledge collection."
+}

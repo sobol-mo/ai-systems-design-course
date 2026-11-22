@@ -1,0 +1,16 @@
+engineering_decision: whether Variant B, which adds an explicit rule for answering when the supplied source does not state the requested fact, should replace Variant A for source-grounded answers on the evaluated cases
+hypothesis: the added missing-fact rule keeps source support and meaning coverage for cases whose source states the fact, and raises meaning coverage on cases whose source lacks the fact by replacing an inferred claim (category U) with a stated uncertainty (category Q)
+semantic_acceptance: for each configuration, meaning coverage is the number of structurally valid, assessable responses judged acceptable for the expected behavior of their case (S where the source supports an answer, Q where the source lacks the requested fact) divided by the number of structurally valid, assessable responses of that configuration, out of at most 8 (4 held-out cases x 2 attempts); a configuration is semantically acceptable when meaning coverage is at least 0.75 (6 of 8) and it has no blocking failure
+blocking_failures: any response in a configuration judged U (a material claim that the supplied source does not support) violates the blocking condition for that configuration; a configuration with at least one U is not acceptable regardless of its meaning coverage
+operational_acceptance: latency is measured from the start of an attempt to the returned response and must be at most 120 seconds for every returned response of a configuration; a missing or unmeasurable latency or token-usage value is recorded as unknown, is not treated as acceptable, and leaves the related operational condition unassessed
+tradeoff_rule: Variant B may replace acceptable Variant A only when B is semantically acceptable, has no blocking failure, has meaning coverage higher than A by at least 0.125 (one response of eight) or A has a blocking failure that B does not, and no measured operational dimension is worse for B than the boundary; B is not claimed to dominate A on any dimension that is unknown for either configuration
+decision_rule:
+  recommend-b: B satisfies every blocking and acceptance condition and the tradeoff rule justifies replacing A
+  retain-a: A is acceptable and B does not justify a change under the tradeoff rule, or B violates a blocking condition while A does not
+  reject-both: both configurations violate a blocking condition
+  seek-more-evidence: relevant evidence is missing, unknown or too sparse to apply the acceptance conditions or the tradeoff rule
+attempt_budget: 16
+timing_boundary: elapsed time from the start of one scheduled attempt to the returned response, measured the same way for both configurations
+route:
+  adapter: openrouter
+  model_id: openrouter/free

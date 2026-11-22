@@ -1,0 +1,12 @@
+changed_property: explicit rule for answering when the supplied source does not state the fact that the
+  task asks for
+mechanism: Variant A gives no instruction for a task whose requested fact is missing from the supplied
+  source, so the model may fill the gap with a related detail from the source. Variant B adds one rule
+  that tells the model to state that the source does not specify the fact instead of inferring it, which
+  can raise source support and make the missing-fact answer the expected uncertainty answer without changing
+  the output format.
+declared_factors:
+- explicit rule for answering when the supplied source does not state the fact that the task asks for
+variant_a_sha256: d765770175309f6014f3af33d845b730aa0d7323fccd57403e8146be4dc352ee
+variant_b_sha256: e75fd3ff86022748ee8311ec49f144c3e952090780711ab70845c3a632290586
+recorded_at: '2026-11-18T17:02:29.504478+00:00'

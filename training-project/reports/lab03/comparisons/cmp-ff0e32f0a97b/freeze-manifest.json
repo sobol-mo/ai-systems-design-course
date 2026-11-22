@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "freeze_id": "cmp-ff0e32f0a97b",
+  "comparison_dir": "C:\\Users\\Dell\\Desktop\\ai-systems-design-course\\training-project\\reports\\lab03\\comparisons\\cmp-ff0e32f0a97b",
+  "protocol": {
+    "engineering_decision": "whether Variant B, which adds an explicit rule for answering when the supplied source does not state the requested fact, should replace Variant A for source-grounded answers on the evaluated cases",
+    "hypothesis": "the added missing-fact rule keeps source support and meaning coverage for cases whose source states the fact, and raises meaning coverage on cases whose source lacks the fact by replacing an inferred claim (category U) with a stated uncertainty (category Q)",
+    "semantic_acceptance": "for each configuration, meaning coverage is the number of structurally valid, assessable responses judged acceptable for the expected behavior of their case (S where the source supports an answer, Q where the source lacks the requested fact) divided by the number of structurally valid, assessable responses of that configuration, out of at most 8 (4 held-out cases x 2 attempts); a configuration is semantically acceptable when meaning coverage is at least 0.75 (6 of 8) and it has no blocking failure",
+    "blocking_failures": "any response in a configuration judged U (a material claim that the supplied source does not support) violates the blocking condition for that configuration; a configuration with at least one U is not acceptable regardless of its meaning coverage",
+    "operational_acceptance": "latency is measured from the start of an attempt to the returned response and must be at most 120 seconds for every returned response of a configuration; a missing or unmeasurable latency or token-usage value is recorded as unknown, is not treated as acceptable, and leaves the related operational condition unassessed",
+    "tradeoff_rule": "Variant B may replace acceptable Variant A only when B is semantically acceptable, has no blocking failure, has meaning coverage higher than A by at least 0.125 (one response of eight) or A has a blocking failure that B does not, and no measured operational dimension is worse for B than the boundary; B is not claimed to dominate A on any dimension that is unknown for either configuration",
+    "decision_rule": {
+      "recommend-b": "B satisfies every blocking and acceptance condition and the tradeoff rule justifies replacing A",
+      "retain-a": "A is acceptable and B does not justify a change under the tradeoff rule, or B violates a blocking condition while A does not",
+      "reject-both": "both configurations violate a blocking condition",
+      "seek-more-evidence": "relevant evidence is missing, unknown or too sparse to apply the acceptance conditions or the tradeoff rule"
+    },
+    "attempt_budget": 16,
+    "timing_boundary": "elapsed time from the start of one scheduled attempt to the returned response, measured the same way for both configurations",
+    "route": {
+      "adapter": "openrouter",
+      "model_id": "openrouter/free"
+    },
+    "order_rule": "course-generated balanced schedule",
+    "resume_window": "48h"
+  },
+  "variant_a_sha256": "69f0f1d6b4b3298353df79e53cff0fd654f15df43117a6e40f865cb655448d91",
+  "variant_b_sha256": "e75fd3ff86022748ee8311ec49f144c3e952090780711ab70845c3a632290586",
+  "change_declaration": {
+    "changed_property": "explicit rule for answering when the supplied source does not state the fact that the task asks for",
+    "mechanism": "Variant A gives no instruction for a task whose requested fact is missing from the supplied source, so the model may fill the gap with a related detail from the source. Variant B adds one rule that tells the model to state that the source does not specify the fact instead of inferring it, which can raise source support and make the missing-fact answer the expected uncertainty answer without changing the output format.",
+    "declared_factors": [
+      "explicit rule for answering when the supplied source does not state the fact that the task asks for"
+    ]
+  },
+  "route": {
+    "adapter": "openrouter",
+    "model_id": "openrouter/free"
+  },
+  "resume_window": "48h",
+  "eligible_reserve_count_at_freeze": 3,
+  "bindings": {
+    "output_schema_sha256": "b656ec5caa60b098b6711283893cfe0a6b0f5391d43accd55f2c136b828ca0c7",
+    "case_family_contract_sha256": "5bad7f720a34f0e5a02127a71841eb9143feaefb05a85887c7701679503867ac",
+    "validator_module_sha256": "f2c763d45afdff72214990c078c75ba10f35d907a36194cab6a0ad81dc436360",
+    "validator_schema_version": "1.0",
+    "development_schedule_sha256": "42e9ec110b6b8d6fb19c4d19964a995ee56b4df5fc3c6f286f4a8088fc277016",
+    "change_declaration_sha256": "bd662f32382ce0a691a9627f9fd8c25b0d7efc21a99f114239c18f66ecc2b59c",
+    "exposure_ledger_sha256": "a34c1a5a459235652961ed5654cf0e7cf17c2382f8d99cb17434a828ddc14a60"
+  },
+  "frozen_at": "2026-11-18T17:05:17.698230+00:00",
+  "frozen_by": "DTaran3"
+}

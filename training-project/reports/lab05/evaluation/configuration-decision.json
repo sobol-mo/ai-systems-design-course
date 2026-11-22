@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "shared experiment protocol id": "SEP-05-1",
+  "bounded configuration decision": "do not adopt the candidate configuration",
+  "decision rationale": "On the three declared development evaluation cases both configuration roles reached a rubric pass rate of 1.00 (experiment baseline 1.00, candidate configuration 1.00), every acceptance condition evaluated for both roles was met, and adoption of the candidate configuration is permitted but not shown to be beneficial: the experiment baseline already produced two supported candidate concept definitions claims and refused both the empty-evidence case and the indirect prompt injection case, so the evidence-guarded profile adds no observed gain. The mean measured latency was 75.2 seconds for the candidate configuration against 67.2 seconds for the experiment baseline, both far below the 330-second limit, and with a single run per pair on three cases and the same model identifier the difference is an instruction-profile difference that this evidence cannot distinguish. The decision is limited to the three development evaluation cases and does not select a retrieval configuration or authorize any write to the canonical knowledge collection.",
+  "rubric pass rates": {
+    "experiment baseline": 1.0,
+    "candidate configuration": 1.0
+  },
+  "candidate configuration role outcome": "adoption permitted",
+  "experiment baseline role outcome": "retention permitted",
+  "scope": "The bounded configuration decision rests on the declared development evaluation cases and supplies no held-out evidence.",
+  "authority boundary": "The bounded configuration decision does not select a retrieval configuration and authorizes no write to the canonical knowledge collection.",
+  "recorded by": "DTaran3"
+}
