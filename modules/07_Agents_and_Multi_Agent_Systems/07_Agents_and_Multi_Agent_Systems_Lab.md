@@ -114,6 +114,10 @@ uv run learning-project lab07 run-first-action --model gemini-3.8-flash-low --ou
 
 The command reserves a create-only attempt and writes the exact action-selection **bounded model request** before invoking AGY. The three request fields are `task instruction`, `supplied source evidence` and `output contract`. The operation schema is part of the output contract, not a separate AGY schema-repair turn. The model returns a proposed action; application code performs the permitted search. No model tool call executes the search directly.
 
+Laboratory 07 commands print one result field per line by default. Paths are printed as ordinary paths, without JSON escaping; on Windows, for example, `trace: reports\lab07\first-read\trace.json`. Add `--json` to the same command when a script needs machine-readable output. Backslashes are escaped in JSON strings; this does not change the actual path.
+
+New requests store `output contract` as an object with an `instruction` string and a nested `schema` object. `provider-response.json` deliberately retains the original process streams as strings, so escaped quotes and line breaks there are not a formatting defect. Inspect extracted actions in `action.json` and explanations or refusals in `generation/outcome.json`; do not edit raw provider evidence. Existing attempts remain immutable and can be continued and verified in their original request format.
+
 Open the generated files in the editor:
 
 - `attempt.json` records the requested adapter/model, source version and acquisition mode.
@@ -166,7 +170,7 @@ Open the generated files in the editor. Paths below are relative to `reports/lab
 
 - `attempt.json` preserves the source resource, complete first-read capture, requested model and application limits.
 - `decision-N/selection-record.json`, where `N` is 1–3, records actual candidates, admission checks, exclusions and remaining **context budget** before decision `N`. The concrete first path is `reports/lab07/adaptive/decision-1/selection-record.json`.
-- `decision-N/request.json` preserves the action-selection **bounded model request**. Only admitted passages appear as **supplied source evidence**. Selected completed-read information or a preceding generation return appears as quoted task-progress data inside the **task instruction**, not a fourth field or another source passage.
+- `decision-N/request.json` preserves the action-selection **bounded model request**. Only admitted passages appear as **supplied source evidence**. In new action-selection requests, **task instruction** is an object: `instruction` contains the task and the data-boundary instruction, while `task-progress data` contains selected completed-read information or the preceding generation return as a nested object. This is quoted data within the task instruction, not a fourth top-level field or another source passage.
 - `decision-N/action.json` and `decision-N/trace.json` distinguish the actual requested action, application permission, executed input and operation return. A stop proposal or denied action has no executed operation input.
 - `decision-N/generation/request.json` and `decision-N/generation/outcome.json` exist when generation is invoked and a structurally valid outcome is extracted. The generation **bounded model request** uses the same admitted passages, the original question and the inherited citation/**refusal** conditions, not the entire retained history.
 - Each invoked model call preserves `provider-response.json` and `call-metadata.json` beside the corresponding request. The complete provider envelope remains separate from the extracted action or outcome; a failed call may have no extracted file.

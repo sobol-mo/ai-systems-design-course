@@ -29,7 +29,8 @@ ACTION_SCHEMA = {'type': 'object', 'oneOf': [
       for operation in (OPERATIONS[1], 'stop')]]}
 
 
-def run_first_action(*, model_id: str, output_dir: Path, runner=subprocess.run) -> dict:
+def run_first_action(*, model_id: str, output_dir: Path, runner=subprocess.run,
+                     _legacy_request: bool = False) -> dict:
     """Course-owned scope: fixed synthetic resource; the model cannot choose a filesystem path."""
     if not isinstance(model_id, str) or not model_id.strip():
         raise WorkflowError('An explicit action-selection model id is required.')
@@ -51,6 +52,10 @@ def run_first_action(*, model_id: str, output_dir: Path, runner=subprocess.run) 
         'output contract': 'Return exactly one JSON object with operation (string) and arguments (object). '
                            'Request one operation from the tool inventory or propose stop. No private reasoning is required. '
                            'Action schema: ' + json.dumps(ACTION_SCHEMA, ensure_ascii=False)}
+    if not _legacy_request:
+        request['output contract'] = {
+            'instruction': request['output contract'].split('Action schema: ', 1)[0].rstrip(),
+            'schema': ACTION_SCHEMA}
     _write(output_dir / 'attempt.json', {'adapter': 'agy', 'model_id': model_id,
         'collection_version': corpus['collection_version'], 'attempts': 1,
         'acquisition': 'prompt-schema; no CLI repair turn'})

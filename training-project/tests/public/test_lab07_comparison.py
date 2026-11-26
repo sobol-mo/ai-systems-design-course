@@ -8,7 +8,7 @@ from learning_project.lab07 import run_first_action
 
 
 def load(path):
-    return json.loads(path.read_text())
+    return json.loads(path.read_text(encoding='utf-8'))
 
 
 def response(value):
@@ -64,10 +64,10 @@ def test_fixed_collision_never_calls_provider_or_changes_target(tmp_path, name, 
     path, target = output/name, tmp_path/'outside'
     path.parent.mkdir(parents=True, exist_ok=True)
     if kind == 'regular':
-        path.write_text('unchanged')
+        path.write_text('unchanged', encoding='utf-8')
     else:
         if kind == 'existing-target':
-            target.write_text('unchanged')
+            target.write_text('unchanged', encoding='utf-8')
         try:
             path.symlink_to(target)
         except OSError:
@@ -77,9 +77,9 @@ def test_fixed_collision_never_calls_provider_or_changes_target(tmp_path, name, 
     with pytest.raises(WorkflowError, match='already exists'):
         run_fixed(first_action_dir=first, model_id='test', output_dir=output, runner=forbidden)
     if target.exists():
-        assert target.read_text() == 'unchanged'
+        assert target.read_text(encoding='utf-8') == 'unchanged'
     if kind == 'regular':
-        assert path.read_text() == 'unchanged'
+        assert path.read_text(encoding='utf-8') == 'unchanged'
 
 
 @pytest.mark.parametrize('kind', ['invalid-json', 'bad-citation', 'timeout'])
@@ -122,7 +122,7 @@ def test_documented_fixed_cli_executes_relative_paths(tmp_path, monkeypatch, cap
     monkeypatch.chdir(tmp_path)
     assert main(['lab07', 'run-fixed', '--first-action-dir', 'reports/lab07/first-read',
                  '--model', 'test', '--output-dir', 'reports/lab07/fixed']) == 0
-    assert json.loads(capsys.readouterr().out)['status'] == 'fixed path completed'
+    assert 'status: fixed path completed' in capsys.readouterr().out
 
 
 def test_fixed_invalid_predecessor_never_calls_provider(tmp_path):
@@ -131,7 +131,7 @@ def test_fixed_invalid_predecessor_never_calls_provider(tmp_path):
     first = first_read(tmp_path/'first')
     meta = load(first/'run-metadata.json')
     meta['status'] = 'execution failure'
-    (first/'run-metadata.json').write_text(json.dumps(meta))
+    (first/'run-metadata.json').write_text(json.dumps(meta), encoding='utf-8')
     def forbidden(*a, **kw):
         pytest.fail('Provider invoked after invalid predecessor')
     with pytest.raises(WorkflowError, match='First-action metadata'):

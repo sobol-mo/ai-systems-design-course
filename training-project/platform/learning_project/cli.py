@@ -744,6 +744,7 @@ def _build_parser() -> argparse.ArgumentParser:
     for command in ('init-report', 'validate-report', 'verify'):
         reporting = lab07_commands.add_parser(command)
         reporting.add_argument('--report-dir', type=Path, required=True)
+        reporting.add_argument('--json', action='store_true', dest='json_output', help='Print machine-readable JSON.')
         if command == 'verify':
             reporting.add_argument('--final-commit', required=True)
     boundaries = lab07_commands.add_parser('check-boundaries', help='Controlled diagnostic transports; no live model calls.')
@@ -760,6 +761,9 @@ def _build_parser() -> argparse.ArgumentParser:
     fixed.add_argument('--first-action-dir', type=Path, required=True)
     fixed.add_argument('--model', required=True)
     fixed.add_argument('--output-dir', type=Path, required=True)
+    for command_parser in (boundaries, first, continuation, fixed):
+        command_parser.add_argument('--json', action='store_true', dest='json_output',
+                                    help='Print machine-readable JSON.')
 
     return parser
 
@@ -1589,6 +1593,18 @@ def _run_lab06(args: argparse.Namespace) -> int:
     raise WorkflowError(f"Unknown Laboratory 06 command: {args.lab06_command}")
 
 
+def _print_lab07_result(result: dict, *, json_output: bool) -> None:
+    if json_output:
+        print(json.dumps(result, ensure_ascii=False))
+        return
+    for key, value in result.items():
+        if isinstance(value, (dict, list)):
+            print(f'{key}:')
+            print(json.dumps(value, indent=2, ensure_ascii=False))
+        else:
+            print(f'{key}: {value}')
+
+
 def _run_lab07(args: argparse.Namespace) -> int:
     if args.lab07_command in ('init-report', 'validate-report', 'verify'):
         from . import lab07_reporting
@@ -1601,7 +1617,7 @@ def _run_lab07(args: argparse.Namespace) -> int:
         else:
             result = lab07_reporting.validate_report(report_dir=args.report_dir)
             key = 'status'
-        print(json.dumps(result, ensure_ascii=False))
+        _print_lab07_result(result, json_output=args.json_output)
         return 0 if result[key] == 'passed' else 1
     from .lab07 import run_first_action
     from .lab07_loop import continue_adaptive
@@ -1615,7 +1631,7 @@ def _run_lab07(args: argparse.Namespace) -> int:
         result = continue_adaptive(first_action_dir=args.first_action_dir, model_id=args.model, output_dir=args.output_dir)
     else:
         result = run_first_action(model_id=args.model, output_dir=args.output_dir)
-    print(json.dumps(result, ensure_ascii=False))
+    _print_lab07_result(result, json_output=args.json_output)
     return 0
 
 

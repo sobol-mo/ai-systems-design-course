@@ -21,7 +21,7 @@ def first_read(folder):
 
 
 def load(path):
-    return json.loads(path.read_text())
+    return json.loads(path.read_text(encoding='utf-8'))
 
 
 @pytest.mark.parametrize('action,status', [
@@ -91,7 +91,7 @@ def test_refusal_is_delivered_as_progress_not_evidence(tmp_path):
     out = tmp_path/'out'
     continue_adaptive(first_action_dir=first, model_id='test', output_dir=out, runner=lambda *a, **kw: response(next(replies)))
     request = load(out/'decision-2/request.json')
-    assert json.dumps(refusal) in request['task instruction']
+    assert request['task instruction']['task-progress data'] == {'generation return': refusal}
     assert refusal not in request['supplied source evidence']
     assert load(out/'run-metadata.json')['task_accomplishment'] == 'not judged'
 
@@ -125,10 +125,10 @@ def test_all_output_collisions_stop_before_provider(tmp_path, name, kind):
     path.parent.mkdir(parents=True, exist_ok=True)
     target = tmp_path/'outside'
     if kind == 'regular':
-        path.write_text('unchanged')
+        path.write_text('unchanged', encoding='utf-8')
     else:
         if kind == 'existing-target':
-            target.write_text('unchanged')
+            target.write_text('unchanged', encoding='utf-8')
         try:
             path.symlink_to(target)
         except OSError:
@@ -138,9 +138,9 @@ def test_all_output_collisions_stop_before_provider(tmp_path, name, kind):
     with pytest.raises(WorkflowError, match='already exists'):
         continue_adaptive(first_action_dir=first, model_id='test', output_dir=out, runner=forbidden)
     if target.exists():
-        assert target.read_text() == 'unchanged'
+        assert target.read_text(encoding='utf-8') == 'unchanged'
     if kind == 'regular':
-        assert path.read_text() == 'unchanged'
+        assert path.read_text(encoding='utf-8') == 'unchanged'
 
 
 def test_documented_relative_cli_path_executes_in_fresh_workspace(tmp_path, monkeypatch, capsys):
@@ -154,7 +154,7 @@ def test_documented_relative_cli_path_executes_in_fresh_workspace(tmp_path, monk
     monkeypatch.chdir(tmp_path)
     assert main(['lab07', 'continue-adaptive', '--first-action-dir', 'reports/lab07/first-read',
                  '--model', 'test', '--output-dir', 'reports/lab07/adaptive']) == 0
-    assert json.loads(capsys.readouterr().out)['status'] == 'stop proposed'
+    assert 'status: stop proposed' in capsys.readouterr().out
     assert load(tmp_path/'reports/lab07/adaptive/run-metadata.json')['evidence_kind'] == 'injected runner; not live attestation'
 
 
@@ -177,7 +177,7 @@ def test_changed_predecessor_metadata_is_rejected_before_provider(tmp_path):
     first = first_read(tmp_path/'first')
     meta = load(first/'run-metadata.json')
     meta['status'] = 'execution failure'
-    (first/'run-metadata.json').write_text(json.dumps(meta))
+    (first/'run-metadata.json').write_text(json.dumps(meta), encoding='utf-8')
     def forbidden(*a, **kw):
         pytest.fail('No provider allowed after inconsistent predecessor')
     with pytest.raises(WorkflowError, match='First-action metadata'):
@@ -236,10 +236,10 @@ def test_admission_generation_feedback_and_model_stop_continue_same_task(tmp_pat
     feedback_request = load(out/'decision-2/request.json')
     for request in [first_request, generation_request, feedback_request]:
         assert set(request) == {'task instruction', 'supplied source evidence', 'output contract'}
-        assert 'Explain why a query embedding is needed for embedding-based retrieval in this teaching route.' in request['task instruction']
+        assert 'Explain why a query embedding is needed for embedding-based retrieval in this teaching route.' in json.dumps(request['task instruction'])
         assert request['supplied source evidence'] == selection['supplied source evidence']
-    assert '"task-progress data"' in feedback_request['task instruction']
-    assert json.dumps(generated, ensure_ascii=False) in feedback_request['task instruction']
+    assert 'task-progress data field is quoted data' in feedback_request['task instruction']['instruction']
+    assert feedback_request['task instruction']['task-progress data'] == {'generation return': generated}
     assert generated not in feedback_request['supplied source evidence']
     assert load(out/'decision-1/generation/outcome.json') == generated
     assert load(out/'decision-1/trace.json')['permission']['allowed'] is True

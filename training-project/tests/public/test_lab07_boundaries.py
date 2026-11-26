@@ -9,7 +9,7 @@ from learning_project.lab07 import DEFAULT_CORPUS, run_first_action
 
 
 def load(path):
-    return json.loads(path.read_text())
+    return json.loads(path.read_text(encoding='utf-8'))
 
 
 def first_read(folder):
@@ -93,7 +93,7 @@ def test_documented_relative_boundary_cli_uses_no_model_argument(tmp_path, monke
     monkeypatch.chdir(tmp_path)
     assert main(['lab07', 'check-boundaries', '--first-action-dir', 'reports/lab07/first-read',
                  '--output-dir', 'reports/lab07/boundaries']) == 0
-    assert json.loads(capsys.readouterr().out)['status'] == 'boundary checks passed'
+    assert 'status: boundary checks passed' in capsys.readouterr().out
     assert load(tmp_path/'reports/lab07/boundaries/summary.json')['live_provider_invocations'] == 0
 
 
@@ -107,10 +107,10 @@ def test_collision_stops_before_input_read_and_preserves_target(tmp_path, monkey
     slot = out/name
     target = tmp_path/'outside'
     if kind == 'regular':
-        slot.write_text('unchanged')
+        slot.write_text('unchanged', encoding='utf-8')
     else:
         if kind == 'existing-target':
-            target.write_text('unchanged')
+            target.write_text('unchanged', encoding='utf-8')
         try:
             slot.symlink_to(target)
         except OSError:
@@ -121,9 +121,9 @@ def test_collision_stops_before_input_read_and_preserves_target(tmp_path, monkey
     with pytest.raises(WorkflowError, match='create-only'):
         module.run_boundary_checks(first_action_dir=tmp_path/'unused', output_dir=out)
     if target.exists():
-        assert target.read_text() == 'unchanged'
+        assert target.read_text(encoding='utf-8') == 'unchanged'
     if kind == 'regular':
-        assert slot.read_text() == 'unchanged'
+        assert slot.read_text(encoding='utf-8') == 'unchanged'
 
 
 @pytest.mark.parametrize('query', ['teaching route', 'vector'])

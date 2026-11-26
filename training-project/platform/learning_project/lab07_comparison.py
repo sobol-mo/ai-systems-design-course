@@ -39,7 +39,8 @@ def run_fixed(*, first_action_dir: Path, model_id: str, output_dir: Path,
         selection = _selection(candidates, query, corpus)
         _write(output_dir/'selection-record.json', selection)
         evidence = selection['supplied source evidence']
-        request = _generation_request(evidence)
+        request = _generation_request(evidence, legacy=isinstance(
+            first['request.json'].get('output contract'), str))
         trace['executed input'] = request
         calls = 1
         outcome = _call(request, model_id=model_id, folder=output_dir/'generation', runner=runner)

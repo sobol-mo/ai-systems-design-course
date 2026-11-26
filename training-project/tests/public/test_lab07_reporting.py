@@ -17,13 +17,13 @@ def filled_report(tmp_path):
     from learning_project import lab07_reporting as reporting
     report = tmp_path/'reports/lab07'
     report.mkdir(parents=True)
-    text = FIXTURE.read_text()
+    text = FIXTURE.read_text(encoding='utf-8')
     text = '\n'.join(line for line in text.splitlines() if not line.startswith('Заповнити кожен розділ'))
     text = re.sub(r'^\[[^\n]*\]$', 'Спостереження для модульного тесту.', text, flags=re.M)
     text = text.replace('- URL форка:', '- URL форка: https://github.com/test-student/course')
     text = text.replace('- Особиста гілка:', '- Особиста гілка: lab07/test-student')
     text = text.replace('`complete` або `honest-partial`', '`complete`')
-    (report/'REPORT.md').write_text(text)
+    (report/'REPORT.md').write_text(text, encoding='utf-8')
     for name in reporting.SCREENSHOTS[:-1]:
         target = report/'screenshots'/name
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -31,7 +31,7 @@ def filled_report(tmp_path):
     for name in reporting.REQUIRED_EVIDENCE:
         target = report/name
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text('{}')
+        target.write_text('{}', encoding='utf-8')
     return report
 
 
@@ -45,13 +45,13 @@ def test_real_report_fixture_and_validator_form_one_contract(tmp_path):
 def test_honest_partial_requires_only_started_checkpoints(tmp_path):
     from learning_project import lab07_reporting as reporting
     report = filled_report(tmp_path)
-    text = (report/'REPORT.md').read_text().replace('`complete`', '`honest-partial`')
+    text = (report/'REPORT.md').read_text(encoding='utf-8').replace('`complete`', '`honest-partial`')
     for folder in ['adaptive', 'fixed', 'boundaries']:
         shutil.rmtree(report/folder)
     for name in reporting.SCREENSHOTS[1:-1]:
         (report/'screenshots'/name).unlink()
         text = '\n'.join(line for line in text.splitlines() if 'screenshots/'+name not in line)
-    (report/'REPORT.md').write_text(text)
+    (report/'REPORT.md').write_text(text, encoding='utf-8')
     result = reporting.validate_report(report_dir=report)
     assert result['status'] == 'passed', result
     assert result['completion_state'] == 'honest-partial'
@@ -64,11 +64,11 @@ def committed_partial_report(tmp_path, monkeypatch):
     report = filled_report(tmp_path)
     for folder in ['first-read', 'adaptive', 'fixed', 'boundaries']:
         shutil.rmtree(report/folder)
-    text = (report/'REPORT.md').read_text().replace('`complete`', '`honest-partial`')
+    text = (report/'REPORT.md').read_text(encoding='utf-8').replace('`complete`', '`honest-partial`')
     for name in reporting.SCREENSHOTS[:-1]:
         (report/'screenshots'/name).unlink()
         text = '\n'.join(line for line in text.splitlines() if 'screenshots/'+name not in line)
-    (report/'REPORT.md').write_text(text)
+    (report/'REPORT.md').write_text(text, encoding='utf-8')
     source = tmp_path/'cases/lab07/accessible-passages.json'
     source.parent.mkdir(parents=True)
     source.write_bytes(DEFAULT_CORPUS.read_bytes())
@@ -93,7 +93,7 @@ def test_partial_verification_binds_exact_head_without_claiming_domain_completio
     assert result['completion_state'] == 'honest-partial'
     assert result['domain_completion_claimed'] is False
     assert result['final_commit'] == head
-    assert json.loads((report/'verification-report.json').read_text()) == result
+    assert json.loads((report/'verification-report.json').read_text(encoding='utf-8')) == result
 
 
 def complete_report(tmp_path, monkeypatch):
@@ -146,7 +146,7 @@ def test_final_verifier_rejects_unbound_inputs(tmp_path, monkeypatch, kind):
     from learning_project import lab07_reporting as reporting
     report, source, head = committed_partial_report(tmp_path, monkeypatch)
     if kind == 'source-edited':
-        source.write_text('{}')
+        source.write_text('{}', encoding='utf-8')
     elif kind == 'source-deleted':
         source.unlink()
     elif kind == 'wrong-head':
@@ -155,15 +155,15 @@ def test_final_verifier_rejects_unbound_inputs(tmp_path, monkeypatch, kind):
         subprocess.run(['git', '-C', str(tmp_path), 'branch', '-m', 'lab07/other'], check=True)
     elif kind == 'symlink':
         target = tmp_path/'external.txt'
-        target.write_text('unchanged')
+        target.write_text('unchanged', encoding='utf-8')
         try:
             (report/'linked-input').symlink_to(target)
         except OSError:
             pytest.skip('Host does not permit symlinks')
     else:
         if kind == 'ignored-evidence':
-            (tmp_path/'.git/info/exclude').write_text('reports/lab07/extra.json\n')
-        (report/'extra.json').write_text('{}')
+            (tmp_path/'.git/info/exclude').write_text('reports/lab07/extra.json\n', encoding='utf-8')
+        (report/'extra.json').write_text('{}', encoding='utf-8')
     result = reporting.verify(report_dir=report, final_commit=head)
     assert result['outcome'] == 'failed', result
     assert result['domain_completion_claimed'] is False
@@ -174,7 +174,7 @@ def test_report_validator_rejects_incomplete_source_report(tmp_path, kind):
     from learning_project import lab07_reporting as reporting
     report = filled_report(tmp_path)
     path = report/'REPORT.md'
-    text = path.read_text()
+    text = path.read_text(encoding='utf-8')
     if kind == 'missing-heading':
         text = text.replace('## Хід виконання', '## Інше')
     elif kind == 'missing-image':
@@ -189,7 +189,7 @@ def test_report_validator_rejects_incomplete_source_report(tmp_path, kind):
         text += '\ndata:image/png;base64,AA==\n'
     elif kind == 'missing-evidence':
         (report/reporting.REQUIRED_EVIDENCE[0]).unlink()
-    path.write_text(text)
+    path.write_text(text, encoding='utf-8')
     assert reporting.validate_report(report_dir=report)['status'] == 'failed'
 
 
@@ -204,7 +204,7 @@ def test_actual_fixture_packages_all_checkpoint_images_without_changing_source(t
     destination, images = prepare_report(report/'REPORT.md')
     assert images == len(reporting.SCREENSHOTS)
     assert destination == report/'submission/REPORT.md'
-    assert destination.read_text().count('data:image/png;base64,') == len(reporting.SCREENSHOTS)
+    assert destination.read_text(encoding='utf-8').count('data:image/png;base64,') == len(reporting.SCREENSHOTS)
     assert (report/'REPORT.md').read_bytes() == original
 
 
@@ -212,7 +212,7 @@ def test_actual_fixture_packages_all_checkpoint_images_without_changing_source(t
 def test_reporting_cli_executes_and_returns_machine_status(tmp_path, monkeypatch, capsys, command):
     from learning_project.cli import main
     report, source, head = committed_partial_report(tmp_path, monkeypatch)
-    args = ['lab07', command, '--report-dir', str(report)]
+    args = ['lab07', command, '--report-dir', str(report), '--json']
     if command == 'verify':
         args += ['--final-commit', head]
     assert main(args) == 0
@@ -225,9 +225,9 @@ def test_committed_tampered_capture_fails_domain_replay(tmp_path, monkeypatch, n
     from learning_project import lab07_reporting as reporting
     report, source, head = complete_report(tmp_path, monkeypatch)
     file = report/name
-    data = json.loads(file.read_text())
+    data = json.loads(file.read_text(encoding='utf-8'))
     data['unrecorded alteration'] = True
-    file.write_text(json.dumps(data))
+    file.write_text(json.dumps(data), encoding='utf-8')
     subprocess.run(['git', '-C', str(tmp_path), 'add', '.'], check=True)
     subprocess.run(['git', '-C', str(tmp_path), 'commit', '-qm', 'Synthetic negative tamper fixture'], check=True)
     head = subprocess.check_output(['git', '-C', str(tmp_path), 'rev-parse', 'HEAD'], text=True).strip()
