@@ -21,7 +21,7 @@ Status: scaffold; module names are provisional until approved by the course auth
 | 05 — RAG and Context Engineering | 2 | 2 | Placeholder |
 | 06 — Knowledge Graphs and GraphRAG | 2 | 2 | Placeholder |
 | 07 — Agents and Multi-Agent Systems | 2 | 2 | Placeholder |
-| 08 — Production AI Systems and Capstone | 2 | 2 | Placeholder |
+| 08 — AI Systems: Production Readiness and Operations | 2 | 2 | Placeholder |
 
 ## Design principle
 
