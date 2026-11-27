@@ -74,6 +74,7 @@
 | Cosine similarity | Косинусна подібність |
 | Criterion | Критерій |
 | Data leakage | Витік даних |
+| Data quality | Якість даних |
 | Design pattern | Патерн проєктування |
 | Deterministic invariant gate | Шлюз детермінованих інваріантів |
 | Development case | Випадок для розроблення |
