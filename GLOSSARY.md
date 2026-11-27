@@ -148,6 +148,7 @@
 | Markdown vault | Сховище Markdown-файлів |
 | Metric | Метрика |
 | Model gateway | Шлюз доступу до моделей |
+| Model router | Маршрутизатор моделей |
 | Model under consideration | Модель, яку розглядають |
 | Model-backed concept-proposal operation | Операція пропозиції поняття з використанням моделі |
 | Model-backed prerequisite-explanation operation | Операція пояснення передумов із використанням моделі |
